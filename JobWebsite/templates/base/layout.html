@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>
-		{% block title %}
-		{% endblock %}
-	</title>
+	<title>{% block title %}{% endblock %}</title>
+
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+
 </head>
 <body class="body">
 	<div>
