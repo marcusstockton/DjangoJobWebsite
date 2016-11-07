@@ -13,5 +13,5 @@ class Address(models.Model):
 	def __str__(self):
 			return self.address_line_1
 
-		def get_absolute_url(self):
-			return reverse("address:detail", kwargs = { "id": self.id })
+	def get_absolute_url(self):
+		return reverse("address:detail", kwargs = { "id": self.id })

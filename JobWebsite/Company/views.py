@@ -18,20 +18,3 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Job
     template_name = 'Job/results.html'
-
-def vote(request, question_id):
-    job = get_object_or_404(Job, pk=question_id)
-    try:
-        selected_job = job.choice_set.get(pk=request.POST['choice'])
-    except (KeyError, Job.DoesNotExist):
-        # Redisplay the question voting form.
-        return render(request, 'Job/detail.html', {
-            'question': question,
-            'error_message': "You didn't select a job.",
-        })
-    else:
-        selected_job.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse('job:results', args=(job.id,)))
