@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	{% if latest_attachments_list %}
+	    <ul>
+	    {% for attachment in latest_attachments_list %}
+	    	<a href="{% url 'attachments:detail' attachment.id %}">{{ attachment.file_name }}</a>
+	        <li>{{attachment.data}}</li>
+	        <li>{{attachment.created_date}}</li>
+	        <li>{{attachment.file_type}}</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No attachments are available.</p>
+	{% endif %}
+{% endblock content %}

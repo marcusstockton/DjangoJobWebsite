@@ -1,9 +1,17 @@
-{% extends 'base/layout.html' %}
-
-{% block title %}
-Jobs Index Page
-{% endblock %}
+{% extends "base/base.html" %}
+{% load staticfiles %}
 
 {% block content %}
-<p>Welcome to the jobs index page</p>
-{% endblock %}
+	{% if latest_jobs_list %}
+	    <ul>
+	    {% for job in latest_jobs_list %}
+	    	<a href="{% url 'jobs:detail' job.id %}">{{ job.title }}</a>
+	        <li>{{job.content}}</li>
+	        <li>{{job.publish}}</li>
+	        <li>{{job.updated}}</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No jobs are available.</p>
+	{% endif %}
+{% endblock content %}

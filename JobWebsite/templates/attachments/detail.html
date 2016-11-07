@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<h1>{{ job.title }}</h1>
+<h3>{{ job.content}}</h3>
+<h3>{{ job.publish}}</h3>
+<h3>{{ job.updated}}</h3>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<a href="{% url 'jobs:edit' job.id %}">Edit</a>
+{% endblock content %}

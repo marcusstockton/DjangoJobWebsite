@@ -1,7 +1,7 @@
 """JobWebsite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -18,5 +18,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^jobs/', include('jobs.urls')),
+    url(r'', include('Job.urls', namespace="jobs")), # Loads jobs as first page
+    url(r'^attachment/', include('Attachment.urls', namespace="attachments")),
+    # url(r'^company/', include('Company.urls')),
+    url(r'^user/', include('User.urls', namespace="users")),
 ]
