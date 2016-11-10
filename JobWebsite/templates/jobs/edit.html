@@ -8,7 +8,7 @@
 		{{ form.as_p }}
 		
 		<input type="submit" class="btn btn-primary" value="Update Post"/>
-		<a href="{% url 'jobs:detail' job.id %}" class="btn btn-default">Go Back</a>
+		<a href="{% url 'jobs:detail' instance.id %}" class="btn btn-default">Go Back</a>
 	</form>
 </div>
 {% endblock content %}

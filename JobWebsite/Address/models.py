@@ -1,8 +1,10 @@
 from django.db import models
+from django import forms
 
-# Create your models here.
+BUSINESS_TYPES = ('Business', 'Residential')
+
 class Address(models.Model):
-	address_type = models.IntField()
+	address_type = forms.ChoiceField(choices=BUSINESS_TYPES)
 	address_line_1 = models.TextField(max_length=2000)
 	address_line_2 = models.TextField(blank=True, null=True)
 	address_line_3 = models.TextField(blank=True, null=True)

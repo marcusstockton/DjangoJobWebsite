@@ -21,8 +21,7 @@ class EditView(generic.UpdateView):
      model = User
      fields = ['username', 'first_name', 'last_name', 'birth_date', 'email', 'is_superuser', 'is_staff']
      template_name = 'users/edit.html'
-     success_url = reverse_lazy('users:detail', kwargs={'pk': model.id,})
-
+     success_url = reverse_lazy('users:index')
 
 class DeleteView(generic.DeleteView):
     model = User

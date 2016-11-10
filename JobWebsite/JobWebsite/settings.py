@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Attachment.apps.AttachmentConfig',
     'Company.apps.CompanyConfig',
     'User.apps.UserConfig',
+    'Address.apps.AddressConfig',
 ]
 
 MIDDLEWARE = [
