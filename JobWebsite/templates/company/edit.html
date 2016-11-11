@@ -6,9 +6,10 @@
 	<h1>Form</h1>
 	<form method="POST" action="" enctype="multipart/form-data">
 		{% csrf_token %}
+		<select style="width:200px" name="days" id="days"></select>
 		{{ form.as_p }}
 		<input type="submit" class="btn btn-primary" value="Update User"/>
-		<a href="{% url 'users:detail' user.id %}" class="btn btn-default">Back</a>
+		<a href="{% url 'companies:detail' instance.id %}" class="btn btn-default">Back</a>
 	</form>
 </div>
 {% endblock content %}

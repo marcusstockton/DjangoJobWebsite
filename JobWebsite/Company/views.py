@@ -6,30 +6,8 @@ from django.contrib import messages
 from .forms import CompanyForm
 from .models import Company
 
-# class IndexView(generic.ListView):
-#     template_name = 'Job/index.html'
-#     context_object_name = 'latest_jobs_list'
-
-#     def get_queryset(self):
-#         """Return the last five published jobs."""
-#         return Job.objects.order_by('-publish')[:5]
-
-# class DetailView(generic.DetailView):
-#     model = Job
-#     template_name = 'Job/detail.html'
-
-
-# class ResultsView(generic.DetailView):
-#     model = Job
-#     template_name = 'Job/results.html'
 def company_create(request):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
-		
-	if not request.user.is_authenticated():
-		raise Http404
-		
-	form = CompanyForm(request.Company or None, request.FILES or None)
+	form = CompanyForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.user = request.user
@@ -44,7 +22,7 @@ def company_create(request):
 def company_detail(request, pk=None):
 	instance = get_object_or_404(Company, pk=pk)
 	context = {
-		"title": instance.title,
+		"title": instance.company_name,
 		"instance" : instance
 	}
 	return render(request, "company/detail.html", context)
@@ -60,12 +38,9 @@ def company_list(request):
 
 
 
-def company_edit(request, pk=None):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
+def company_edit(request, pk=None):	
 	instance = get_object_or_404(Company, pk=pk)
-	
-	form = CompanyForm(request.Company or None, request.FILES or None, instance = instance)# instance means the form data will be populated
+	form = CompanyForm(request.POST or None, instance = instance)# instance means the form data will be populated
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
@@ -74,15 +49,13 @@ def company_edit(request, pk=None):
 		return HttpResponseRedirect(instance.get_absolute_url())
 
 	context = {
-		"title": instance.title,
+		"title": instance.company_name,
 		"instance" : instance,
 		"form": form,
 	}
 	return render(request, "company/edit.html", context)
 
 def company_delete(request, pk=None):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404	
 	instance = get_object_or_404(Company, pk=pk)
 	instance.delete()
 	messages.success(request, "Sucessfully Deleted")

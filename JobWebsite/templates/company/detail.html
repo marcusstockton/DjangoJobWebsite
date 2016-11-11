@@ -2,13 +2,7 @@
 {% load staticfiles %}
 
 {% block content %}
-<h4>UserName: {{user.username}}</h4>
-<h4>First Name: {{user.first_name}}</h4>
-<h4>Last Name: {{user.last_name}}</h4>
-<h4>Email: {{user.email}}</h4>
-<h4>Password: {{user.password}}</h4>
-<h4>Date Joined: {{user.date_joined}}</h4>
-<h4>Last Login: {{user.last_login}}</h4>
+{{instance}}
 
 {% if error_message %}
 <p>
@@ -16,6 +10,6 @@
 </p>
 {% endif %}
 
-<a href="{% url 'users:edit' user.id %}" class="btn btn-primary">Edit</a>
-<a href="{% url 'users:index'%}" class="btn btn-default">Back</a>
+<a href="{% url 'companies:edit' instance.id %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'companies:index'%}" class="btn btn-default">Back</a>
 {% endblock content %}
