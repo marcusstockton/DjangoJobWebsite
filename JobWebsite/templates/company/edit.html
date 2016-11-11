@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div>
+	<h1>Form</h1>
+	<form method="POST" action="" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" class="btn btn-primary" value="Update User"/>
+		<a href="{% url 'users:detail' user.id %}" class="btn btn-default">Back</a>
+	</form>
+</div>
+{% endblock content %}

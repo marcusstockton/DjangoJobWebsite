@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+{% if object_list %}
+    <ul>
+    {% for user in object_list %}
+    	<a href="{% url 'companies:detail' object_list.id %}">{{ object_list }}</a>
+
+        <hr>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No companies are available.</p>
+{% endif %}
+
+{% endblock content %}

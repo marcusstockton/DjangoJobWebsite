@@ -1,0 +1,15 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{{instance}}
+
+{% if error_message %}
+<p>
+	<strong>{{ error_message }}</strong>
+</p>
+{% endif %}
+
+<a href="{% url 'addresses:edit' instance.id %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'addresses:index'%}" class="btn btn-default">Back</a>
+{% endblock content %}

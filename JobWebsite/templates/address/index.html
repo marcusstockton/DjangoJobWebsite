@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+{% if object_list %}
+    <ul>
+    {% for address in object_list %}
+    	<a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
+		
+        <hr>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Addresses are available.</p>
+{% endif %}
+
+{% endblock content %}

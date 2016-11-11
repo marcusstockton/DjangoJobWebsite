@@ -1,10 +1,18 @@
-from django.conf.urls import url, include
+from django.conf.urls import url
+from django.contrib import admin
 
-from . import views
+from .views import (
+	address_list,
+	address_create,
+	address_detail,
+	address_edit,
+	address_delete
+)
 
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<pk>[0-9]+)/edit/$', views.EditView.as_view(), name='edit'),
-    url(r'^(?P<pk>[0-9]+)/delete/$', views.DeleteView.as_view(), name='delete'),
+    url(r'^$', address_list, name='index'),
+    url(r'^create/$', address_create),
+    url(r'^(?P<pk>[0-9]+)/$', address_detail, name='detail'),
+    url(r'^(?P<pk>[0-9]+)/edit/$', address_edit, name='edit'),
+    url(r'^(?P<pk>[0-9]+)/delete/$', address_delete, name='delete'),
 ]
