@@ -16,14 +16,20 @@ FAVORITE_COLORS_CHOICES = (
     ('black', 'Black'),
 )
 
-class CompanyEditForm(forms.Form):
+class CompanyEditForm(forms.ModelForm):
 	favorite_colors = forms.MultipleChoiceField(
         required=False,
         widget=forms.Select,
         choices=FAVORITE_COLORS_CHOICES,
    )
-	company_name = forms.CharField(max_length=200)
-	address_line_1 = forms.CharField(max_length=200)
-	address_line_2 = forms.CharField(max_length=200)
-	address_line_3 = forms.CharField(max_length=200)
-	town = forms.CharField(max_length=200)
+	# company_name = forms.CharField(max_length=200)
+	# address_line_1 = forms.CharField(max_length=200)
+	# address_line_2 = forms.CharField(max_length=200)
+	# address_line_3 = forms.CharField(max_length=200)
+	# town = forms.CharField(max_length=200)
+	class Meta:
+		model = Company
+		fields = [
+			"company_name",
+			"address",
+		]

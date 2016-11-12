@@ -41,7 +41,7 @@ def company_list(request):
 def company_edit(request, pk=None):	
 	instance = get_object_or_404(Company, pk=pk)
 	#form = CompanyForm(request.POST or None, instance = instance)# instance means the form data will be populated
-	form = CompanyEditForm(request.POST or None)
+	form = CompanyEditForm(request.POST or None, instance = instance)
 	if request.POST:
 		fav_col = request.POST["favorite_colors"]
 		print(fav_col)
