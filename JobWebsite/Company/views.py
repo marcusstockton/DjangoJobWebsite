@@ -43,13 +43,13 @@ def company_edit(request, pk=None):
 	#form = CompanyForm(request.POST or None, instance = instance)# instance means the form data will be populated
 	form = CompanyEditForm(request.POST or None, instance = instance)
 	if request.POST:
-		fav_col = request.POST["favorite_colors"]
-		print(fav_col)
-		print(request.POST["company_name"] )
+		for key, value in request.POST.items():
+			print(key, value)
 	if form.is_valid():
-		# instance = form.save(commit=False)
-		# instance.save()
-		# messages.success(request, "Sucessfully Updated")
+		# need a way to update the address type...
+		instance = form.save(commit=False)
+		instance.save()
+		messages.success(request, "Sucessfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
 

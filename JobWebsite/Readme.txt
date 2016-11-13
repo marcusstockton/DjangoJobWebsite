@@ -11,3 +11,7 @@ P@ssword
 
 In company views, the edit page now adds in widgets, but I need to wire up Instance so it loads data to the form.
 Also need to actually save the data.
+
+TODO:
+create business type as a database model, and simply add reference to it in Address
+Add in file upload for avatar and cv

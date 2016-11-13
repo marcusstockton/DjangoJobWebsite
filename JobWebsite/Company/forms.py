@@ -10,17 +10,16 @@ class CompanyForm(forms.ModelForm):
 			"address",
 		]
 
-FAVORITE_COLORS_CHOICES = (
-    ('blue', 'Blue'),
-    ('green', 'Green'),
-    ('black', 'Black'),
+COMPANY_TYPE = (
+    ('Res', 'Residential'),
+    ('Bus', 'Business'),
 )
 
 class CompanyEditForm(forms.ModelForm):
-	favorite_colors = forms.MultipleChoiceField(
-        required=False,
+	company_type = forms.ChoiceField(
+        required=True,
         widget=forms.Select,
-        choices=FAVORITE_COLORS_CHOICES,
+        choices=COMPANY_TYPE,
    )
 	# company_name = forms.CharField(max_length=200)
 	# address_line_1 = forms.CharField(max_length=200)
