@@ -40,16 +40,17 @@ def company_list(request):
 
 def company_edit(request, pk=None):	
 	instance = get_object_or_404(Company, pk=pk)
-	#form = CompanyForm(request.POST or None, instance = instance)# instance means the form data will be populated
 	form = CompanyEditForm(request.POST or None, instance = instance)
+	# Debugging info
 	if request.POST:
 		for key, value in request.POST.items():
-			print(key, value)
+			print(key + ": " + value)
+		print(form)
 	if form.is_valid():
 		# need a way to update the address type...
-		instance = form.save(commit=False)
-		instance.save()
-		messages.success(request, "Sucessfully Updated")
+		# instance = form.save(commit=False)
+		# instance.save()
+		# messages.success(request, "Sucessfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
 
