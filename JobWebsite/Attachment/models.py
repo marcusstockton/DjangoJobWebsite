@@ -1,7 +1,8 @@
 from django.db import models
 from django.conf import settings
+from django.core.urlresolvers import reverse
 
-# Create your models here.
+
 class Attachment(models.Model):
 	file_name = models.CharField(max_length=120)
 	data = models.BinaryField()

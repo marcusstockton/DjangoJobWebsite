@@ -6,6 +6,7 @@ from django.contrib import messages
 from .forms import CompanyForm, CompanyEditForm
 from .models import Company
 
+
 def company_create(request):
 	form = CompanyForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
@@ -19,23 +20,24 @@ def company_create(request):
 	}
 	return render(request, "company/create.html", context)
 
+
 def company_detail(request, pk=None):
 	instance = get_object_or_404(Company, pk=pk)
 	context = {
 		"title": instance.company_name,
-		"instance" : instance
+		"instance": instance
 	}
 	return render(request, "company/detail.html", context)
+
 
 def company_list(request):
 	queryset_list = Company.objects.all()
 
 	context = {
 		"title": "List",
-		"object_list": queryset_list,
+		"object_list": queryset_list
 	 }
 	return render(request, "company/index.html", context)
-
 
 
 def company_edit(request, pk=None):	
@@ -56,10 +58,11 @@ def company_edit(request, pk=None):
 
 	context = {
 		"title": instance.company_name,
-		"instance" : instance,
+		"instance": instance,
 		"form": form,
 	}
 	return render(request, "company/edit.html", context)
+
 
 def company_delete(request, pk=None):
 	instance = get_object_or_404(Company, pk=pk)

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
 from .forms import AddressForm, AddressEditForm
@@ -20,7 +20,7 @@ def address_detail(request, pk=None):
     instance = get_object_or_404(Address, pk=pk)
     context = {
         "title": instance.address_line_1,
-        "instance" : instance
+        "instance": instance
     }
     return render(request, "address/detail.html", context)
 
@@ -54,7 +54,7 @@ def address_delete(request, pk=None):
 
 
 def address_create(request):
-    form = addressForm(request.POST or None, request.FILES or None)
+    form = AddressForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.user = request.user

@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractUser
 from django.core.urlresolvers import reverse
 
 
-from Attachment import models as attachment
-
 class User(AbstractUser):
 	birth_date = models.DateField(null=True, blank=True)
 	

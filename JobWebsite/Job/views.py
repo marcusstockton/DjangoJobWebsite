@@ -20,7 +20,7 @@ def job_detail(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
     context = {
         "title": instance.title,
-        "instance" : instance
+        "instance": instance
     }
     return render(request, "jobs/detail.html", context)
 

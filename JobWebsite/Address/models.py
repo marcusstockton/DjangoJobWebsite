@@ -1,5 +1,6 @@
 from django.db import models
-from django import forms
+from django.core.urlresolvers import reverse
+
 
 class Address(models.Model):
 	address_type = models.CharField(max_length=20)
@@ -14,4 +15,4 @@ class Address(models.Model):
 			return self.address_line_1
 
 	def get_absolute_url(self):
-		return reverse("address:detail", kwargs = { "id": self.id })
+		return reverse("address:detail", kwargs={"id": self.id})

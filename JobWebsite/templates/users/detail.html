@@ -1,6 +1,10 @@
 {% extends "base/base.html" %}
 {% load staticfiles %}
 
+{% block title %}
+Details for {{user.username}}
+{% endblock title %}
+
 {% block content %}
 <h4>UserName: {{user.username}}</h4>
 <h4>First Name: {{user.first_name}}</h4>

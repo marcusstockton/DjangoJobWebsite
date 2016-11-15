@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd party apps
+    'crispy_forms',
+
+    # My apps
     'Job.apps.JobConfig',
     'Attachment.apps.AttachmentConfig',
     'Company.apps.CompanyConfig',
@@ -130,3 +134,6 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
