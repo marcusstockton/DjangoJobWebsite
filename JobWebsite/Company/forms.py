@@ -16,7 +16,7 @@ COMPANY_TYPE = (
 )
 
 class CompanyEditForm(forms.ModelForm):
-	company_type = forms.ChoiceField(
+	address_type = forms.ChoiceField(
         required=True,
         widget=forms.Select,
         choices=COMPANY_TYPE,

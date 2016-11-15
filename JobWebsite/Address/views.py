@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
 
-from .forms import AddressForm
+from .forms import AddressForm, AddressEditForm
 from .models import Address
 
 
@@ -28,7 +28,7 @@ def address_detail(request, pk=None):
 def address_edit(request, pk=None):
     instance = get_object_or_404(Address, pk=pk)
     
-    form = AddressForm(request.POST or None, instance = instance)# instance means the form data will be populated
+    form = AddressEditForm(request.POST or None, instance = instance)# instance means the form data will be populated
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
