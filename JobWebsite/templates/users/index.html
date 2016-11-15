@@ -20,5 +20,5 @@ Users
 {% else %}
     <p>No users are available.</p>
 {% endif %}
-
+<a href="{% url 'users:signup' %}" class="btn btn-primary">Create User</a>
 {% endblock content %}
