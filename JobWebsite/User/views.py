@@ -1,37 +1,67 @@
-from django.views import generic
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
+
+from .forms import UserForm, CustomUserCreationForm
 from .models import User
-from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView
-from .forms import UserCreationForm
 
 
-class IndexView(generic.ListView):
-    template_name = 'users/index.html'
-    context_object_name = 'latest_users_list'
+def user_list(request):
+	queryset_list = User.objects.all()
 
-    def get_queryset(self):
-        return User.objects.all()
-
-
-class DetailView(generic.DetailView):
-    model = User
-    template_name = 'users/detail.html'
+	context = {
+		"title": "List",
+		"users_list": queryset_list,
+	}
+	return render(request, "users/index.html", context)
 
 
-class EditView(generic.UpdateView):
-    model = User
-    # fields = ['username', 'first_name', 'last_name', 'birth_date', 'email', 'is_superuser', 'is_staff']
-    fields = '__all__'
-    template_name = 'users/edit.html'
-    success_url = reverse_lazy('users:index')
+def user_detail(request, pk=None):
+	user = get_object_or_404(User, pk=pk)
+	context = {
+		"title": user.username,
+		"user": user
+	}
+	return render(request, "users/detail.html", context)
 
 
-class DeleteView(generic.DeleteView):
-    model = User
-    template_name = 'users/delete.html'
+def user_edit(request, pk=None):
+	instance = get_object_or_404(User, pk=pk)
+
+	form = UserForm(request.POST or None, instance=instance)  # instance means the form data will be populated
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.save()
+		messages.success(request, "Sucessfully Updated")
+
+		return HttpResponseRedirect(instance.get_absolute_url())
+
+	context = {
+		"title": instance.username,
+		"instance": instance,
+		"form": form,
+	}
+	return render(request, "users/edit.html", context)
 
 
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    template_name = "users/create.html"
-    success_url = reverse_lazy('users:index')
+def user_delete(request, pk=None):
+	instance = get_object_or_404(User, pk=pk)
+	instance.delete()
+	messages.success(request, "Sucessfully Deleted")
+	return redirect("users:list")
+
+	return HttpResponse("<h1>Delete</h1>")
+
+
+def user_create(request):
+	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.user = request.user
+		instance.save()
+		messages.success(request, "Sucessfully Created")
+		return HttpResponseRedirect(instance.get_absolute_url())
+	context = {
+		"form": form,
+	}
+	return render(request, "users/index.html", context)

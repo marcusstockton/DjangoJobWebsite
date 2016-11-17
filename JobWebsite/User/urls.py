@@ -1,11 +1,16 @@
 from django.conf.urls import url
-from . import views
-from .views import SignUpView
 
+from .views import (
+	user_list,
+	user_create,
+	user_detail,
+	user_edit,
+	user_delete
+)
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<pk>[0-9]+)/edit/$', views.EditView.as_view(), name='edit'),
-    url(r'^(?P<pk>[0-9]+)/delete/$', views.DeleteView.as_view(), name='delete'),
-    url(r'^signup$', SignUpView.as_view(), name='signup'),
+	url(r'^$', user_list, name='index'),
+	url(r'^(?P<pk>[0-9]+)/$', user_detail, name='detail'),
+	url(r'^(?P<pk>[0-9]+)/edit/$', user_edit, name='edit'),
+	url(r'^(?P<pk>[0-9]+)/delete/$', user_delete, name='delete'),
+	url(r'^create/$', user_create, name='create'),
 ]

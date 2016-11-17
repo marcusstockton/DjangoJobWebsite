@@ -6,9 +6,9 @@ Users
 {% endblock title %}
 
 {% block content %}
-{% if latest_users_list %}
+{% if users_list %}
     <ul>
-    {% for user in latest_users_list %}
+    {% for user in users_list %}
     	<a href="{% url 'users:detail' user.id %}">{{ user.username }}</a>
 		<li>UserName: {{user.username}}</li>
         <li>First Name: {{user.first_name}}</li>
@@ -20,5 +20,5 @@ Users
 {% else %}
     <p>No users are available.</p>
 {% endif %}
-<a href="{% url 'users:signup' %}" class="btn btn-primary">Create User</a>
+<a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
 {% endblock content %}
