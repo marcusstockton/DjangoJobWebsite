@@ -17,7 +17,7 @@ def company_create(request):
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
 		"form": form,
-	}
+	} # TODO Create create.html file  in company templates
 	return render(request, "company/create.html", context)
 
 

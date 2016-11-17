@@ -64,4 +64,4 @@ def user_create(request):
 	context = {
 		"form": form,
 	}
-	return render(request, "users/index.html", context)
+	return render(request, "users/create.html", context)

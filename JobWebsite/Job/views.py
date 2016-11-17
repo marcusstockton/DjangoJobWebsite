@@ -63,5 +63,5 @@ def job_create(request):
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-    }
-    return render(request, "jobs/index.html", context)
+    } #TODO Create a create.html page for jobs
+    return render(request, "jobs/create.html", context)

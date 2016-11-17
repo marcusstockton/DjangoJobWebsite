@@ -63,5 +63,5 @@ def address_create(request):
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-    }
-    return render(request, "address/index.html", context)
+    }# TODO Create create.html page in address templates
+    return render(request, "address/create.html", context)
