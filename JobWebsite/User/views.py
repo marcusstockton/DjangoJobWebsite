@@ -56,9 +56,19 @@ def user_delete(request, pk=None):
 def user_create(request):
 	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.user = request.user
-		instance.save()
+		username = form.cleaned_data['username']
+		password = form.cleaned_data['password1']
+		date_of_birth = form.cleaned_data['birth_date']
+		firstname = form.cleaned_data['first_name']
+		lastname = form.cleaned_data['last_name']
+
+		# Now save it all off to the database
+
+		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
+		# user.
+		# instance = form.save(commit=False)
+		# instance.user = request.user
+		# instance.save()
 		messages.success(request, "Sucessfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
