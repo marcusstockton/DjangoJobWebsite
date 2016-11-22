@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 class CustomUserCreationForm(UserCreationForm):
 	class Meta(UserCreationForm.Meta):
 		model = User
-		fields = UserCreationForm.Meta.fields + ('birth_date','first_name', 'last_name')
+		fields = UserCreationForm.Meta.fields + ('birth_date','first_name', 'last_name', 'email')
 
 
 class UserForm(forms.ModelForm):
