@@ -61,16 +61,14 @@ def user_create(request):
 		date_of_birth = form.cleaned_data['birth_date']
 		firstname = form.cleaned_data['first_name']
 		lastname = form.cleaned_data['last_name']
+		email = form.cleaned_data['email']
 
 		# Now save it all off to the database
-
-		# user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword')
-		# user.
-		# instance = form.save(commit=False)
-		# instance.user = request.user
-		# instance.save()
+		user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
+										last_name=lastname, birth_date=date_of_birth)
+		user.save()
 		messages.success(request, "Sucessfully Created")
-		return HttpResponseRedirect(instance.get_absolute_url())
+		return HttpResponseRedirect(user.get_absolute_url())
 	context = {
 		"form": form,
 	}
