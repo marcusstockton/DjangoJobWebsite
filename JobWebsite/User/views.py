@@ -6,6 +6,7 @@ from .forms import UserForm, CustomUserCreationForm, UserEditForm
 from .models import User
 
 from Attachment.models import Attachment
+from django.conf import settings as djangoSettings
 
 
 def user_list(request):
@@ -34,13 +35,13 @@ def user_edit(request, pk=None):
 	if form.is_valid():
 		instance = form.save(commit=False)
 
-		file = request.FILES['file']
-		data = file.read()
-		print(data)
-		# Save the attachment
+		for file_type in request.FILES:
+			if file_type == 'avatar':
+				handle_uploaded_file(instance, request.FILES['avatar'])
+			if file_type == 'cv':
+				handle_uploaded_file(instance, request.FILES['cv'])
 
-
-		#instance.save()
+		instance.save()
 		messages.success(request, "Sucessfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
@@ -82,3 +83,9 @@ def user_create(request):
 		"form": form,
 	}
 	return render(request, "users/create.html", context)
+
+
+def handle_uploaded_file(instance, file):
+    with open(djangoSettings.STATIC_ROOT + '/' + file.name, 'wb+') as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)

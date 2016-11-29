@@ -22,3 +22,16 @@ class UserForm(forms.ModelForm):
 			"last_name",
 			"birth_date"
 		]
+
+class UserEditForm(forms.ModelForm):
+	avatar = forms.FileField(required=False)
+	cv = forms.FileField(label="CV", required=False)
+	class Meta:
+		model = User
+		fields = [
+			"username",
+			"email",
+			"first_name",
+			"last_name",
+			"birth_date"
+		]
