@@ -2,8 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
-from .forms import UserForm, CustomUserCreationForm
+from .forms import UserForm, CustomUserCreationForm, UserEditForm
 from .models import User
+
+from Attachment.models import Attachment
 
 
 def user_list(request):
@@ -28,10 +30,17 @@ def user_detail(request, pk=None):
 def user_edit(request, pk=None):
 	instance = get_object_or_404(User, pk=pk)
 
-	form = UserForm(request.POST or None, instance=instance)  # instance means the form data will be populated
+	form = UserEditForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
-		instance.save()
+
+		file = request.FILES['file']
+		data = file.read()
+		print(data)
+		# Save the attachment
+
+
+		#instance.save()
 		messages.success(request, "Sucessfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
