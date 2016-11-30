@@ -18,7 +18,7 @@ class Attachment(models.Model):
 		return reverse("attachments:detail", kwargs = { "pk": self.id })
 
 def handle_uploaded_file(instance, file):
-	user_dir = djangoSettings.STATIC_ROOT + '/' + file.name
+	user_dir = djangoSettings.STATIC_ROOT + '/' + instance.username + "/" + file.name
 	with open(user_dir, 'wb+') as destination:
 		for chunk in file.chunks():
 			destination.write(chunk)
