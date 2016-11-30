@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     # My apps
     'Job.apps.JobConfig',
-    'Attachment.apps.AttachmentConfig',
+    #'Attachment.apps.AttachmentConfig',
     'Company.apps.CompanyConfig',
     'User.apps.UserConfig',
     'Address.apps.AddressConfig',
@@ -135,5 +135,7 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

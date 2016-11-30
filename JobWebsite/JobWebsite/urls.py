@@ -19,7 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('Job.urls', namespace="jobs")), # Loads jobs as first page
-    url(r'^attachment/', include('Attachment.urls', namespace="attachments")),
+    #url(r'^attachment/', include('Attachment.urls', namespace="attachments")),
     url(r'^company/', include('Company.urls', namespace="companies")),
     url(r'^user/', include('User.urls', namespace="users")),
     url(r'^address/', include('Address.urls', namespace="addresses")),

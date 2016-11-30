@@ -5,9 +5,6 @@ from django.contrib import messages
 from .forms import UserForm, CustomUserCreationForm, UserEditForm
 from .models import User
 
-from Attachment.models import handle_uploaded_file
-from django.conf import settings as djangoSettings
-
 
 def user_list(request):
 	queryset_list = User.objects.all()
@@ -30,17 +27,9 @@ def user_detail(request, pk=None):
 
 def user_edit(request, pk=None):
 	instance = get_object_or_404(User, pk=pk)
-
 	form = UserEditForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
-
-		for file_type in request.FILES:
-			if file_type == 'avatar':
-				handle_uploaded_file(instance, request.FILES['avatar'])
-			if file_type == 'cv':
-				handle_uploaded_file(instance, request.FILES['cv'])
-
 		instance.save()
 		messages.success(request, "Sucessfully Updated")
 

@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.conf import settings as djangoSettings
 
 class Attachment(models.Model):
 	file_name = models.CharField(max_length=120)
