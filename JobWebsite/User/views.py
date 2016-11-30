@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import UserForm, CustomUserCreationForm, UserEditForm
 from .models import User
 
-from Attachment.models import Attachment
+from Attachment.models import handle_uploaded_file
 from django.conf import settings as djangoSettings
 
 
@@ -86,6 +86,6 @@ def user_create(request):
 
 
 def handle_uploaded_file(instance, file):
-    with open(djangoSettings.STATIC_ROOT + '/' + file.name, 'wb+') as destination:
+    with open(djangoSettings.STATIC_ROOT + '/' + instance.username + "/" + file.name, 'wb+') as destination:
         for chunk in file.chunks():
             destination.write(chunk)
