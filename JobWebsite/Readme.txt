@@ -14,5 +14,4 @@ Also need to actually save the data.
 
 TODO:
 create business type as a database model, and simply add reference to it in Address
-Add in file upload for avatar and cv
 Make sure address edit and create forms correctly create the address type

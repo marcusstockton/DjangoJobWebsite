@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
-from .forms import UserForm, CustomUserCreationForm, UserEditForm
+from .forms import UserForm, CustomUserCreationForm
 from .models import User
 
 
@@ -27,7 +27,7 @@ def user_detail(request, pk=None):
 
 def user_edit(request, pk=None):
 	instance = get_object_or_404(User, pk=pk)
-	form = UserEditForm(request.POST or None, request.FILES or None, instance=instance)
+	form = UserForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
