@@ -72,9 +72,3 @@ def user_create(request):
 		"form": form,
 	}
 	return render(request, "users/create.html", context)
-
-
-def handle_uploaded_file(instance, file):
-    with open(djangoSettings.STATIC_ROOT + '/' + instance.username + "/" + file.name, 'wb+') as destination:
-        for chunk in file.chunks():
-            destination.write(chunk)

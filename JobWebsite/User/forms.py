@@ -23,7 +23,6 @@ class UserForm(forms.ModelForm):
 		fields = [
 			"username",
 			"email",
-			"password",
 			"first_name",
 			"last_name",
 			"birth_date",
