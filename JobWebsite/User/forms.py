@@ -16,8 +16,11 @@ class CustomUserCreationForm(UserCreationForm):
 			"cv"
 		)
 
+# get an array of years for 80? years from current year:
+BIRTH_YEAR_CHOICES = ('1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990')
 
 class UserForm(forms.ModelForm):
+	birth_date = forms.CharField(widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES))
 	class Meta:
 		model = User
 		fields = [

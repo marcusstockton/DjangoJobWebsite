@@ -13,5 +13,5 @@ In company views, the edit page now adds in widgets, but I need to wire up Insta
 Also need to actually save the data.
 
 TODO:
-create business type as a database model, and simply add reference to it in Address
-Make sure address edit and create forms correctly create the address type
+Create a string list of years for the User Edit form.
+Fix up the format the date is passed in for date of birth in User edit form
