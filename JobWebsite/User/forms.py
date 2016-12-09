@@ -20,6 +20,7 @@ class CustomUserCreationForm(UserCreationForm):
 
 class UserForm(forms.ModelForm):
 	birth_date = forms.DateField(widget=SelectDateWidget(years=range(1925, 2100), empty_label=("Choose Year", "Choose Month", "Choose Day")))
+	#birth_date = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
 	class Meta:
 		model = User
 		fields = [
@@ -27,7 +28,7 @@ class UserForm(forms.ModelForm):
 			"email",
 			"first_name",
 			"last_name",
-
+			"birth_date",
 			"avatar",
 			"cv"
 		]

@@ -8,7 +8,7 @@ def upload_location(instance, filename):
 
 
 class User(AbstractUser):
-    birth_date = models.DateField(null=True, blank=True)
+    birth_date = models.DateField(null=True, blank=True, auto_now_add=False)
     avatar = models.ImageField(upload_to=upload_location, null=True, blank=True)
     cv = models.FileField(upload_to=upload_location, blank=True)
 
