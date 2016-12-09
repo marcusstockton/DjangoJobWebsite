@@ -3,24 +3,23 @@ from django import forms
 from .models import User
 
 from django.contrib.auth.forms import UserCreationForm
-
+from django.forms.widgets import SelectDateWidget
 
 class CustomUserCreationForm(UserCreationForm):
 	class Meta(UserCreationForm.Meta):
 		model = User
-		fields = UserCreationForm.Meta.fields + ('birth_date',
-			'first_name', 
-			'last_name', 
-			'email', 
+		fields = UserCreationForm.Meta.fields + (
+			'birth_date',
+			'first_name',
+			'last_name',
+			'email',
 			"avatar",
 			"cv"
 		)
 
-# get an array of years for 80? years from current year:
-BIRTH_YEAR_CHOICES = ('1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990')
 
 class UserForm(forms.ModelForm):
-	birth_date = forms.CharField(widget=forms.SelectDateWidget(years=BIRTH_YEAR_CHOICES))
+	birth_date = forms.DateField(widget=SelectDateWidget(years=range(1925, 2100), empty_label=("Choose Year", "Choose Month", "Choose Day")))
 	class Meta:
 		model = User
 		fields = [
@@ -28,7 +27,7 @@ class UserForm(forms.ModelForm):
 			"email",
 			"first_name",
 			"last_name",
-			"birth_date",
+			# "birth_date",
 			"avatar",
 			"cv"
 		]
