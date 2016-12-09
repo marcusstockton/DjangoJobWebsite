@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
+import datetime
 
 from .forms import JobForm
 from .models import Job
+from User.models import User
 
 
 def job_list(request):
@@ -57,7 +59,8 @@ def job_create(request):
     form = JobForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
-        instance.user = request.user
+        instance.created_by = User.objects.all()[:1].get() # TODO: request.user # this needs to work correctly, but for now, no way of users logging in...
+        instance.timestamp = datetime.datetime.now()
         instance.save()
         messages.success(request, "Sucessfully Created")
         return HttpResponseRedirect(instance.get_absolute_url())

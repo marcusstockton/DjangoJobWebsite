@@ -6,10 +6,12 @@
 	{% if object_list %}
 	    <ul>
 	    {% for job in object_list %}
+	    <div class="well">
 	    	<a href="{% url 'jobs:detail' job.id %}">{{ job.title }}</a>
-	        <li>{{job.content}}</li>
-	        <li>{{job.publish}}</li>
-	        <li>{{job.updated}}</li>
+	        <p>Description: {{job.content}}</p>
+	        <p>Published: {{job.publish}}</p>
+	        <p>Updated: {{job.updated}}</p>
+	    </div>
 	    {% endfor %}
 	    </ul>
 	{% else %}

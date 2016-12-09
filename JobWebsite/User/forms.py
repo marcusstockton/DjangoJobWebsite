@@ -27,7 +27,7 @@ class UserForm(forms.ModelForm):
 			"email",
 			"first_name",
 			"last_name",
-			# "birth_date",
+
 			"avatar",
 			"cv"
 		]
