@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
-
-from .forms import UserForm, CustomUserCreationForm
+from django.contrib.auth import authenticate, login, logout
+from .forms import UserForm, CustomUserCreationForm, UserLoginForm
 from .models import User
 
 
