@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
     # My apps
     'Job.apps.JobConfig',
-    #'Attachment.apps.AttachmentConfig',
+    'Attachment.apps.AttachmentConfig',
     'Company.apps.CompanyConfig',
     'User.apps.UserConfig',
     'Address.apps.AddressConfig',
