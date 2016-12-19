@@ -4,6 +4,7 @@ import tempfile
 from django.db import models
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.db.models.functions import datetime
 
 
 class Attachment(models.Model):
@@ -34,5 +35,8 @@ def handle_uploaded_file(instance, file):
         filename = filepath
         extension = file.content_type
 
-    # save shit off, pass in instance to set up the fk relationship
-    return filename
+    saved_data = Attachment(file_name=filename, data=read_data, created_date=datetime.datetime.now(),
+                            file_type=extension, active=True, User=instance)
+
+    saved_data.save(force_insert=True)
+    return saved_data.file_name
