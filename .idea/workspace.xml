@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="Still working out date pickers...">
+    <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/JobWebsite/User/migrations/0002_auto_20161209_1254.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JobWebsite/db.sqlite3" afterPath="$PROJECT_DIR$/JobWebsite/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -505,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481314256216</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Started up trying the attachments again, looks like more sucessfull this time.&#10;Just need to save off the data in attachments model, and work out how to do multiple cv's.">
+      <created>1482089556660</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1482089556661</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -562,7 +569,8 @@
     <MESSAGE value="Given up on saving images to db&#10;Now going to use the django way and save it off to media root etc.&#10;Need to migrate database etc." />
     <MESSAGE value="Given up on saving images to db&#10;Setting the image upload location to username / filename" />
     <MESSAGE value="Still working out date pickers..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Still working out date pickers..." />
+    <MESSAGE value="Started up trying the attachments again, looks like more sucessfull this time.&#10;Just need to save off the data in attachments model, and work out how to do multiple cv's." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started up trying the attachments again, looks like more sucessfull this time.&#10;Just need to save off the data in attachments model, and work out how to do multiple cv's." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
