@@ -1,5 +1,6 @@
 import os
 import tempfile
+import base64
 
 from django.db import models
 from django.conf import settings
@@ -31,11 +32,13 @@ def handle_uploaded_file(instance, file):
     # return the path of the file
     filepath = tup[1]  # get the filepath
     with open(filepath, 'rb') as f:
-        read_data = f.read()
+        encoded = f.read()
+        b64 = base64.encodebytes(encoded) # fuck knows what needs saving, its not this hard in .net
         filename = filepath
         extension = file.content_type
 
-    saved_data = Attachment(file_name=filename, data=read_data, created_date=datetime.datetime.now(),
+
+    saved_data = Attachment(file_name=filename, data=b64, created_date=datetime.datetime.now(),
                             file_type=extension, active=True, User=instance)
 
     saved_data.save(force_insert=True)
