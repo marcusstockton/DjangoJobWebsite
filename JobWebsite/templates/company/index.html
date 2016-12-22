@@ -6,7 +6,7 @@
 {% if object_list %}
     <ul>
     {% for user in object_list %}
-    	<a href="{% url 'companies:detail' user.id %}">{{ object_list }}</a>
+    	<a href="{% url 'companies:detail' user.id %}">{{ user.company_name }}</a>
 
         <hr>
     {% endfor %}
