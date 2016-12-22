@@ -11,7 +11,7 @@ class Attachment(models.Model):
 	User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.file_name
+		return self.title
 
 	def get_absolute_url(self):
 		return reverse("attachments:detail", kwargs = { "pk": self.id })
