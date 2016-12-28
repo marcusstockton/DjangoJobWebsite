@@ -22,7 +22,7 @@ def company_create(request):
 
 
 def company_detail(request, pk=None):
-    instance = get_object_or_404(Company, pk=pk)
+    instance = get_object_or_404(Company.objects.select_related(), pk=pk)
     context = {
         "title": instance.company_name,
         "instance": instance
@@ -41,7 +41,7 @@ def company_list(request):
 
 
 def company_edit(request, pk=None):	
-    instance = get_object_or_404(Company, pk=pk)
+    instance = get_object_or_404(Company.objects.select_related(), pk=pk)
     form = CompanyEditForm(request.POST or None, instance = instance)
     # Debugging info
     if request.POST:
@@ -49,7 +49,7 @@ def company_edit(request, pk=None):
             print(key + ": " + value)
         print(form)
     if form.is_valid():
-        # need a way to update the address type...
+        # TODO need a way to update the address type...
         # instance = form.save(commit=False)
         # instance.save()
         # messages.success(request, "Sucessfully Updated")
