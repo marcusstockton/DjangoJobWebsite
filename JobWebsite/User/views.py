@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
 
-from Attachment.models import handle_uploaded_file
+from Attachment.models import Attachment
 from .forms import UserForm, CustomUserCreationForm, UserLoginForm
 from .models import User
 
 
+
 def user_list(request):
-    queryset_list = User.objects.all()
+    queryset_list = User.objects.select_related()
 
     context = {
         "title": "List",
@@ -19,7 +19,7 @@ def user_list(request):
 
 
 def user_detail(request, pk=None):
-    user = get_object_or_404(User, pk=pk)
+    user = get_object_or_404(User.objects.select_related(), pk=pk)
     context = {
         "title": user.username,
         "user": user
@@ -28,12 +28,21 @@ def user_detail(request, pk=None):
 
 
 def user_edit(request, pk=None):
-    instance = get_object_or_404(User, pk=pk)
+    instance = get_object_or_404(User.objects.select_related(), pk=pk)
     form = UserForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
+
+        if request.FILES is not None:
+            # TODO Handle only one file being passed in
+            att = instance.attachment_set.create(
+                avatar=request.FILES['avatar'],
+                cv=request.FILES['cv'],
+                User=request.user
+            )
+
         instance.save()
-        messages.success(request, "Sucessfully Updated")
+        messages.success(request, "Successfully Updated")
 
         return HttpResponseRedirect(instance.get_absolute_url())
 
