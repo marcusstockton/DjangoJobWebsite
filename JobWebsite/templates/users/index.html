@@ -14,6 +14,11 @@ Users
         <li>First Name: {{user.first_name}}</li>
         <li>Last Name: {{user.last_name}}</li>
         <li>Email: {{user.email}}</li>
+        {% for image in user.attachment_set.all %}
+            {% if image.avatar %}
+                <img src="{{image.avatar.url}}" />
+            {% endif %}
+        {% endfor %}
         <hr>
     {% endfor %}
     </ul>

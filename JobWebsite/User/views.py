@@ -1,11 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 
-from Attachment.models import Attachment
-from .forms import UserForm, CustomUserCreationForm, UserLoginForm
+from .forms import UserForm, CustomUserCreationForm
 from .models import User
-
 
 
 def user_list(request):
