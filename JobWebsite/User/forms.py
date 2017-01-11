@@ -1,9 +1,11 @@
 __author__ = 'Marcus Stockton'
 from django import forms
 from .models import User
+from datetime import datetime
 
 from django.contrib.auth.forms import UserCreationForm
 from django.forms.widgets import SelectDateWidget
+from django.forms import ModelForm, extras
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -22,8 +24,7 @@ class CustomUserCreationForm(UserCreationForm):
         )
 
 
-class UserForm(forms.ModelForm):
-    birth_date = forms.DateField(widget=SelectDateWidget(years=range(1925, 2100), empty_label=("Choose Year", "Choose Month", "Choose Day")))
+class UserForm(ModelForm):
     avatar = forms.ImageField(required=False)
     cv = forms.FileField(required=False)
 
@@ -38,8 +39,11 @@ class UserForm(forms.ModelForm):
             "avatar",
             "cv"
         ]
+        widgets = {
+            "birth_date": extras.SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
+        }
 
-class UserLoginForm(forms.ModelForm):
+class UserLoginForm(ModelForm):
     class Meta:
         model = User
         fields = [

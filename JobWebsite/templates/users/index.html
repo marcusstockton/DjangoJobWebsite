@@ -16,7 +16,7 @@ Users
         <li>Email: {{user.email}}</li>
         {% for image in user.attachment_set.all %}
             {% if image.avatar %}
-                <img src="{{image.avatar.url}}" />
+                <img src="{{image.avatar.url}}" class="image-responsive img-thumbnail" />
             {% endif %}
         {% endfor %}
         <hr>

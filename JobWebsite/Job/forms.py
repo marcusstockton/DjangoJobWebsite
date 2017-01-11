@@ -1,10 +1,10 @@
-from django import forms
+from django.forms import ModelForm, extras
 
 from .models import Job
-from django.forms.widgets import SelectDateWidget
+from datetime import datetime
 
-class JobForm(forms.ModelForm):
-	publish = forms.DateField(widget=SelectDateWidget(years=range(1925, 2100), empty_label=("Choose Year", "Choose Month", "Choose Day")))
+
+class JobForm(ModelForm):
 
 	class Meta:
 		model = Job
@@ -13,3 +13,6 @@ class JobForm(forms.ModelForm):
 			"content",
 			"publish"
 		]
+		widgets = {
+			"publish": extras.SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
+		}

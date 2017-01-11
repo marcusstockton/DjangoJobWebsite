@@ -4,12 +4,12 @@ from django.core.urlresolvers import reverse
 
 class Address(models.Model):
 	address_type = models.CharField(max_length=20)
-	address_line_1 = models.TextField(max_length=2000)
-	address_line_2 = models.TextField(blank=True, null=True)
-	address_line_3 = models.TextField(blank=True, null=True)
-	post_code = models.TextField(max_length=10)
-	county = models.TextField(max_length=20)
-	country = models.TextField(max_length=20)
+	address_line_1 = models.CharField(max_length=2000)
+	address_line_2 = models.CharField(max_length=50, blank=True, null=True)
+	address_line_3 = models.CharField(max_length=50, blank=True, null=True)
+	post_code = models.CharField(max_length=10)
+	county = models.CharField(max_length=20)
+	country = models.CharField(max_length=20)
 
 	def __str__(self):
 			return self.address_line_1

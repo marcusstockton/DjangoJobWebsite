@@ -13,7 +13,7 @@ Details for {{user.username}}
 <h4>Date Joined: {{user.date_joined}}</h4>
 <h4>Last Login: {{user.last_login}}</h4>
 {% if user.avatar %}
-<img src="{{user.avatar.url}}" class="img-responsive"/>
+<img src="{{user.avatar.url}}" class="img-thumbnail" height="100" />
 {% endif %}
 {% if error_message %}
 <p>
