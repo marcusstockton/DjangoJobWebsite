@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
+from Attachment.models import Attachment
 
 
 def user_list(request):
@@ -72,21 +73,20 @@ def user_create(request):
         email = form.cleaned_data['email']
 
         # Now save it all off to the database
-        #user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
-                                        #last_name=lastname, birth_date=date_of_birth)
+        user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
+                                        last_name=lastname, birth_date=date_of_birth)
         
         # Save the files off:
         if request.FILES is not None:
-            for filename, file in request.FILES.items():
-                fileinfo = request.FILES[filename]
-                print("Filename: " + fileinfo.name + ", Size: " + str(fileinfo.size) + ", Content Type: " + fileinfo.content_type)
-                
+            att = Attachment.objects.create(
+                avatar=request.FILES['avatar'] or None,
+                cv=request.FILES['cv'] or None,
+                User=user)
 
-        #user.save() TODO: Uncomment
-        
-        messages.success(request, "Sucessfully Created")
-        #return HttpResponseRedirect(user.get_absolute_url()) TODO: Uncomment
-        return HttpResponse("<h1>Created</h1>")
+        user.save()
+        att.save()
+
+        return HttpResponseRedirect(user.get_absolute_url())
     context = {
         "form": form,
     }
