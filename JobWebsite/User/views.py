@@ -35,8 +35,8 @@ def user_edit(request, pk=None):
         if request.FILES is not None:
             # TODO Handle only one file being passed in
             att = instance.attachment_set.create(
-                avatar=request.FILES['avatar'],
-                cv=request.FILES['cv'],
+                avatar= request.FILES['avatar'] if 'avatar' in request.FILES else None,
+                cv= request.FILES['cv'] if 'cv' in request.FILES else None,
                 User=request.user
             )
 
@@ -79,12 +79,14 @@ def user_create(request):
         # Save the files off:
         if request.FILES is not None:
             att = Attachment.objects.create(
-                avatar=request.FILES['avatar'] or None,
-                cv=request.FILES['cv'] or None,
+                avatar= request.FILES['avatar'] if 'avatar' in request.FILES else None,
+                cv= request.FILES['cv'] if 'cv' in request.FILES else None,
                 User=user)
 
+                user.save()
+                att.save()
+                
         user.save()
-        att.save()
 
         return HttpResponseRedirect(user.get_absolute_url())
     context = {
