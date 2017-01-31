@@ -28,7 +28,13 @@
 		            <li><a href="{% url 'addresses:index' %}">Addresses</a></li>
 		        </ul>
 		        <ul class="nav navbar-nav navbar-right">
-		            <li><a href="{% url 'login' %}">Login</a></li>
+		        	<li class="centre">Welcome {{user.first_name}} {{user.last_name}}</li>
+		        	{% if user.is_authenticated %}
+		        		<li><a href="{% url 'logout' %}">Logout</a></li>
+		        	{% else %}
+					    <li><a href="{% url 'login' %}">Login</a></li>
+					{% endif %}
+		            
 		        </ul>
 		    </div>
 		</nav>

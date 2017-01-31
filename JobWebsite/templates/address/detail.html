@@ -4,11 +4,14 @@
 {% block content %}
 {{instance}}
 
-{% if error_message %}
-<p>
-	<strong>{{ error_message }}</strong>
-</p>
-{% endif %}
+<h1>{{ instance.address_type }}</h1>
+<h3>{{ instance.address_line_1}}</h3>
+<h3>{{ instance.address_line_2}}</h3>
+<h3>{{ instance.address_line_3}}</h3>
+<h3>{{ instance.post_code}}</h3>
+<h3>{{ instance.county}}</h3>
+<h3>{{ instance.country}}</h3>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <a href="{% url 'addresses:edit' instance.id %}" class="btn btn-primary">Edit</a>
 <a href="{% url 'addresses:index'%}" class="btn btn-default">Back</a>

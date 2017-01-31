@@ -9,6 +9,7 @@ class CompanyForm(forms.ModelForm):
 			"company_name",
 			"address",
 		]
+		localized_fields = "__all__"
 
 COMPANY_TYPE = (
     ('Res', 'Residential'),

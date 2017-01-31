@@ -21,6 +21,7 @@ class AddressForm(forms.ModelForm):
 			"county",
 			"country"
 		]
+		localized_fields = "__all__"
 
 
 class AddressEditForm(forms.ModelForm):
@@ -40,4 +41,5 @@ class AddressEditForm(forms.ModelForm):
 			"post_code",
 			"county",
 			"country"
-		]	
+		]
+		localized_fields = "__all__"

@@ -83,10 +83,8 @@ def user_create(request):
                 cv= request.FILES['cv'] if 'cv' in request.FILES else None,
                 User=user)
 
-                user.save()
-                att.save()
-                
         user.save()
+        att.save()
 
         return HttpResponseRedirect(user.get_absolute_url())
     context = {
