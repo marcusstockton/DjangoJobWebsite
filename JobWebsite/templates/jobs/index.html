@@ -17,4 +17,5 @@
 	{% else %}
 	    <p>No jobs are available.</p>
 	{% endif %}
+	<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create</a>
 {% endblock content %}

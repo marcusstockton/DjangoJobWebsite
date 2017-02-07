@@ -15,5 +15,5 @@ class JobForm(ModelForm):
 		]
 		localized_fields = "__all__"
 		widgets = {
-			"publish": extras.SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
+			"publish": extras.SelectDateWidget(years=range(datetime.now().year, datetime.now().year + 5), attrs=({'style': 'width: 30%; display: inline-block;'})),
 		}
