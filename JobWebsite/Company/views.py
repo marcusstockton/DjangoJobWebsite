@@ -1,11 +1,11 @@
-from django.forms import model_to_dict
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
 # Create your views here.
 from .forms import CompanyForm, CompanyEditForm, CompanyEditFormCustom
 from .models import Company
+from Address.models import Address
 
 
 def company_create(request):
@@ -51,16 +51,33 @@ def company_edit(request, pk=None):
                  "county": instance.address.county,
                  "country": instance.address.country
                  }# dto
-    form = CompanyEditFormCustom(initial=data_dict)
+    form = CompanyEditFormCustom(request.POST or None, initial=data_dict)
     # Debugging info
     if request.POST:
         for key, value in request.POST.items():
             print(key + ": " + value)
     if form.is_valid():
-        # TODO need a way to save any modified company or address data..
-        instance = form.save(commit=False)
+        companyname = form.cleaned_data["company_name"]
+        address = {"address_line_1": form.cleaned_data["address_line_1"],
+                 "address_line_2": form.cleaned_data["address_line_2"],
+                 "address_line_3": form.cleaned_data["address_line_3"],
+                 "post_code": form.cleaned_data["post_code"],
+                 "county": form.cleaned_data["county"],
+                 "country": form.cleaned_data["country"]
+        }
+
+        address_new = Address.objects.get(pk=instance.address_id)
+        address_new.address_line_1 = address["address_line_1"]
+        address_new.address_line_2 = address["address_line_2"]
+        address_new.address_line_3 = address["address_line_3"]
+        address_new.post_code = address["post_code"]
+        address_new.county = address["county"]
+        address_new.country = address["country"]
+
+        instance.company_name = companyname
         instance.save()
-        messages.success(request, "Sucessfully Updated")
+        address_new.save()
+        messages.success(request, "Successfully Updated")
 
         return HttpResponseRedirect(instance.get_absolute_url())
 
@@ -75,7 +92,7 @@ def company_edit(request, pk=None):
 def company_delete(request, pk=None):
     instance = get_object_or_404(Company, pk=pk)
     instance.delete()
-    messages.success(request, "Sucessfully Deleted")
+    messages.success(request, "Successfully Deleted")
     return redirect("company:list")
 
     return HttpResponse("<h1>Delete</h1>")

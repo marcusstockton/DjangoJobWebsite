@@ -7,7 +7,7 @@
     <ul>
     {% for user in object_list %}
     	<a href="{% url 'companies:detail' user.id %}">{{ user.company_name }}</a>
-            {{ user.address }}
+            {{ user.address.address_line_1 }}
         <hr>
     {% endfor %}
     </ul>

@@ -8,6 +8,20 @@
 	<form method="POST" action="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form | crispy }}
+		{% if form.errors %}
+			{% for field in form %}
+				{% for error in field.errors %}
+					<div class="alert alert-danger">
+						<strong>{{ error|escape }}</strong>
+					</div>
+				{% endfor %}
+			{% endfor %}
+			{% for error in form.non_field_errors %}
+				<div class="alert alert-danger">
+					<strong>{{ error|escape }}</strong>
+				</div>
+			{% endfor %}
+		{% endif %}
 		<input type="submit" class="btn btn-primary" value="Update Company"/>
 		<a href="{% url 'companies:detail' instance.id %}" class="btn btn-default">Back</a>
 	</form>
