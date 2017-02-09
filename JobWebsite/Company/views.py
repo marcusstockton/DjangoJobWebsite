@@ -1,9 +1,10 @@
+from django.forms import model_to_dict
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib import messages
 
 # Create your views here.
-from .forms import CompanyForm, CompanyEditForm
+from .forms import CompanyForm, CompanyEditForm, CompanyEditFormCustom
 from .models import Company
 
 
@@ -42,17 +43,24 @@ def company_list(request):
 
 def company_edit(request, pk=None):	
     instance = get_object_or_404(Company.objects.select_related(), pk=pk)
-    form = CompanyEditForm(request.POST or None, instance = instance)
+    data_dict = {'company_name': instance.company_name,
+                 "address_line_1": instance.address.address_line_1,
+                 "address_line_2": instance.address.address_line_2,
+                 "address_line_3": instance.address.address_line_3,
+                 "post_code": instance.address.post_code,
+                 "county": instance.address.county,
+                 "country": instance.address.country
+                 }# dto
+    form = CompanyEditFormCustom(initial=data_dict)
     # Debugging info
     if request.POST:
         for key, value in request.POST.items():
             print(key + ": " + value)
-        print(form)
     if form.is_valid():
-        # TODO need a way to update the address type...
-        # instance = form.save(commit=False)
-        # instance.save()
-        # messages.success(request, "Sucessfully Updated")
+        # TODO need a way to save any modified company or address data..
+        instance = form.save(commit=False)
+        instance.save()
+        messages.success(request, "Sucessfully Updated")
 
         return HttpResponseRedirect(instance.get_absolute_url())
 
