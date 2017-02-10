@@ -7,6 +7,7 @@ from .models import Address
 
 
 def address_list(request):
+     """ Method that returns all addresses """
     queryset_list = Address.objects.all()
 
     context = {
@@ -17,6 +18,7 @@ def address_list(request):
 
 
 def address_detail(request, pk=None):
+     """ Method for retreiving address details"""
     instance = get_object_or_404(Address, pk=pk)
     context = {
         "title": instance.address_line_1,
@@ -24,10 +26,11 @@ def address_detail(request, pk=None):
     }
     return render(request, "address/detail.html", context)
 
-     
+
 def address_edit(request, pk=None):
+    """ Method for editing an address """
     instance = get_object_or_404(Address, pk=pk)
-    
+
     form = AddressEditForm(request.POST or None, instance = instance)# instance means the form data will be populated
     if form.is_valid():
         instance = form.save(commit=False)
@@ -45,6 +48,7 @@ def address_edit(request, pk=None):
 
 
 def address_delete(request, pk=None):
+    """ Method for deleting an existing address """
     instance = get_object_or_404(Address, pk=pk)
     instance.delete()
     messages.success(request, "Sucessfully Deleted")
@@ -54,6 +58,7 @@ def address_delete(request, pk=None):
 
 
 def address_create(request):
+    """ Method for creating a new address """
     form = AddressForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -63,5 +68,5 @@ def address_create(request):
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-    }# TODO Create create.html page in address templates
+    }
     return render(request, "address/create.html", context)
