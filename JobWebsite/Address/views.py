@@ -7,7 +7,7 @@ from .models import Address
 
 
 def address_list(request):
-     """ Method that returns all addresses """
+    """ Method that returns all addresses """
     queryset_list = Address.objects.all()
 
     context = {
@@ -18,7 +18,7 @@ def address_list(request):
 
 
 def address_detail(request, pk=None):
-     """ Method for retreiving address details"""
+    """ Method for retreiving address details"""
     instance = get_object_or_404(Address, pk=pk)
     context = {
         "title": instance.address_line_1,
