@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'crispy_forms',
+    'djangobower',
 
     # My apps
     'Job.apps.JobConfig',
@@ -140,3 +141,15 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+)
+BOWER_INSTALLED_APPS = (
+    'jquery',
+    'underscore',
+)

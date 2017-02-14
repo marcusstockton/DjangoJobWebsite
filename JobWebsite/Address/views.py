@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 
-from .forms import AddressForm, AddressEditForm
+from .forms import AddressForm
 from .models import Address
 
 
