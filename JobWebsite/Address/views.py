@@ -31,7 +31,7 @@ def address_edit(request, pk=None):
     """ Method for editing an address """
     instance = get_object_or_404(Address, pk=pk)
 
-    form = AddressEditForm(request.POST or None, instance = instance)# instance means the form data will be populated
+    form = AddressForm(request.POST or None, instance = instance)# instance means the form data will be populated
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()

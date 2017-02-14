@@ -9,28 +9,7 @@ COMPANY_TYPE = (
 
 
 class AddressForm(forms.ModelForm):
-
-	class Meta:
-		model = Address
-		fields = [
-			"address_type",
-			"address_line_1",
-			"address_line_2",
-			"address_line_3",
-			"post_code",
-			"county",
-			"country"
-		]
-		localized_fields = "__all__"
-
-
-class AddressEditForm(forms.ModelForm):
-	address_type = forms.ChoiceField(
-        required=True,
-        widget=forms.Select,
-        choices=COMPANY_TYPE,
-   )
-
+	address_type = forms.ChoiceField(required=True, widget=forms.Select, choices=COMPANY_TYPE)
 	class Meta:
 		model = Address
 		fields = [
