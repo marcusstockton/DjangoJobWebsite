@@ -2,7 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
-{{instance}}
+<h3>{{instance.company_name}}</h3>
+<p>{{instance.address.address_line_1}}</p>
+<p>{{instance.address.address_line_2}}</p>
+<p>{{instance.address.address_line_3}}</p>
+<p>{{instance.address.country}}</p>
+<p>{{instance.address.county}}</p>
 
 {% if error_message %}
 <p>

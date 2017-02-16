@@ -23,7 +23,7 @@ def company_create(request):
 
 
 def company_detail(request, pk=None):
-    instance = get_object_or_404(Company.objects.select_related(), pk=pk)
+    instance = get_object_or_404(Company.objects.select_related('address'), pk=pk)
     context = {
         "title": instance.company_name,
         "instance": instance
