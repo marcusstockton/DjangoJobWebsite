@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
+from django.db.transaction import atomic
 
 # Create your views here.
 from .forms import CompanyForm, CompanyEditForm, CompanyEditFormCustom
@@ -75,8 +76,9 @@ def company_edit(request, pk=None):
         address_new.country = address["country"]
 
         instance.company_name = companyname
-        instance.save()
-        address_new.save()
+        with atomic():
+            instance.save()
+            address_new.save()
         messages.success(request, "Successfully Updated")
 
         return HttpResponseRedirect(instance.get_absolute_url())
