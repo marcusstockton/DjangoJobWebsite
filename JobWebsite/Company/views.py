@@ -44,6 +44,7 @@ def company_list(request):
 
 def company_edit(request, pk=None):	
     instance = get_object_or_404(Company.objects.select_related(), pk=pk)
+
     data_dict = {'company_name': instance.company_name,
                  "address_line_1": instance.address.address_line_1,
                  "address_line_2": instance.address.address_line_2,
@@ -52,19 +53,20 @@ def company_edit(request, pk=None):
                  "county": instance.address.county,
                  "country": instance.address.country
                  }# dto
+
     form = CompanyEditFormCustom(request.POST or None, initial=data_dict)
-    # Debugging info
+
     if request.POST:
         for key, value in request.POST.items():
             print(key + ": " + value)
     if form.is_valid():
         companyname = form.cleaned_data["company_name"]
         address = {"address_line_1": form.cleaned_data["address_line_1"],
-                 "address_line_2": form.cleaned_data["address_line_2"],
-                 "address_line_3": form.cleaned_data["address_line_3"],
-                 "post_code": form.cleaned_data["post_code"],
-                 "county": form.cleaned_data["county"],
-                 "country": form.cleaned_data["country"]
+                   "address_line_2": form.cleaned_data["address_line_2"],
+                   "address_line_3": form.cleaned_data["address_line_3"],
+                   "post_code": form.cleaned_data["post_code"],
+                   "county": form.cleaned_data["county"],
+                   "country": form.cleaned_data["country"]
         }
 
         address_new = Address.objects.get(pk=instance.address_id)
