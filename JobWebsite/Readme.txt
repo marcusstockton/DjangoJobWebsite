@@ -16,7 +16,8 @@ TODO:
 Create a string list of years for the User Edit form.
 Fix up the format the date is passed in for date of birth in User edit form
 
-The following is how to create related objects. This has been tested in python shell
 
 Create a way to add new JObs / Companies etc
 Change the Nav to show the user name once logged in
+
+
