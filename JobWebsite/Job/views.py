@@ -60,13 +60,12 @@ def job_create(request):
     form = JobForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
-        # TODO: request.user # this needs to work correctly, but for now, no way of users logging in...
-        instance.created_by = User.objects.all()[:1].get()
+        instance.created_by = request.user
         instance.timestamp = datetime.datetime.now()
         instance.save()
         messages.success(request, "Sucessfully Created")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
-    }  # TODO Create a create.html page for jobs
+    }
     return render(request, "jobs/create.html", context)
