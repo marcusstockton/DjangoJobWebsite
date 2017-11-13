@@ -56,7 +56,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
-            "pythonPath": "${config.python.pythonPath}",
+            "pythonPath": "C:/Users/mstockton/Documents/Venvs/3.6.1_32Bit/Scripts/python.exe",
             "program": "${file}",
             "cwd": "null",
             "console": "integratedTerminal",
@@ -84,7 +84,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
-            "pythonPath": "${config.python.pythonPath}",
+            "pythonPath": "C:/Users/MarcusS/Envs/Python36/Scripts/python.exe",
             "program": "${workspaceRoot}/JobWebsite/manage.py",
             "cwd": "${workspaceRoot}",
             "args": [

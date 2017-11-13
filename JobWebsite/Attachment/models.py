@@ -10,7 +10,7 @@ def upload_location(instance, filename):
 class Attachment(models.Model):
     avatar = models.ImageField(upload_to=upload_location, null=True, blank=True)
     cv = models.FileField(upload_to=upload_location, blank=True)
-    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    User = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+')
 
     def __str__(self):
         return str(self.pk)
