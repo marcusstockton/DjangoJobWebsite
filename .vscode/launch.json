@@ -83,7 +83,7 @@
             "name": "Django",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pythonPath": "C:/Users/MarcusS/Envs/Python36/Scripts/python.exe",
             "program": "${workspaceRoot}/JobWebsite/manage.py",
             "cwd": "${workspaceRoot}",

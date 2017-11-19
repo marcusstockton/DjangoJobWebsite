@@ -218,3 +218,5 @@ pip-log.txt
 ## CUSTOM
 *.pyc
 *.xml
+
+launch.json

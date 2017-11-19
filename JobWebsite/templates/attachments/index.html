@@ -5,10 +5,12 @@
 	{% if latest_attachments_list %}
 	    <ul>
 	    {% for attachment in latest_attachments_list %}
-	    	<a href="{% url 'attachments:detail' attachment.id %}">{{ attachment.file_name }}</a>
-	        <li>{{attachment.data}}</li>
-	        <li>{{attachment.created_date}}</li>
-	        <li>{{attachment.file_type}}</li>
+			<a href="{% url 'attachments:detail' attachment.id %}">{{ attachment.file_name }}</a>
+			<li>Avatar: <img src="{{ MEDIA_URL }}{{attachment.avatar}}" class="img-thumbnail img-fluid" style="max-width:200px;"></li>
+			<li>C.V: <a href="{{ MEDIA_URL }}{{attachment.cv}}" target="_blank">{{attachment.cv}}</a></li>
+	        <li>Created: {{attachment.created_date}}</li>
+			<li>UserId: {{attachment.User_id}}</li>
+			<br>
 	    {% endfor %}
 	    </ul>
 	{% else %}

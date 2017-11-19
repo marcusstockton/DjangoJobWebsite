@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-
+from Attachment.models import Attachment
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
-from Attachment.models import Attachment
+
 
 
 def user_list(request):
@@ -21,7 +21,7 @@ def user_detail(request, pk=None):
     user = get_object_or_404(User.objects.select_related(), pk=pk)
     context = {
         "title": user.username,
-        "user": user
+        "user": user,
     }
     return render(request, "users/detail.html", context)
 
@@ -59,8 +59,6 @@ def user_delete(request, pk=None):
     messages.success(request, "Sucessfully Deleted")
     return redirect("users:list")
 
-    return HttpResponse("<h1>Delete</h1>")
-
 
 def user_create(request):
     form = CustomUserCreationForm(request.POST or None, request.FILES or None)
@@ -73,9 +71,10 @@ def user_create(request):
         email = form.cleaned_data['email']
 
         # Now save it all off to the database
-        user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
-                                        last_name=lastname, birth_date=date_of_birth)
-        
+        user = User.objects.create_user(username=username, email=email, password=password, 
+                                        first_name=firstname, last_name=lastname, 
+                                        birth_date=date_of_birth)
+
         # Save the files off:
         if request.FILES is not None:
             att = Attachment.objects.create(
