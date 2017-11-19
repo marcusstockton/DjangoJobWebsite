@@ -12,15 +12,16 @@ Details for {{user.username}}
 <h4>Email: {{user.email}}</h4>
 <h4>Date Joined: {{user.date_joined}}</h4>
 <h4>Last Login: {{user.last_login}}</h4>
-{% if user.avatar %}
-<img src="{{user.avatar.url}}" class="img-thumbnail" height="100" />
+{% if user.attachment.avatar %}
+    <img src="{{user.attachment.avatar.url}}" class="img-thumbnail" width="400px" />
 {% endif %}
 {% if error_message %}
 <p>
 	<strong>{{ error_message }}</strong>
 </p>
 {% endif %}
-
-<a href="{% url 'users:edit' user.id %}" class="btn btn-primary">Edit</a>
-<a href="{% url 'users:index'%}" class="btn btn-default">Back</a>
+<div class="col-xs-12">
+    <a href="{% url 'users:edit' user.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'users:index'%}" class="btn btn-default">Back</a>
+</div>
 {% endblock content %}

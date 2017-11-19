@@ -1,10 +1,10 @@
-from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
 from Attachment.models import Attachment
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
-
 
 
 def user_list(request):
@@ -32,7 +32,7 @@ def user_edit(request, pk=None):
     if form.is_valid():
         instance = form.save(commit=False)
 
-        if request.FILES is not None:
+        if request.FILES is not None and len(request.FILES) > 0:
             # TODO Handle only one file being passed in
             att = instance.attachment_set.create(
                 avatar= request.FILES['avatar'] if 'avatar' in request.FILES else None,
