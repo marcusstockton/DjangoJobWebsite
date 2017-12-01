@@ -5,7 +5,7 @@ from Attachment.models import Attachment
 
 class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True, auto_now_add=False)
-    attachment = models.ForeignKey(Attachment, on_delete=models.CASCADE)
+    attachment = models.ForeignKey(Attachment, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.username
 
