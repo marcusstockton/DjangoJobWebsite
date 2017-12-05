@@ -5,7 +5,7 @@ from datetime import datetime
 
 from django.contrib.auth.forms import UserCreationForm
 from django.forms.widgets import SelectDateWidget
-from django.forms import ModelForm, extras
+from django.forms import ModelForm
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -42,7 +42,7 @@ class UserForm(ModelForm):
         ]
         localized_fields = "__all__"
         widgets = {
-            "birth_date": extras.SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
+            "birth_date": SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
         }
 
 class UserLoginForm(ModelForm):

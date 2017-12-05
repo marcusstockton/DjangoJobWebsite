@@ -14,21 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
+# from django.conf.urls import url, include
+from django.urls import include, path
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('Job.urls', namespace="jobs")), # Loads jobs as first page
-    url(r'^attachment/', include('Attachment.urls', namespace="attachments")),
-    url(r'^company/', include('Company.urls', namespace="companies")),
-    url(r'^user/', include('User.urls', namespace="users")),
-    url(r'^address/', include('Address.urls', namespace="addresses")),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    # url(r'^admin/', admin.site.urls),
+    # url(r'', include('Job.urls', namespace="jobs")), # Loads jobs as first page
+    # url(r'^attachment/', include('Attachment.urls', namespace="attachments")),
+    # url(r'^company/', include('Company.urls', namespace="companies")),
+    # url(r'^user/', include('User.urls', namespace="users")),
+    # url(r'^address/', include('Address.urls', namespace="addresses")),
+    # url(r'^login/$', auth_views.login, name='login'),
+    # url(r'^logout/$', auth_views.logout, name='logout'),
+    path('admin/', admin.site.urls),
+    path('', include('Job.urls', namespace="jobs")), # Loads jobs as first page
+    path('attachment/', include('Attachment.urls', namespace="attachments")),
+    path('company/', include('Company.urls', namespace="companies")),
+    path('user/', include('User.urls', namespace="users")),
+    path('address/', include('Address.urls', namespace="addresses")),
+    path('login/', auth_views.login, name='login'),
+    path('logout/', auth_views.logout, name='logout'),
 ]
 
 if settings.DEBUG:
@@ -36,4 +45,4 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # Allows serving images when clicking on them
     #urlpatterns += [url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})]
-    urlpatterns.append(url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}))
+    urlpatterns.append(path('media/(<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}))

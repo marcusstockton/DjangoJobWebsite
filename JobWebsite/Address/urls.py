@@ -1,4 +1,5 @@
-from django.conf.urls import url
+from django.urls import path
+
 from .views import (
 	address_list,
 	address_create,
@@ -6,11 +7,11 @@ from .views import (
 	address_edit,
 	address_delete
 )
-
+app_name="addresses"
 urlpatterns = [
-    url(r'^$', address_list, name='index'),
-    url(r'^create/$', address_create, name='create'),
-    url(r'^(?P<pk>[0-9]+)/$', address_detail, name='detail'),
-    url(r'^(?P<pk>[0-9]+)/edit/$', address_edit, name='edit'),
-    url(r'^(?P<pk>[0-9]+)/delete/$', address_delete, name='delete'),
+    path('', address_list, name='index'),
+    path('create/', address_create, name='create'),
+    path('<int:pk>/', address_detail, name='detail'),
+    path('<int:pk>/edit/', address_edit, name='edit'),
+    path('<int:pk>/delete/', address_delete, name='delete'),
 ]

@@ -1,9 +1,10 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
+app_name="attachments"
 urlpatterns = [
-    url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
-    url(r'^(?P<pk>[0-9]+)/edit/$', views.EditView.as_view(), name='edit'),
-    url(r'^(?P<pk>[0-9]+)/delete/$', views.DeleteView.as_view(), name='delete'),
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/edit/', views.EditView.as_view(), name='edit'),
+    path('<int:pk>/delete/', views.DeleteView.as_view(), name='delete'),
 ]

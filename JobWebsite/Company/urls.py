@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path
 
 from .views import (
 	company_list,
@@ -8,10 +8,11 @@ from .views import (
 	company_delete
 )
 
+app_name="company"
 urlpatterns = [
-    url(r'^$', company_list, name='index'),
-    url(r'^create/$', company_create, name='create'),
-    url(r'^(?P<pk>[0-9]+)/$', company_detail, name='detail'),
-    url(r'^(?P<pk>[0-9]+)/edit/$', company_edit, name='edit'),
-    url(r'^(?P<pk>[0-9]+)/delete/$', company_delete, name='delete'),
+    path('', company_list, name='index'),
+    path('create/', company_create, name='create'),
+    path('<int:pk>/', company_detail, name='detail'),
+    path('<int:pk>/edit/', company_edit, name='edit'),
+    path('<int:pk>/delete/', company_delete, name='delete'),
 ]
