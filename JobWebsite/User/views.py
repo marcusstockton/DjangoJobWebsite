@@ -1,8 +1,8 @@
-from Attachment.models import Attachment
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
+from JobWebsite.Attachment.models import Attachment
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
 

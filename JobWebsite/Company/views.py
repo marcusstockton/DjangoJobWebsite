@@ -1,12 +1,12 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.db.transaction import atomic
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 
+from JobWebsite.Address.models import Address
 # Create your views here.
-from .forms import CompanyForm, CompanyEditForm, CompanyEditFormCustom
+from .forms import CompanyForm, CompanyEditFormCustom
 from .models import Company
-from Address.models import Address
 
 
 def company_create(request):

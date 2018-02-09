@@ -3,22 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Company/views.py" afterPath="$PROJECT_DIR$/JobWebsite/Company/views.py" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Job/views.py" afterPath="$PROJECT_DIR$/JobWebsite/Job/views.py" />
       <change beforePath="$PROJECT_DIR$/JobWebsite/User/views.py" afterPath="$PROJECT_DIR$/JobWebsite/User/views.py" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/db.sqlite3" afterPath="$PROJECT_DIR$/JobWebsite/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/Test/Everyday_Notes.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/Test/Sophie_Jones.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/css/base.css" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/css/base.css" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/SelectFilter2.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/SelectFilter2.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.min.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/DateTimeShortcuts.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/DateTimeShortcuts.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/RelatedObjectLookups.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/RelatedObjectLookups.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/calendar.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/calendar.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/collapse.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/collapse.min.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/core.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/core.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.min.js" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/urlify.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/urlify.js" />
     </list>
     <ignored path="DjangoJobWebsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,10 +27,56 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JobWebsite/User/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/Company/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,7 +96,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/JobWebsite/User/urls.py" />
-        <option value="$PROJECT_DIR$/JobWebsite/Job/views.py" />
         <option value="$PROJECT_DIR$/JobWebsite/Address/views.py" />
         <option value="$PROJECT_DIR$/JobWebsite/JobWebsite/urls.py" />
         <option value="$PROJECT_DIR$/JobWebsite/JobWebsite/settings.py" />
@@ -75,13 +107,14 @@
         <option value="$PROJECT_DIR$/JobWebsite/Company/forms.py" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/company/edit.html" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/company/index.html" />
-        <option value="$PROJECT_DIR$/JobWebsite/Company/views.py" />
         <option value="$PROJECT_DIR$/JobWebsite/Attachment/models.py" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/attachments/detail.html" />
         <option value="$PROJECT_DIR$/JobWebsite/User/forms.py" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/users/edit.html" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/users/detail.html" />
         <option value="$PROJECT_DIR$/JobWebsite/User/views.py" />
+        <option value="$PROJECT_DIR$/JobWebsite/Company/views.py" />
+        <option value="$PROJECT_DIR$/JobWebsite/Job/views.py" />
       </list>
     </option>
   </component>
@@ -141,14 +174,7 @@
               <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
               <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="media_cdn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="media_cdn" type="462c0819:PsiDirectoryNode" />
-              <item name="mstockton" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -489,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1518205532379</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Farting about with editing users - adding / updating images / c.v's and removing old ones&#10;Ran a collectstatic">
+      <created>1518214711717</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1518214711717</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -601,13 +634,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="66" column="39" lean-forward="false" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Envs/3.5.2_32Bit/Lib/site-packages/django/db/models/base.py" />
     <entry file="file://$PROJECT_DIR$/JobWebsite/templates/base/layout.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -730,13 +756,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Envs/3.5.2_32Bit/Lib/site-packages/django/core/handlers/exception.py" />
     <entry file="file://$USER_HOME$/Envs/3.5.2_32Bit/Lib/site-packages/django/core/handlers/base.py" />
     <entry file="file://$PROJECT_DIR$/JobWebsite/Company/forms.py">
@@ -844,22 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Company/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -884,12 +887,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="41" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Company/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="32" lean-forward="false" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/User/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
