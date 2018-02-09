@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" afterPath="$PROJECT_DIR$/.vscode/settings.json" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/Attachment/urls.py" afterPath="$PROJECT_DIR$/JobWebsite/Attachment/urls.py" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/Attachment/views.py" afterPath="$PROJECT_DIR$/JobWebsite/Attachment/views.py" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/User/tests.py" afterPath="$PROJECT_DIR$/JobWebsite/User/tests.py" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/attachments/index.html" afterPath="$PROJECT_DIR$/JobWebsite/templates/attachments/index.html" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/User/views.py" afterPath="$PROJECT_DIR$/JobWebsite/User/views.py" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/db.sqlite3" afterPath="$PROJECT_DIR$/JobWebsite/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/Test/Everyday_Notes.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/Test/Sophie_Jones.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/css/base.css" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/css/base.css" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/SelectFilter2.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/SelectFilter2.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/actions.min.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/DateTimeShortcuts.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/DateTimeShortcuts.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/RelatedObjectLookups.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/admin/RelatedObjectLookups.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/calendar.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/calendar.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/collapse.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/collapse.min.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/core.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/core.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.min.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/inlines.min.js" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/urlify.js" afterPath="$PROJECT_DIR$/JobWebsite/static_cdn/admin/js/urlify.js" />
     </list>
     <ignored path="DjangoJobWebsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +36,20 @@
     <favorites_list name="DjangoJobWebsite" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/User/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -57,8 +80,8 @@
         <option value="$PROJECT_DIR$/JobWebsite/templates/attachments/detail.html" />
         <option value="$PROJECT_DIR$/JobWebsite/User/forms.py" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/users/edit.html" />
-        <option value="$PROJECT_DIR$/JobWebsite/User/views.py" />
         <option value="$PROJECT_DIR$/JobWebsite/templates/users/detail.html" />
+        <option value="$PROJECT_DIR$/JobWebsite/User/views.py" />
       </list>
     </option>
   </component>
@@ -118,7 +141,14 @@
               <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
               <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="Attachment" type="462c0819:PsiDirectoryNode" />
+              <item name="media_cdn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
+              <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
+              <item name="media_cdn" type="462c0819:PsiDirectoryNode" />
+              <item name="mstockton" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -452,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511112190547</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Updating Attachment from class view to ...non class based view">
+      <created>1518205532379</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1518205532379</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -466,24 +503,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12927757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3783784" sideWeight="0.24550128" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32898173" sideWeight="0.4975" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32702702" sideWeight="0.4974293" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.592545" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3108108" sideWeight="0.6703085" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3783784" sideWeight="0.7544987" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12927757" sideWeight="0.49130434" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.49746513" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3108108" sideWeight="0.33903676" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.4949303" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32702702" sideWeight="0.48732573" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.5893536" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3108108" sideWeight="0.66096324" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12927757" sideWeight="0.50869566" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3783784" sideWeight="0.73954374" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -539,7 +577,9 @@
     <MESSAGE value="Displaying avatar on users/index page" />
     <MESSAGE value="Fixing some attachment issues" />
     <MESSAGE value="Tidying up attachment display in User Details page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tidying up attachment display in User Details page" />
+    <MESSAGE value="Updating Attachment from class view to ...non class based view" />
+    <MESSAGE value="Farting about with editing users - adding / updating images / c.v's and removing old ones&#10;Ran a collectstatic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Farting about with editing users - adding / updating images / c.v's and removing old ones&#10;Ran a collectstatic" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -552,22 +592,19 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="69" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="instance.attachment_id" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="66" column="39" lean-forward="false" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -723,20 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Company/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/templates/attachments/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -807,20 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/templates/base/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-159">
@@ -835,10 +844,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Company/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/User/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="167">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -33,12 +33,15 @@ def user_edit(request, pk=None):
         instance = form.save(commit=False)
 
         if request.FILES is not None and len(request.FILES) > 0:
-            # TODO Handle only one file being passed in
-            att = instance.attachment_set.create(
-                avatar= request.FILES['avatar'] if 'avatar' in request.FILES else None,
-                cv= request.FILES['cv'] if 'cv' in request.FILES else None,
-                User=request.user
-            )
+            attachments = Attachment.objects.get(id=instance.attachment_id)
+            if form.cleaned_data['avatar']:
+                attachments.avatar.delete()
+                attachments.avatar = form.cleaned_data['avatar']
+            if form.cleaned_data['cv']:
+                attachments.cv.delete()
+                attachments.cv = form.cleaned_data['cv']
+            if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
+                attachments.save()
 
         instance.save()
         messages.success(request, "Successfully Updated")
