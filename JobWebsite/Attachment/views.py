@@ -4,13 +4,13 @@ from django.views import generic
 from .models import Attachment
 
 
-class IndexView(generic.ListView):
-    template_name = 'attachments/index.html'
-    context_object_name = 'latest_attachments_list'
-
-    def get_queryset(self):
-        """Return the last five published jobs."""
-        return Attachment.objects.order_by('-created_date')[:5]
+def attachment_list(request):
+    queryset = Attachment.objects.all()# to filter: .filter(User_id=1)
+    
+    context = {
+        "attachments": queryset
+    }
+    return render(request, "attachments/index.html", context)
 
 
 class DetailView(generic.DetailView):

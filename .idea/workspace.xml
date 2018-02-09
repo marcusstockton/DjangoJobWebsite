@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" afterPath="$PROJECT_DIR$/.vscode/settings.json" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Attachment/urls.py" afterPath="$PROJECT_DIR$/JobWebsite/Attachment/urls.py" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Attachment/views.py" afterPath="$PROJECT_DIR$/JobWebsite/Attachment/views.py" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/User/tests.py" afterPath="$PROJECT_DIR$/JobWebsite/User/tests.py" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/attachments/index.html" afterPath="$PROJECT_DIR$/JobWebsite/templates/attachments/index.html" />
     </list>
     <ignored path="DjangoJobWebsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -108,16 +114,22 @@
               <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
               <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
+              <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
+              <item name="Attachment" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Envs/3.5.2_32Bit/Scripts/python.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -189,6 +201,25 @@
       <module name="DjangoJobWebsite" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DjangoJobWebsite" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,7 +253,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -237,7 +267,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -253,26 +282,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Attests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="DjangoJobWebsite" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
