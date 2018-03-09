@@ -3,7 +3,7 @@ from django.db.transaction import atomic
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
-from JobWebsite.Address.models import Address
+from Address.models import Address
 # Create your views here.
 from .forms import CompanyForm, CompanyEditFormCustom
 from .models import Company
