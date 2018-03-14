@@ -1,19 +1,41 @@
-{% extends "base/base.html" %}
-{% load staticfiles %}
+{% extends "base/base.html" %} 
 
-{% block content %}
-	{% if attachments %}
-	    <ul>
-	    {% for attachment in attachments %}
-			<a href="{% url 'attachments:detail' attachment.id %}">{{ attachment.file_name }}</a>
-			<li>Avatar: <img src="{{ MEDIA_URL }}{{attachment.avatar}}" class="img-thumbnail img-fluid" style="max-width:200px;"></li>
-			<li>C.V: <a href="{{ MEDIA_URL }}{{attachment.cv}}" target="_blank">{{attachment.cv}}</a></li>
-	        <li>Created: {{attachment.created_date}}</li>
-			<li>UserId: {{attachment.User_id}}</li>
-			<br>
-	    {% endfor %}
-	    </ul>
-	{% else %}
-	    <p>No attachments are available.</p>
-	{% endif %}
+{% block content %} 
+{% if attachments %} 
+{% for attachment in attachments %}
+<div class="panel panel-default col-md-sm-12">
+	<div class="panel-body">
+		<a href="{% url 'attachments:detail' attachment.id %}" target="_blank">{{ attachment.file_name }}</a>
+		<span class=col-md-3>
+			<div class="media">
+				<div class="media-left">
+					<a href="{{ MEDIA_URL }}{{attachment.avatar}}">
+						<img class="media-object" src="{{ MEDIA_URL }}{{attachment.avatar}}" style="max-height:64px;">
+					</a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">Avatar</h4>
+				</div>
+			</div>
+		</span>
+		<span class="col-md-9">
+			{% if attachment.cv %}
+			<p>
+				C.V:
+				<a href="{{ MEDIA_URL }}{{attachment.cv}}" target="_blank">{{attachment.cv}}</a>
+			</p>
+			{% endif %}
+			<p>
+				Created: {{attachment.created_date}}
+			</p>
+			<p>
+				UserId: {{attachment.User_id}}
+			</p>
+		</span>
+	</div>
+</div>
+{% endfor %} 
+{% else %}
+<p>No attachments are available.</p>
+{% endif %} 
 {% endblock content %}
