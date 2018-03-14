@@ -11,7 +11,7 @@ app_name="addresses"
 urlpatterns = [
     path('', address_list, name='index'),
     path('create/', address_create, name='create'),
-    path('<int:pk>/', address_detail, name='detail'),
-    path('<int:pk>/edit/', address_edit, name='edit'),
-    path('<int:pk>/delete/', address_delete, name='delete'),
+    path('<uuid:pk>/', address_detail, name='detail'),
+    path('<uuid:pk>/edit/', address_edit, name='edit'),
+    path('<uuid:pk>/delete/', address_delete, name='delete'),
 ]

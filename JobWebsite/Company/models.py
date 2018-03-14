@@ -1,9 +1,11 @@
 from django.db import models
 from Address.models import Address
 from django.urls import reverse
+import uuid
 
 
 class Company(models.Model):
+	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	company_name = models.CharField(max_length=200)
 	address = models.ForeignKey(Address, on_delete=models.CASCADE)
 

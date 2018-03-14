@@ -5,7 +5,6 @@
     <ul>
     {% for address in object_list %}
     	<a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
-		
         <hr>
     {% endfor %}
     </ul>

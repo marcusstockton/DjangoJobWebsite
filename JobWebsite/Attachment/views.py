@@ -5,7 +5,7 @@ from .models import Attachment
 
 
 def attachment_list(request):
-    queryset = Attachment.objects.all()# to filter: .filter(User_id=1)
+    queryset = Attachment.objects.all()
     
     context = {
         "attachments": queryset

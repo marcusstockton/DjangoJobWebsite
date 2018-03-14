@@ -9,14 +9,9 @@ from .views import (
 )
 app_name = 'jobs'
 urlpatterns = [
-    # path(r'^$', job_list, name='index'),
-    # path(r'^create/$', job_create, name='create'),
-    # path(r'^(?P<pk>[0-9]+)/$', job_detail, name='detail'),
-    # path(r'^(?P<pk>[0-9]+)/edit/$', job_edit, name='edit'),
-    # path(r'^(?P<pk>[0-9]+)/delete/$', job_delete, name='delete'),
     path('', job_list, name='index'),
     path('create/', job_create, name='create'),
-    path('<int:pk>/', job_detail, name='detail'),
-    path('<int:pk>/edit/', job_edit, name='edit'),
-    path('<int:pk>/delete/', job_delete, name='delete'),
+    path('<uuid:pk>/', job_detail, name='detail'),
+    path('<uuid:pk>/edit/', job_edit, name='edit'),
+    path('<uuid:pk>/delete/', job_delete, name='delete'),
 ]

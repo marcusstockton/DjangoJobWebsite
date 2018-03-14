@@ -5,7 +5,7 @@ from . import views
 app_name="attachments"
 urlpatterns = [
     path('', views.attachment_list, name='index'),
-    path('<int:pk>/', views.DetailView, name='detail'),
-    path('<int:pk>/edit/', views.EditView, name='edit'),
-    path('<int:pk>/delete/', views.DeleteView, name='delete'),
+    path('<uuid:pk>/', views.DetailView, name='detail'),
+    path('<uuid:pk>/edit/', views.EditView, name='edit'),
+    path('<uuid:pk>/delete/', views.DeleteView, name='delete'),
 ]

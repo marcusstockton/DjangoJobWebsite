@@ -12,7 +12,7 @@ app_name="company"
 urlpatterns = [
     path('', company_list, name='index'),
     path('create/', company_create, name='create'),
-    path('<int:pk>/', company_detail, name='detail'),
-    path('<int:pk>/edit/', company_edit, name='edit'),
-    path('<int:pk>/delete/', company_delete, name='delete'),
+    path('<uuid:pk>/', company_detail, name='detail'),
+    path('<uuid:pk>/edit/', company_edit, name='edit'),
+    path('<uuid:pk>/delete/', company_delete, name='delete'),
 ]

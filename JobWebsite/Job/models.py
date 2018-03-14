@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from User.models import User
+import uuid
 
 
 class Job(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=120)
     content = models.TextField(max_length=2000)
     publish = models.DateField(auto_now=False, auto_now_add=False)
