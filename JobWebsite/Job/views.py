@@ -3,7 +3,7 @@ import datetime
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-
+from django.contrib.auth.decorators import login_required
 from .forms import JobForm
 from .models import Job
 
@@ -26,7 +26,7 @@ def job_detail(request, pk=None):
     }
     return render(request, "jobs/detail.html", context)
 
-
+@login_required
 def job_edit(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
 
@@ -46,7 +46,7 @@ def job_edit(request, pk=None):
     }
     return render(request, "jobs/edit.html", context)
 
-
+@login_required
 def job_delete(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
     instance.delete()
@@ -55,7 +55,7 @@ def job_delete(request, pk=None):
 
     return HttpResponse("<h1>Delete</h1>")
 
-
+@login_required
 def job_create(request):
     form = JobForm(request.POST or None, request.FILES or None)
     if form.is_valid():

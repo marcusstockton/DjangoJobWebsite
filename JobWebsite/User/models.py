@@ -8,7 +8,6 @@ import uuid
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     birth_date = models.DateField(null=True, blank=True, auto_now_add=False)
-    attachment = models.ForeignKey(Attachment, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.username
 
