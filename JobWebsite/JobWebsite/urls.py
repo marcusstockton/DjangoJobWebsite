@@ -22,7 +22,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Job.urls', namespace="jobs")), # Loads jobs as first page
+    # Loads jobs as first page
+    path('', include('Job.urls', namespace="jobs")),
     path('attachment/', include('Attachment.urls', namespace="attachments")),
     path('company/', include('Company.urls', namespace="companies")),
     path('user/', include('User.urls', namespace="users")),
@@ -32,7 +33,10 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
     # Allows serving images when clicking on them
-    urlpatterns.append(path('media/(<path>.*)', serve, {'document_root': settings.MEDIA_ROOT}))
+    urlpatterns.append(path('media/(<path>.*)', serve,
+                            {'document_root': settings.MEDIA_ROOT}))

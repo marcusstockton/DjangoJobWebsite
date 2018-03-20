@@ -9,7 +9,8 @@ from .models import Job
 
 
 def job_list(request):
-    queryset_list = Job.objects.all().order_by('-publish').exclude(publish__gt=datetime.datetime.now())
+    queryset_list = Job.objects.all().order_by(
+        '-publish').exclude(publish__gt=datetime.datetime.now())
 
     context = {
         "title": "List",
@@ -25,6 +26,7 @@ def job_detail(request, pk=None):
         "instance": instance
     }
     return render(request, "jobs/detail.html", context)
+
 
 @login_required
 def job_edit(request, pk=None):
@@ -46,6 +48,7 @@ def job_edit(request, pk=None):
     }
     return render(request, "jobs/edit.html", context)
 
+
 @login_required
 def job_delete(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
@@ -54,6 +57,7 @@ def job_delete(request, pk=None):
     return redirect("jobs:list")
 
     return HttpResponse("<h1>Delete</h1>")
+
 
 @login_required
 def job_create(request):

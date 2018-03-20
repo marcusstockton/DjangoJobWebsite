@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.db.transaction import atomic
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 
 from Address.models import Address
 # Create your views here.
@@ -9,6 +10,7 @@ from .forms import CompanyForm, CompanyEditFormCustom
 from .models import Company
 
 
+@login_required
 def company_create(request):
     form = CompanyForm(request.POST or None, request.FILES or None)
     if form.is_valid():
@@ -23,8 +25,10 @@ def company_create(request):
     return render(request, "company/create.html", context)
 
 
+@login_required
 def company_detail(request, pk=None):
-    instance = get_object_or_404(Company.objects.select_related('address'), pk=pk)
+    instance = get_object_or_404(
+        Company.objects.select_related('address'), pk=pk)
     context = {
         "title": instance.company_name,
         "instance": instance
@@ -32,17 +36,19 @@ def company_detail(request, pk=None):
     return render(request, "company/detail.html", context)
 
 
+@login_required
 def company_list(request):
     queryset_list = Company.objects.all()
 
     context = {
         "title": "List",
         "object_list": queryset_list
-     }
+    }
     return render(request, "company/index.html", context)
 
 
-def company_edit(request, pk=None):	
+@login_required
+def company_edit(request, pk=None):
     instance = get_object_or_404(Company.objects.select_related(), pk=pk)
 
     data_dict = {'company_name': instance.company_name,
@@ -52,7 +58,7 @@ def company_edit(request, pk=None):
                  "post_code": instance.address.post_code,
                  "county": instance.address.county,
                  "country": instance.address.country
-                 }# dto
+                 }  # dto
 
     form = CompanyEditFormCustom(request.POST or None, initial=data_dict)
 
@@ -67,7 +73,7 @@ def company_edit(request, pk=None):
                    "post_code": form.cleaned_data["post_code"],
                    "county": form.cleaned_data["county"],
                    "country": form.cleaned_data["country"]
-        }
+                   }
 
         address_new = Address.objects.get(pk=instance.address_id)
         address_new.address_line_1 = address["address_line_1"]
@@ -93,6 +99,7 @@ def company_edit(request, pk=None):
     return render(request, "company/edit.html", context)
 
 
+@login_required
 def company_delete(request, pk=None):
     instance = get_object_or_404(Company, pk=pk)
     instance.delete()
