@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-app_name="attachments"
+app_name = "attachments"
 urlpatterns = [
     path('', views.attachment_list, name='index'),
     path('<uuid:pk>/', views.DetailView, name='detail'),
