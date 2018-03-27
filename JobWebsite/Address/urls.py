@@ -7,7 +7,7 @@ from .views import (
 	address_edit,
 	address_delete
 )
-app_name="addresses"
+app_name = "addresses"
 urlpatterns = [
     path('', address_list, name='index'),
     path('create/', address_create, name='create'),

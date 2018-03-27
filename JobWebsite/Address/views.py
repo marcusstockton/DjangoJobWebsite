@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import AddressForm
 from .models import Address
 
+
 @login_required
 def address_list(request):
     """ Method that returns all addresses """

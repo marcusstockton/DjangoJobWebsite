@@ -8,7 +8,7 @@ from .views import (
 	company_delete
 )
 
-app_name="company"
+app_name = "company"
 urlpatterns = [
     path('', company_list, name='index'),
     path('create/', company_create, name='create'),

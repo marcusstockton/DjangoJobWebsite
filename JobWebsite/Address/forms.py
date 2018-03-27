@@ -9,7 +9,9 @@ COMPANY_TYPE = (
 
 
 class AddressForm(forms.ModelForm):
-	address_type = forms.ChoiceField(required=True, widget=forms.Select, choices=COMPANY_TYPE)
+	address_type = forms.ChoiceField(
+		required=True, widget=forms.Select, choices=COMPANY_TYPE)
+
 	class Meta:
 		model = Address
 		fields = [

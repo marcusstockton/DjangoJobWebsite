@@ -11,6 +11,7 @@ class CompanyForm(forms.ModelForm):
         ]
         localized_fields = "__all__"
 
+
 COMPANY_TYPE = (
     ('Res', 'Residential'),
     ('Bus', 'Business'),
@@ -18,7 +19,8 @@ COMPANY_TYPE = (
 
 
 class CompanyEditForm(forms.ModelForm):
-    address_type = forms.ChoiceField(required=True, widget=forms.Select, choices=COMPANY_TYPE)
+    address_type = forms.ChoiceField(
+        required=True, widget=forms.Select, choices=COMPANY_TYPE)
 
     class Meta:
         model = Company
@@ -26,6 +28,7 @@ class CompanyEditForm(forms.ModelForm):
             "company_name",
             "address",
         ]
+
 
 class CompanyEditFormCustom(forms.Form):
     company_name = forms.CharField()

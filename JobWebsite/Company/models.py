@@ -13,4 +13,4 @@ class Company(models.Model):
 			return self.company_name
 
 	def get_absolute_url(self):
-		return reverse("companies:detail", kwargs = { "pk": self.pk })
+		return reverse("companies:detail", kwargs={"pk": self.pk})

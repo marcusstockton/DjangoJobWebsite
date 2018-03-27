@@ -45,6 +45,7 @@ class UserForm(ModelForm):
             "birth_date": SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
         }
 
+
 class UserLoginForm(ModelForm):
     class Meta:
         model = User
