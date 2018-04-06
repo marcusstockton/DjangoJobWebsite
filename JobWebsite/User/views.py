@@ -10,7 +10,9 @@ from .models import User
 
 @login_required
 def user_list(request):
-    queryset_list = User.objects.select_related()
+    queryset_list = User.objects.order_by('-last_login')
+    # TODO: some sort of join query to get attachments out
+    
 
     context = {
         "title": "List",
@@ -21,11 +23,11 @@ def user_list(request):
 
 @login_required
 def user_detail(request, pk=None):
-    instance = get_object_or_404(User.objects.select_related(), pk=pk)
+    instance = get_object_or_404(User, pk=pk)
     try:
         attachment = Attachment.objects.get(User_id=pk)
     except Attachment.DoesNotExist:
-        attachment = Attachment  # send up an empty attachment object
+        attachment = Attachment()  # send up an empty attachment object
     context = {
         "title": instance.username,
         "user": instance,
@@ -36,22 +38,34 @@ def user_detail(request, pk=None):
 
 @login_required
 def user_edit(request, pk=None):
-    instance = get_object_or_404(User.objects.select_related(), pk=pk)
+    instance = get_object_or_404(User, pk=pk)
     form = UserForm(request.POST or None,
                     request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
 
         if request.FILES is not None and len(request.FILES) > 0:
-            attachments = Attachment.objects.get(id=instance.attachment_id)
-            if form.cleaned_data['avatar']:
-                attachments.avatar.delete()
-                attachments.avatar = form.cleaned_data['avatar']
-            if form.cleaned_data['cv']:
-                attachments.cv.delete()
-                attachments.cv = form.cleaned_data['cv']
-            if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
-                attachments.save()
+            try:
+                attachments = Attachment.objects.get(User_id = pk)
+                if attachments:
+                    if form.cleaned_data['avatar']:
+                        attachments.avatar.delete()
+                        attachments.avatar = form.cleaned_data['avatar']
+                    if form.cleaned_data['cv']:
+                        attachments.cv.delete()
+                        attachments.cv = form.cleaned_data['cv']
+                    if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
+                        attachments.save()
+            except Attachment.DoesNotExist:
+                attachments = Attachment()
+                attachments.User_id = pk
+                if form.cleaned_data['avatar']:
+                    attachments.avatar = form.cleaned_data['avatar']
+                if form.cleaned_data['cv']:
+                    attachments.cv = form.cleaned_data['cv']
+                if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
+                    attachments.save()
+        
 
         instance.save()
         messages.success(request, "Successfully Updated")
