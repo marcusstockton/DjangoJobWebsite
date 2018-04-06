@@ -10,8 +10,8 @@
 <h4>DoB: {{user.birth_date}}</h4>
 <h4>Date Joined: {{user.date_joined}}</h4>
 <h4>Last Login: {{user.last_login}}</h4>
-{% if user.attachment.avatar %}
-    <img src="{{user.attachment.avatar.url}}" class="img-thumbnail" height="128px" />
+{% if attachment.avatar %}
+    <img src="{{attachment.avatar.url}}" class="img-thumbnail" style="height:123px" />
 {% endif %}
 {% if error_message %}
 <p>

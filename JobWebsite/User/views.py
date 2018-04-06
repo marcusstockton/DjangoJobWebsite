@@ -21,10 +21,15 @@ def user_list(request):
 
 @login_required
 def user_detail(request, pk=None):
-    user = get_object_or_404(User.objects.select_related(), pk=pk)
+    instance = get_object_or_404(User.objects.select_related(), pk=pk)
+    try:
+        attachment = Attachment.objects.get(User_id=pk)
+    except Attachment.DoesNotExist:
+        attachment = Attachment  # send up an empty attachment object
     context = {
-        "title": user.username,
-        "user": user,
+        "title": instance.username,
+        "user": instance,
+        "attachment": attachment
     }
     return render(request, "users/detail.html", context)
 
