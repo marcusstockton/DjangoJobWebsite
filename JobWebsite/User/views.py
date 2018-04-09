@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from Attachment.models import Attachment
 from .forms import UserForm, CustomUserCreationForm
@@ -12,6 +13,10 @@ from .models import User
 @login_required
 def user_list(request):
     queryset_list = User.objects.order_by('-last_login')
+    query = request.GET.get('q')
+    if query:
+        queryset_list = queryset_list.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+        
     # TODO: some sort of join query to get attachments out
     paginator = Paginator(queryset_list, 10)  # Show 10 contacts per page
     page = request.GET.get('page')

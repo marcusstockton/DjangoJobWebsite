@@ -4,12 +4,10 @@
             <a href="?page=1">&laquo; first</a>
             <a href="?page={{ content.previous_page_number }}">previous</a>
         {% endif %}
-
-        <span class="current">
-            Page {{ content.number }} of {{ content.paginator.num_pages }}.
-        </span>
-
         {% if content.has_next %}
+            <span class="current">
+                Page {{ content.number }} of {{ content.paginator.num_pages }}.            
+            </span>
             <a href="?page={{ content.next_page_number }}">Next</a>
             <a href="?page={{ content.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
