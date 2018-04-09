@@ -25,21 +25,5 @@
 <div>
     <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
 </div>
-<div class="pagination">
-    <span class="step-links">
-        {% if users_list.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ users_list.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ users_list.number }} of {{ users_list.paginator.num_pages }}.
-        </span>
-
-        {% if users_list.has_next %}
-            <a href="?page={{ users_list.next_page_number }}">Next</a>
-            <a href="?page={{ users_list.paginator.num_pages }}">Last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+{% include "snippets/paginator.html" with content=users_list  %}
 {% endblock content %}

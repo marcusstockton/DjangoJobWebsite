@@ -13,7 +13,7 @@ from .models import User
 def user_list(request):
     queryset_list = User.objects.order_by('-last_login')
     # TODO: some sort of join query to get attachments out
-    paginator = Paginator(queryset_list,10) # Show 10 contacts per page
+    paginator = Paginator(queryset_list, 10)  # Show 10 contacts per page
     page = request.GET.get('page')
     context = {
         "title": "List",
@@ -47,7 +47,7 @@ def user_edit(request, pk=None):
 
         if request.FILES is not None and len(request.FILES) > 0:
             try:
-                attachments = Attachment.objects.get(User_id = pk)
+                attachments = Attachment.objects.get(User_id=pk)
                 if attachments:
                     if form.cleaned_data['avatar']:
                         attachments.avatar.delete()
@@ -66,7 +66,6 @@ def user_edit(request, pk=None):
                     attachments.cv = form.cleaned_data['cv']
                 if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
                     attachments.save()
-        
 
         instance.save()
         messages.success(request, "Successfully Updated")
