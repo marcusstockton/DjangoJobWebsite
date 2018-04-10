@@ -19,11 +19,11 @@
                 <li>First Name: {{user.first_name}}</li>
                 <li>Last Name: {{user.last_name}}</li>
                 <li>Email: {{user.email}}</li>
-                {% for image in user.attachment_set.all %}
-                    {% if image.avatar %}
-                        <img src="{{image.avatar.url}}" style="height: 100px;" class="image-responsive img-thumbnail" />
+                {% if user.attachment %}
+                    {% if user.attachment.avatar %}
+                        <img src="{{user.attachment.avatar.url}}" style="height: 100px;" class="image-responsive img-thumbnail" />
                     {% endif %}
-                {% endfor %}
+                {% endif %}
                 <hr>
             {% endfor %}
         </ul>
