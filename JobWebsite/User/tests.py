@@ -17,11 +17,19 @@ class UserTestCase(TestCase):
                                  email='mstockton@test.com', password='12345')
         User.objects.create_user(
             username="Test", email='test@test.com', password='12345')
-        show_sql()
+        # show_sql()
 
     def test_users_can_log_in(self):
         c = Client()
         c.login(username='mstockton', password='12345')
         response = c.get('/')
         self.assertEqual(str(response.context['user']), 'mstockton')
-        show_sql()
+        # show_sql()
+
+    def test_user_can_log_out(self):
+        # Write tests in here
+        c = Client()
+        c.logout()
+        response = c.get('/')
+        self.assertEqual(str(response.context['user']), 'AnonymousUser')
+        # show_sql()
