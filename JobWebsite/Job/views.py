@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from .forms import JobForm
 from .models import Job
 
@@ -12,9 +13,12 @@ def job_list(request):
     queryset_list = Job.objects.all().order_by(
         '-publish').exclude(publish__gt=datetime.datetime.now())
 
+    paginator = Paginator(queryset_list, 10)  # Show 10 contacts per page
+    page = request.GET.get('page')
+
     context = {
         "title": "List",
-        "object_list": queryset_list,
+        "object_list": paginator.get_page(page),
     }
     return render(request, "jobs/index.html", context)
 

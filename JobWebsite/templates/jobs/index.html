@@ -17,4 +17,6 @@
 	    <p>No jobs are available.</p>
 	{% endif %}
 	<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create</a>
+
+	{% include "snippets/paginator.html" with content=object_list  %}
 {% endblock content %}
