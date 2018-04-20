@@ -10,7 +10,7 @@ from .models import Address
 @login_required
 def address_list(request):
     """ Method that returns all addresses """
-    queryset_list = Address.objects.all()
+    queryset_list = Address.objects.select_related('address_type').all()
 
     context = {
         "title": "List",

@@ -3,7 +3,7 @@
 {% block content %} 
 {% if attachments %} 
 {% for attachment in attachments %}
-<div class="panel panel-default col-md-sm-12">
+<div class="panel panel-default col-sm-5 col-sm-offset-1">
 	<div class="panel-body">
 		<a href="{% url 'attachments:detail' attachment.id %}" target="_blank">{{ attachment.file_name }}</a>
 		<span class=col-md-3>
@@ -12,9 +12,6 @@
 					<a href="{{ MEDIA_URL }}{{attachment.avatar}}">
 						<img class="media-object" src="{{ MEDIA_URL }}{{attachment.avatar}}" style="max-height:64px;">
 					</a>
-				</div>
-				<div class="media-body">
-					<h4 class="media-heading">Avatar</h4>
 				</div>
 			</div>
 		</span>
