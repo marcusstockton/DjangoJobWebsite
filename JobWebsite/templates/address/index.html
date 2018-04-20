@@ -2,14 +2,33 @@
 {% block title %}Address List{% endblock title %}
 {% block content %}
 {% if object_list %}
-    <ul>
-    {% for address in object_list %}
-    	<a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
-        <hr>
-    {% endfor %}
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Address</th>
+                <th scope="col">County</th>
+                <th scope="col">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for address in object_list %}
+            <tr>
+                <th scope="row">{{address.id}}</th>
+                <td>
+                    <a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
+                </td>
+                <td>{{address.county}}</td>
+                <td>{{address.address_type}}</td>
+            </tr>
+            <tr>
+                {% endfor %}
+        </tbody>
+    </table>
 {% else %}
     <p>No Addresses are available.</p>
 {% endif %}
-	<a href="{% url 'addresses:create'%}" class="btn btn-primary">Create</a>
+<div class="footer">
+    <a href="{% url 'addresses:create'%}" class="btn btn-primary">Create</a>
+</div>
 {% endblock content %}
