@@ -219,6 +219,4 @@ pip-log.txt
 *.pyc
 *.xml
 
-launch.json
-.vscode/settings.json
-.vscode/launch.json
+JobWebsite/.vscode/launch.json
