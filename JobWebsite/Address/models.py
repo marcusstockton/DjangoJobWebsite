@@ -4,7 +4,7 @@ import uuid
 
 
 class Address(models.Model):
-	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 	address_type = models.ForeignKey('AddressType', on_delete=models.CASCADE, blank=False, null=False)
 	address_line_1 = models.CharField(max_length=2000)
 	address_line_2 = models.CharField(max_length=50, blank=True, null=True)
@@ -21,7 +21,7 @@ class Address(models.Model):
 
 
 class AddressType(models.Model):
-		id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+		id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 		description = models.CharField(max_length=50)
 		is_active = models.BooleanField(default=True)
 

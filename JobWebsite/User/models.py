@@ -6,7 +6,7 @@ import uuid
 
 
 class User(AbstractUser):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     birth_date = models.DateField(null=True, blank=True, auto_now_add=False)
     attachment = models.ForeignKey(Attachment, null=True, blank=True, on_delete=models.CASCADE)
 
