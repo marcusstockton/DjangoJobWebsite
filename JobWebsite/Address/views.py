@@ -10,7 +10,7 @@ from .models import Address
 @login_required
 def address_list(request):
     """ Method that returns all addresses """
-    queryset_list = Address.objects.select_related('address_type').all()
+    queryset_list = Address.objects.select_related('address_type').filter(address_type__is_active=True)
 
     context = {
         "title": "List",
@@ -33,8 +33,8 @@ def address_detail(request, pk=None):
 @login_required
 def address_edit(request, pk=None):
     """ Method for editing an address """
-    instance = get_object_or_404(Address, pk=pk)
-
+    instance = get_object_or_404(Address.objects.select_related('address_type').filter(address_type__is_active=True).all(), pk=pk)
+    
     # instance means the form data will be populated
     form = AddressForm(request.POST or None, instance=instance)
     if form.is_valid():

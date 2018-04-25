@@ -1,17 +1,9 @@
 from django import forms
 
-from .models import Address
-
-# COMPANY_TYPE = (
-#     ('Res', 'Residential'),
-#     ('Bus', 'Business'),
-# )
+from .models import Address, AddressType
 
 
 class AddressForm(forms.ModelForm):
-	# address_type = forms.ChoiceField(
-	# 	required=True, widget=forms.Select, choices=COMPANY_TYPE)
-
 	class Meta:
 		model = Address
 		fields = [
@@ -24,3 +16,7 @@ class AddressForm(forms.ModelForm):
 			"country"
 		]
 		localized_fields = "__all__"
+
+	def __init__(self, user, *args, **kwargs):
+		super(AddressForm, self).__init__(*args, **kwargs)
+		self.fields['address_type'].queryset = AddressType.objects.filter(is_active=True) # Limit select list to active options
