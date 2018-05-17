@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import AddressForm
 from .models import Address
+import urllib.request, json
 
 
 @login_required
@@ -66,13 +67,17 @@ def address_delete(request, pk=None):
 @login_required
 def address_create(request):
     """ Method for creating a new address """
-    form = AddressForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        instance = form.save(commit=False)
-        instance.user = request.user
-        instance.save()
-        messages.success(request, "Sucessfully Created")
-        return HttpResponseRedirect(instance.get_absolute_url())
+    if request.method == "POST":
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            messages.success(request, "Sucessfully Created")
+            return HttpResponseRedirect(instance.get_absolute_url())
+    else:
+        form = AddressForm()
+        
     context = {
         "form": form,
     }

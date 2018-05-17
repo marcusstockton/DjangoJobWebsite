@@ -5,9 +5,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from .forms import JobForm
+from .forms import JobForm, JobApplyForm
 from .models import Job
-
+from Attachment.models import Attachment
 
 def job_list(request):
     queryset_list = Job.objects.all().order_by(
@@ -77,3 +77,26 @@ def job_create(request):
         "form": form,
     }
     return render(request, "jobs/create.html", context)
+
+@login_required
+def job_apply(request, pk=None):
+    instance = get_object_or_404(Job, pk=pk)
+    current_user = request.user
+    current_attachment = Attachment.objects.get(User_id=current_user.id)
+    if request.method == 'POST':
+        form = JobApplyForm(request.POST or None)
+        if form.is_valid():
+            # process Form
+            messages.success(request, "Sucessfully Created")
+            return HttpResponseRedirect("jobs/index.html")
+    else:
+        form = JobApplyForm(initial={
+            'job_title': instance.title,
+            'current_attachment': current_attachment.cv,
+            'user_email_address': current_user.email
+            })
+    context = {
+        "form": form,
+    }
+    print(form)
+    return render(request, "jobs/apply.html", context)

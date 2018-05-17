@@ -4,6 +4,14 @@
 {% block content %}
 <div>
 	<h1>Form</h1>
+	{% if form.errors %}
+		{% for field in form %}
+			{% for error in field.errors %}
+				<p> {{ errors }} </p>
+			{% endfor %}
+		{% endfor %}
+	{% endif %}
+
 	<form method="POST" action="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form | crispy }}

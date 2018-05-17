@@ -5,7 +5,8 @@ from .views import (
 	job_create,
 	job_detail,
 	job_edit,
-	job_delete
+	job_delete,
+    job_apply
 )
 app_name = 'jobs'
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     path('<uuid:pk>/', job_detail, name='detail'),
     path('<uuid:pk>/edit/', job_edit, name='edit'),
     path('<uuid:pk>/delete/', job_delete, name='delete'),
+    path('<uuid:pk>/apply/', job_apply, name='apply'),
 ]

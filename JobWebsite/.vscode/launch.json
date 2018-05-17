@@ -71,8 +71,8 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceRoot}/manage.py",
+            "pythonPath": "C:/Users/u6065379/Documents/Venvs/Python364/Scripts/python.exe",
+            "program": "${workspaceRoot}/JobWebsite/manage.py",
             "cwd": "${workspaceRoot}",
             "args": [
                 "runserver",

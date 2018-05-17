@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Apply for Job{% endblock title %}
+{% block content %}
+
+<h1>Apply form</h1>
+
+{{ form | crispy }}
+
+{% endblock content %}

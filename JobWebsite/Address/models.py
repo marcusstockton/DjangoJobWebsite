@@ -11,7 +11,7 @@ class Address(models.Model):
 	address_line_3 = models.CharField(max_length=50, blank=True, null=True)
 	post_code = models.CharField(max_length=10)
 	county = models.CharField(max_length=20)
-	country = models.CharField(max_length=20)
+	country = models.CharField(max_length=40)
 
 	def __str__(self):
 		return self.address_line_1

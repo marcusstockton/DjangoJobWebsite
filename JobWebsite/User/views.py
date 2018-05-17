@@ -15,116 +15,117 @@ from operator import attrgetter
 
 @login_required
 def user_list(request):
-    user_list = User.objects.filter(is_active = True).select_related('attachment').order_by('-last_login')
+	user_list = User.objects.filter(is_active = True).select_related('attachment').order_by('-last_login')
 
-    query = request.GET.get('q')
-    if query:
-        user_list = user_list.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+	query = request.GET.get('q')
+	if query:
+		user_list = user_list.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
 
-    paginator = Paginator(user_list, 10)  # Show 10 contacts per page
-    user_list.prefetch_related(None)
-    page = request.GET.get('page')
-    context = {
-        "title": "List",
-        "users_list": paginator.get_page(page),
-    }
-    return render(request, "users/index.html", context)
+	paginator = Paginator(user_list, 10)  # Show 10 contacts per page
+	user_list.prefetch_related(None)
+	page = request.GET.get('page')
+	context = {
+		"title": "List",
+		"users_list": paginator.get_page(page),
+	}
+	return render(request, "users/index.html", context)
 
 
 @login_required
 def user_detail(request, pk=None):
-    instance = get_object_or_404(User, pk=pk)
-    try:
-        attachment = Attachment.objects.get(User_id=pk)
-    except Attachment.DoesNotExist:
-        attachment = Attachment()  # send up an empty attachment object
-    context = {
-        "title": instance.username,
-        "user": instance,
-        "attachment": attachment
-    }
-    return render(request, "users/detail.html", context)
+	instance = get_object_or_404(User, pk=pk)
+	try:
+		attachment = Attachment.objects.get(User_id=pk)
+	except Attachment.DoesNotExist:
+		attachment = Attachment()  # send up an empty attachment object
+	context = {
+		"title": instance.username,
+		"user": instance,
+		"attachment": attachment
+	}
+	return render(request, "users/detail.html", context)
 
 
 @login_required
 def user_edit(request, pk=None):
-    instance = get_object_or_404(User, pk=pk)
-    form = UserForm(request.POST or None,
-                    request.FILES or None, instance=instance)
-    if form.is_valid():
-        instance = form.save(commit=False)
+	instance = get_object_or_404(User, pk=pk)
+	form = UserForm(request.POST or None,
+					request.FILES or None, instance=instance)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		
+		if request.FILES is not None and len(request.FILES) > 0:
+			try:
+				attachments = Attachment.objects.get(User_id=pk)
+				if attachments:
+					if form.cleaned_data['avatar']:
+						attachments.avatar.delete()
+						attachments.avatar = form.cleaned_data['avatar']
+					if form.cleaned_data['cv']:
+						attachments.cv.delete()
+						attachments.cv = form.cleaned_data['cv']
+					
+			except Attachment.DoesNotExist:
+				attachments = Attachment()
+				attachments.User_id = pk
+				if form.cleaned_data['avatar']:
+					attachments.avatar = form.cleaned_data['avatar']
+				if form.cleaned_data['cv']:
+					attachments.cv = form.cleaned_data['cv']
+			finally:
+				if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
+						attachments.save()
+						instance.attachment = attachments
+		
+		instance.save()
+		messages.success(request, "Successfully Updated")
 
-        if request.FILES is not None and len(request.FILES) > 0:
-            try:
-                attachments = Attachment.objects.get(User_id=pk)
-                if attachments:
-                    if form.cleaned_data['avatar']:
-                        attachments.avatar.delete()
-                        attachments.avatar = form.cleaned_data['avatar']
-                    if form.cleaned_data['cv']:
-                        attachments.cv.delete()
-                        attachments.cv = form.cleaned_data['cv']
-                    if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
-                        attachments.save()
-            except Attachment.DoesNotExist:
-                attachments = Attachment()
-                attachments.User_id = pk
-                if form.cleaned_data['avatar']:
-                    attachments.avatar = form.cleaned_data['avatar']
-                if form.cleaned_data['cv']:
-                    attachments.cv = form.cleaned_data['cv']
-                if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
-                    attachments.save()
+		return HttpResponseRedirect(instance.get_absolute_url())
 
-        instance.save()
-        messages.success(request, "Successfully Updated")
-
-        return HttpResponseRedirect(instance.get_absolute_url())
-
-    context = {
-        "title": instance.username,
-        "instance": instance,
-        "form": form,
-    }
-    return render(request, "users/edit.html", context)
+	context = {
+		"title": instance.username,
+		"instance": instance,
+		"form": form,
+	}
+	return render(request, "users/edit.html", context)
 
 
 @login_required
 def user_delete(request, pk=None):
-    instance = get_object_or_404(User, pk=pk)
-    instance.delete()
-    messages.success(request, "Sucessfully Deleted")
-    return redirect("users:list")
+	instance = get_object_or_404(User, pk=pk)
+	instance.delete()
+	messages.success(request, "Sucessfully Deleted")
+	return redirect("users:list")
 
 
 @login_required
 def user_create(request):
-    form = CustomUserCreationForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password1']
-        date_of_birth = form.cleaned_data['birth_date']
-        firstname = form.cleaned_data['first_name']
-        lastname = form.cleaned_data['last_name']
-        email = form.cleaned_data['email']
+	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
+	if form.is_valid():
+		username = form.cleaned_data['username']
+		password = form.cleaned_data['password1']
+		date_of_birth = form.cleaned_data['birth_date']
+		firstname = form.cleaned_data['first_name']
+		lastname = form.cleaned_data['last_name']
+		email = form.cleaned_data['email']
 
-        # Now save it all off to the database
-        user = User.objects.create_user(username=username, email=email, password=password,
-                                        first_name=firstname, last_name=lastname,
-                                        birth_date=date_of_birth)
+		# Now save it all off to the database
+		user = User.objects.create_user(username=username, email=email, password=password,
+										first_name=firstname, last_name=lastname,
+										birth_date=date_of_birth)
 
-        # Save the files off:
-        if request.FILES is not None:
-            att = Attachment.objects.create(
-                avatar=request.FILES['avatar'] if 'avatar' in request.FILES else None,
-                cv=request.FILES['cv'] if 'cv' in request.FILES else None,
-                User=user)
+		# Save the files off:
+		if request.FILES is not None:
+			att = Attachment.objects.create(
+				avatar=request.FILES['avatar'] if 'avatar' in request.FILES else None,
+				cv=request.FILES['cv'] if 'cv' in request.FILES else None,
+				User=user)
 
-        user.save()
-        att.save()
+		user.save()
+		att.save()
 
-        return HttpResponseRedirect(user.get_absolute_url())
-    context = {
-        "form": form,
-    }
-    return render(request, "users/create.html", context)
+		return HttpResponseRedirect(user.get_absolute_url())
+	context = {
+		"form": form,
+	}
+	return render(request, "users/create.html", context)
