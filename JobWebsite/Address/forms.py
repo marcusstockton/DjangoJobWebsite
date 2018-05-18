@@ -51,5 +51,6 @@ class AddressForm(forms.ModelForm):
 	
 	def clean_country(self):
 		country = self.cleaned_data['country']
+		print(country)
 		return country
 

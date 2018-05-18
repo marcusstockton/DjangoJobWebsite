@@ -8,6 +8,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Address</th>
                 <th scope="col">County</th>
+                <th scope="col">Country</th>
                 <th scope="col">Type</th>
             </tr>
         </thead>
@@ -19,6 +20,7 @@
                     <a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
                 </td>
                 <td>{{address.county}}</td>
+                <td>{{address.country}}</td>
                 <td>{{address.address_type}}</td>
             </tr>
             <tr>

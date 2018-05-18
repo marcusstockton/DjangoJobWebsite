@@ -154,5 +154,6 @@ STATICFILES_FINDERS = (
 )
 BOWER_INSTALLED_APPS = (
     'jquery',
-    'jquery-ui'
+    'jquery-ui',
+    'bootstrap#3.3.7'
 )
