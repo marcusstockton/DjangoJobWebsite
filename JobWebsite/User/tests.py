@@ -33,3 +33,11 @@ class UserTestCase(TestCase):
         response = c.get('/')
         self.assertEqual(str(response.context['user']), 'AnonymousUser')
         # show_sql()
+        
+    def test_error_when_creating_user_with_invalid_data(self):
+        User.objects.create_user(username="failingUser")
+        user = User.objects.get(username="failingUser")
+        # If no password is provided, set_unusable_password() will be called.
+        # has_usable_password()
+        # Returns False if set_unusable_password() has been called for this user.
+        self.assertFalse(user.has_usable_password())

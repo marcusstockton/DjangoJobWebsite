@@ -2,30 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f1e4faf-7732-4606-9af8-bdb565ab8e3c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DjangoJobWebsite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DjangoJobWebsite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/.vscode/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobWebsite/Address/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Address/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/Address/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Address/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/Attachment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Attachment/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Address/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Address/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Job/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Job/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobWebsite/Job/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Job/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/Job/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Job/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Job/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Job/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobWebsite/Job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Job/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/User/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/User/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/User/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/User/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/JobWebsite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/JobWebsite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/User/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/User/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/User/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/User/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JobWebsite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/mstockton/Everyday_Notes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/media_cdn/mstockton/modelcv.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/address/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/templates/address/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/jobs/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/templates/jobs/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/users/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/templates/users/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JobWebsite/templates/jobs/apply.html" beforeDir="false" afterPath="$PROJECT_DIR$/JobWebsite/templates/jobs/apply.html" afterDir="false" />
     </list>
     <ignored path="DjangoJobWebsite.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,25 +31,46 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="878153334">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="DjangoJobWebsite" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="-1140">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Venvs/Python364/Lib/site-packages/django/forms/forms.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JobWebsite/JobWebsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="178" selection-start-line="178" selection-end-line="178" />
+            <state relative-caret-position="49">
+              <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -100,25 +118,6 @@
     <option name="width" value="937" />
     <option name="height" value="867" />
   </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Python</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>PyCompatibilityInspection</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -141,13 +140,7 @@
               <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
               <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
               <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="Address" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DjangoJobWebsite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DjangoJobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
-              <item name="JobWebsite" type="462c0819:PsiDirectoryNode" />
+              <item name="Job" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -180,42 +173,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Python" type="PythonConfigurationType" factoryName="Python">
-      <module name="DjangoJobWebsite" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/JobWebsite" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/JobWebsite/manage.py" />
-      <option name="PARAMETERS" value="runserver" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="DjangoJobWebsite" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\MarcusS\Envs\3.5.2_32Bit\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/JobWebsite" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/JobWebsite/manage.py" />
-      <option name="PARAMETERS" value="runserver" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -235,6 +192,48 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration name="Python" type="PythonConfigurationType" factoryName="Python">
+      <module name="DjangoJobWebsite" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/JobWebsite" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/JobWebsite/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="DjangoJobWebsite" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\MarcusS\Envs\3.5.2_32Bit\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/JobWebsite" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/JobWebsite/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
       <module name="DjangoJobWebsite" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -248,6 +247,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="DjangoJobWebsite" />
@@ -261,6 +261,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <module name="DjangoJobWebsite" />
@@ -275,6 +276,7 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -477,46 +479,47 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49130434" visible="true" weight="0.12927757" />
-      <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.49746513" weight="0.32972974" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.26425856" side_tool="true" visible="true" weight="0.37834224" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.5887199" weight="0.3275401" />
-      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.5912548" weight="0.3275401" />
-      <window_info anchor="bottom" id="Python Console" order="3" sideWeight="0.48732573" weight="0.32702702" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.24968314" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.6590621" weight="0.31016043" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.73574144" weight="0.37834224" />
       <window_info id="Favorites" order="0" sideWeight="0.50869566" side_tool="true" weight="0.12927757" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49130434" visible="true" weight="0.12927757" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.24968314" />
+      <window_info anchor="bottom" id="Messages" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.26489228" side_tool="true" visible="true" weight="0.32446808" />
+      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.6032953" weight="0.26737967" />
+      <window_info anchor="bottom" id="Python Console" order="3" sideWeight="0.48542458" weight="0.32446808" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.6590621" weight="0.31016043" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.5887199" weight="0.3275401" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.7351077" weight="0.3776596" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" sideWeight="0.49746513" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="bottom" id="Messages" order="0" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32974428" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="Project" order="1" visible="true" weight="0.21649484" />
       <window_info id="Structure" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="11" weight="0.32974428" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.32898173" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32974428" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.76625" visible="true" weight="0.3841962" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.489375" weight="0.31331593" />
+      <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.23375" side_tool="true" weight="0.3851175" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4975" weight="0.32898173" />
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Messages" order="0" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.32898173" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.489375" weight="0.31331593" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.32898173" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.76625" visible="true" weight="0.3841962" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32974428" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -573,7 +576,6 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="71" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -591,7 +593,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Envs/3.5.2_32Bit/Lib/site-packages/django/utils/deprecation.py" />
     <entry file="file://$USER_HOME$/Envs/3.5.2_32Bit/Lib/site-packages/django/core/handlers/wsgi.py" />
     <entry file="file://$PROJECT_DIR$/JobWebsite/Attachment/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -772,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JobWebsite/templates/users/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -898,17 +892,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Venvs/Python364/Lib/site-packages/django/forms/forms.py">
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
+        <state relative-caret-position="347">
+          <caret line="81" column="21" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JobWebsite/Address/views.py">
+    <entry file="file://$USER_HOME$/Venvs/Python364/Lib/site-packages/django/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="2873">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/Job/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1140">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JobWebsite/JobWebsite/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>

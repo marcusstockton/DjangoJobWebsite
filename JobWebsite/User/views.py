@@ -12,14 +12,15 @@ from itertools import chain
 from operator import attrgetter
 
 
-
 @login_required
 def user_list(request):
-	user_list = User.objects.filter(is_active = True).select_related('attachment').order_by('-last_login')
+	user_list = User.objects.filter(is_active=True).select_related(
+		'attachment').order_by('-last_login')
 
 	query = request.GET.get('q')
 	if query:
-		user_list = user_list.filter(Q(first_name__icontains=query) | Q(last_name__icontains=query))
+		user_list = user_list.filter(
+			Q(first_name__icontains=query) | Q(last_name__icontains=query))
 
 	paginator = Paginator(user_list, 10)  # Show 10 contacts per page
 	user_list.prefetch_related(None)
@@ -50,10 +51,10 @@ def user_detail(request, pk=None):
 def user_edit(request, pk=None):
 	instance = get_object_or_404(User, pk=pk)
 	form = UserForm(request.POST or None,
-					request.FILES or None, instance=instance)
+                 request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
-		
+
 		if request.FILES is not None and len(request.FILES) > 0:
 			try:
 				attachments = Attachment.objects.get(User_id=pk)
@@ -64,7 +65,7 @@ def user_edit(request, pk=None):
 					if form.cleaned_data['cv']:
 						attachments.cv.delete()
 						attachments.cv = form.cleaned_data['cv']
-					
+
 			except Attachment.DoesNotExist:
 				attachments = Attachment()
 				attachments.User_id = pk
@@ -76,7 +77,7 @@ def user_edit(request, pk=None):
 				if form.cleaned_data['avatar'] or form.cleaned_data['cv']:
 						attachments.save()
 						instance.attachment = attachments
-		
+
 		instance.save()
 		messages.success(request, "Successfully Updated")
 
@@ -111,8 +112,8 @@ def user_create(request):
 
 		# Now save it all off to the database
 		user = User.objects.create_user(username=username, email=email, password=password,
-										first_name=firstname, last_name=lastname,
-										birth_date=date_of_birth)
+                                  first_name=firstname, last_name=lastname,
+                                  birth_date=date_of_birth)
 
 		# Save the files off:
 		if request.FILES is not None:

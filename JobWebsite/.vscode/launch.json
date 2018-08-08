@@ -72,7 +72,7 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "C:/Users/u6065379/Documents/Venvs/Python364/Scripts/python.exe",
-            "program": "${workspaceRoot}/JobWebsite/manage.py",
+            "program": "C:/Users/u6065379/Dropbox/PythonProjects/Django/DjangoJobWebsite/JobWebsite/manage.py",
             "cwd": "${workspaceRoot}",
             "args": [
                 "runserver",

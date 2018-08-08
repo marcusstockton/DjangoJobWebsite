@@ -19,8 +19,10 @@ class JobTestCase(TestCase):
     def test_jobs_created_sucessfully(self):
         job1 = Job.objects.get(title='Test')
         job2 = Job.objects.get(title='Test2')
-        self.assertTrue(job1.title == 'Test', "Job 1's title is {0} instead of {1}".format(
-            job1.title, 'Test'))  # only displays msg on failure
+        self.assertTrue(job1.title == 'Test',
+                        # only displays msg on failure
+                        "Job 1's title is {0} instead of {1}"
+                        .format(job1.title, 'Test'))
         self.assertIsNotNone(job2)
 
     def tearDown(self):

@@ -1,11 +1,11 @@
 from django.urls import path
 
 from .views import (
-	job_list,
-	job_create,
-	job_detail,
-	job_edit,
-	job_delete,
+    job_list,
+    job_create,
+    job_detail,
+    job_edit,
+    job_delete,
     job_apply
 )
 app_name = 'jobs'

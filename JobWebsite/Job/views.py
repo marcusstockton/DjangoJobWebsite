@@ -1,13 +1,13 @@
 import datetime
-
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .forms import JobForm, JobApplyForm
-from .models import Job
-from Attachment.models import Attachment
+from .models import Job, JobApplication
+from Attachment.models import Attachment as attachment
+
 
 def job_list(request):
     queryset_list = Job.objects.all().order_by(
@@ -78,25 +78,34 @@ def job_create(request):
     }
     return render(request, "jobs/create.html", context)
 
+
 @login_required
 def job_apply(request, pk=None):
-    instance = get_object_or_404(Job, pk=pk)
+    job = get_object_or_404(Job, pk=pk)
     current_user = request.user
-    current_attachment = Attachment.objects.get(User_id=current_user.id)
+    current_attachment = attachment.objects.get(User_id=current_user.id)
     if request.method == 'POST':
-        form = JobApplyForm(request.POST or None)
+        form = JobApplyForm(request.POST)
         if form.is_valid():
             # process Form
+            model = JobApplication
+            model.applicant = current_user
+            model.applicant_cv = request.FILES['attachment']
+            model.job = job
+            model.timestamp = datetime.datetime.now()
+            model.job_owner = job.created_by
+            model.save()
+
             messages.success(request, "Sucessfully Created")
             return HttpResponseRedirect("jobs/index.html")
     else:
         form = JobApplyForm(initial={
-            'job_title': instance.title,
+            'job_title': job.title,
             'current_attachment': current_attachment.cv,
             'user_email_address': current_user.email
-            })
+        })
     context = {
         "form": form,
     }
-    print(form)
+
     return render(request, "jobs/apply.html", context)
