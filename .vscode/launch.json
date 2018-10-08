@@ -6,19 +6,19 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "C:/Users/MarcusS/Venvs/Python364/Scripts/python.exe",
+            "pythonPath": "C:/Users/u6065379/Documents/Venvs/Python37/Scripts/python.exe",
             "program": "${workspaceRoot}\\JobWebsite\\manage.py",
             "cwd": "${workspaceRoot}\\JobWebsite\\",
             "args": [
                 "runserver",
                 "--noreload"
             ],
-            "debugOptions": [
-                "WaitOnAbnormalExit",
-                "WaitOnNormalExit",
-                "RedirectOutput",
-                "DjangoDebugging"
-            ]
+            // "debugOptions": [
+            //     "WaitOnAbnormalExit",
+            //     "WaitOnNormalExit",
+            //     "RedirectOutput",
+            //     "DjangoDebugging"
+            // ]
         },
     ]
 }
