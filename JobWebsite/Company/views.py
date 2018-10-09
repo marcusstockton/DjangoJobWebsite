@@ -1,10 +1,10 @@
-from django.contrib import messages
-from django.db.transaction import atomic
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-
 from Address.models import Address
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.db.transaction import atomic
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+
 # Create your views here.
 from .forms import CompanyForm, CompanyEditFormCustom
 from .models import Company
@@ -66,7 +66,7 @@ def company_edit(request, pk=None):
         for key, value in request.POST.items():
             print(key + ": " + value)
     if form.is_valid():
-        companyname = form.cleaned_data["company_name"]
+        company_name = form.cleaned_data["company_name"]
         address = {"address_line_1": form.cleaned_data["address_line_1"],
                    "address_line_2": form.cleaned_data["address_line_2"],
                    "address_line_3": form.cleaned_data["address_line_3"],
@@ -83,7 +83,7 @@ def company_edit(request, pk=None):
         address_new.county = address["county"]
         address_new.country = address["country"]
 
-        instance.company_name = companyname
+        instance.company_name = company_name
         with atomic():
             instance.save()
             address_new.save()
@@ -105,5 +105,3 @@ def company_delete(request, pk=None):
     instance.delete()
     messages.success(request, "Successfully Deleted")
     return redirect("company:list")
-
-    return HttpResponse("<h1>Delete</h1>")

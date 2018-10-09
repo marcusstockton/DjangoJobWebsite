@@ -1,20 +1,21 @@
 import datetime
+
+from Attachment.forms import AttachmentForm
+from Attachment.models import Attachment as attachment
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+
 from .forms import JobForm, JobApplyForm
 from .models import Job, JobApplication
-from django import forms
-from Attachment.models import Attachment as attachment
-from Attachment.forms import AttachmentForm
 
 
 def job_list(request):
     jobs_applied_for = None
     if request.user.is_authenticated:
-        jobs_applied_for = JobApplication.objects.filter(applicant = request.user).all()
+        jobs_applied_for = JobApplication.objects.filter(applicant=request.user).all()
     
     queryset_list = Job.objects.all().order_by(
         '-publish').exclude(publish__gt=datetime.datetime.now())
@@ -50,7 +51,7 @@ def job_edit(request, pk=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        messages.success(request, "Sucessfully Updated")
+        messages.success(request, "Successfully Updated")
 
         return HttpResponseRedirect(instance.get_absolute_url())
 
@@ -66,7 +67,7 @@ def job_edit(request, pk=None):
 def job_delete(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
     instance.delete()
-    messages.success(request, "Sucessfully Deleted")
+    messages.success(request, "Successfully Deleted")
     return redirect("jobs:list")
 
     return HttpResponse("<h1>Delete</h1>")
@@ -80,7 +81,7 @@ def job_create(request):
         instance.created_by = request.user
         instance.timestamp = datetime.datetime.now()
         instance.save()
-        messages.success(request, "Sucessfully Created")
+        messages.success(request, "Successfully Created")
         return HttpResponseRedirect(instance.get_absolute_url())
     context = {
         "form": form,
@@ -94,10 +95,12 @@ def job_apply(request, pk=None):
     if request.method == 'POST':
         job_form = JobApplyForm(request.POST)
         attachment_form = AttachmentForm(request.POST, request.FILES)
-        if form.is_valid() and attachment_form.is_valid:
+        if job_form.is_valid() and attachment_form.is_valid:
             # process Form
-            
-            messages.success(request, "Sucessfully Created")
+            job_form.save() # throws django.db.utils.IntegrityError: NOT NULL constraint failed: Job_jobapplication.job_owner_id
+            attachment_form.save()
+
+            messages.success(request, "Successfully Applied")
             return HttpResponseRedirect("jobs/index.html")
     else:
         job = get_object_or_404(Job, pk=pk)
@@ -109,6 +112,7 @@ def job_apply(request, pk=None):
             'applicant': applicant
         }
         job_form = JobApplyForm(initial=data)
+
         attachment_data = {
             'avatar': applicant_cv.avatar,
             'cv': applicant_cv.cv

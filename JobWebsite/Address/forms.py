@@ -1,11 +1,12 @@
+import json
+import urllib.request
+
 from django import forms
+
 from .models import Address, AddressType
 
-import urllib.request
-import json
 
-
-def GetCountries():
+def get_countries():
 	url = "http://country.io/names.json"
 	req = urllib.request.Request(url)
 	r = urllib.request.urlopen(req).read()
@@ -31,7 +32,7 @@ class AddressForm(forms.ModelForm):
 		super(AddressForm, self).__init__(*args, **kwargs)
 		self.fields['address_type'].queryset = AddressType.objects.filter(
 			is_active=True)  # Limit select list to active options
-		self.fields['country'] = forms.ChoiceField(choices=GetCountries())
+		self.fields['country'] = forms.ChoiceField(choices=get_countries())
 
 	def clean_address_line_1(self):
 		address_line_1 = self.cleaned_data['address_line_1']

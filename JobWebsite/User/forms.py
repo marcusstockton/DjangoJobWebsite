@@ -1,11 +1,12 @@
 __author__ = 'Marcus Stockton'
-from django import forms
-from .models import User
 from datetime import datetime
 
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.forms.widgets import SelectDateWidget, EmailInput
 from django.forms import ModelForm
+from django.forms.widgets import SelectDateWidget, EmailInput
+
+from .models import User
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -42,7 +43,8 @@ class UserForm(ModelForm):
         ]
         localized_fields = "__all__"
         widgets = {
-            "birth_date": SelectDateWidget(years=range(1900, datetime.now().year), attrs=({'style': 'width: 30%; display: inline-block;'})),
+            "birth_date": SelectDateWidget(years=range(1900, datetime.now().year),
+                                           attrs=({'style': 'width: 30%; display: inline-block;'})),
             "email": EmailInput(),
         }
 

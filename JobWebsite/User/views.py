@@ -1,15 +1,13 @@
+from Attachment.models import Attachment
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.db.models import Q, Prefetch
+from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 
-from Attachment.models import Attachment
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
-from itertools import chain
-from operator import attrgetter
 
 
 @login_required
@@ -50,8 +48,7 @@ def user_detail(request, pk=None):
 @login_required
 def user_edit(request, pk=None):
 	instance = get_object_or_404(User, pk=pk)
-	form = UserForm(request.POST or None,
-                 request.FILES or None, instance=instance)
+	form = UserForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance = form.save(commit=False)
 
@@ -111,9 +108,8 @@ def user_create(request):
 		email = form.cleaned_data['email']
 
 		# Now save it all off to the database
-		user = User.objects.create_user(username=username, email=email, password=password,
-                                  first_name=firstname, last_name=lastname,
-                                  birth_date=date_of_birth)
+		user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
+										last_name=lastname, birth_date=date_of_birth)
 
 		# Save the files off:
 		if request.FILES is not None:
