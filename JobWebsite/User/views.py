@@ -117,7 +117,8 @@ def user_create(request):
 				avatar=request.FILES['avatar'] if 'avatar' in request.FILES else None,
 				cv=request.FILES['cv'] if 'cv' in request.FILES else None,
 				User=user)
-
+			user.attachment = att
+		
 		user.save()
 		att.save()
 

@@ -2,7 +2,10 @@ mstockton
 P@ssword
 
 test@test.com
-P@ssword
+P@ssword1!
+
+bluefrog786
+P@ssword1!
 
 TODO:
 Limit the FK address Types returned to only be for active address types

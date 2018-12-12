@@ -91,37 +91,27 @@ def job_create(request):
 
 @login_required
 def job_apply(request, pk=None):
-# maybe think about doing it this way: https://stackoverflow.com/questions/569468/django-multiple-models-in-one-template-using-forms
     if request.method == 'POST':
         job_form = JobApplyForm(request.POST)
-        attachment_form = AttachmentForm(request.POST, request.FILES)
-        if job_form.is_valid() and attachment_form.is_valid:
+        if job_form.is_valid():
             # process Form
-            job_form.save() # throws django.db.utils.IntegrityError: NOT NULL constraint failed: Job_jobapplication.job_owner_id
-            attachment_form.save()
 
             messages.success(request, "Successfully Applied")
             return HttpResponseRedirect("jobs/index.html")
     else:
         job = get_object_or_404(Job, pk=pk)
         applicant = request.user
-        applicant_cv = attachment.objects.get(User_id=applicant.id)
-        data = {
-            'job': job,
-            'applicant_cv': applicant_cv,
-            'applicant': applicant
+        applicant_attachments = attachment.objects.get(User_id=applicant.id)
+        context = {
+            'job_id': job.id,
+            'job_title': job.title,
+            'attachment_cv': applicant_attachments.cv,
+            'applicant_email': request.user.email
         }
-        job_form = JobApplyForm(initial=data)
-
-        attachment_data = {
-            'avatar': applicant_cv.avatar,
-            'cv': applicant_cv.cv
-        }
-        attachment_form = AttachmentForm(initial=attachment_data)
+        job_form = JobApplyForm(initial=context)
 
     context = {
         "form": job_form,
-        "attachment_form": attachment_form
     }
 
     return render(request, "jobs/apply.html", context)

@@ -31,10 +31,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">UserName</th>
+                <th scope="col">User Name</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Email Address</th>
+                <th scope="col">Date of Birth</th>
                 <th scope="col">Avatar</th>
             </tr>
         </thead>
@@ -47,17 +48,18 @@
                 <td>{{user.first_name}}</td>
                 <td>{{user.last_name}}</td>
                 <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+                <td>{{user.birth_date}}</td>
                 <td>
                     {% if user.attachment %}
-                    {% if user.attachment.avatar %}
-                        <a href="{{ MEDIA_URL }}{{user.attachment.avatar}}">
-                            <img class="media-object" src="{{ MEDIA_URL }}{{user.attachment.avatar}}" alt="{{user.attachment.avatar}}"
-                            style="max-height: 6em;" class="image-responsive img-thumbnail" />
-                        </a>
-                        <!-- <img src="{{user.attachment.avatar.url}}" alt="{{user.attachment.avatar}}" 
-                        style="max-height: 6em;" class="image-responsive img-thumbnail" /> -->
+                        {% if user.attachment.avatar %}
+                            <a href="{{ MEDIA_URL }}{{user.attachment.avatar}}">
+                                <img class="media-object" src="{{ MEDIA_URL }}{{user.attachment.avatar}}" alt="{{user.attachment.avatar}}"
+                                style="max-height: 6em;" class="image-responsive img-thumbnail" />
+                            </a>
+                            <!-- <img src="{{user.attachment.avatar.url}}" alt="{{user.attachment.avatar}}" 
+                            style="max-height: 6em;" class="image-responsive img-thumbnail" /> -->
+                        {% endif %}
                     {% endif %}
-                {% endif %}
                 </td>
             </tr>
             <tr>
