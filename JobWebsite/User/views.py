@@ -100,28 +100,8 @@ def user_delete(request, pk=None):
 def user_create(request):
 	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
-		username = form.cleaned_data['username']
-		password = form.cleaned_data['password1']
-		date_of_birth = form.cleaned_data['birth_date']
-		firstname = form.cleaned_data['first_name']
-		lastname = form.cleaned_data['last_name']
-		email = form.cleaned_data['email']
-
-		# Now save it all off to the database
-		user = User.objects.create_user(username=username, email=email, password=password, first_name=firstname,
-										last_name=lastname, birth_date=date_of_birth)
-
-		# Save the files off:
-		if request.FILES is not None:
-			att = Attachment.objects.create(
-				avatar=request.FILES['avatar'] if 'avatar' in request.FILES else None,
-				cv=request.FILES['cv'] if 'cv' in request.FILES else None,
-				User=user)
-			user.attachment = att
-		
-		user.save()
-		att.save()
-
+		user = form.save()
+		messages.success(request, 'Account created successfully')
 		return HttpResponseRedirect(user.get_absolute_url())
 	context = {
 		"form": form,

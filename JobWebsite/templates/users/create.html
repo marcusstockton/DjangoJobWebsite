@@ -2,7 +2,6 @@
 {% load crispy_forms_tags %}
 
 {% block title %}New User Signup{% endblock title %}
-
 {% block content %}
 	<div class="well col-sm-6">
 		<fieldset>
@@ -18,4 +17,24 @@
 			</div>
 		</fieldset>
 	</div>
+	<div class="col-sm-1">
+		<!-- Hide if not in debug mode....somehow -->
+
+			<button id="createDemoUserBtn" name="createDemoUserBtn" class="btn btn-default">Create Demo User</button>
+
+	</div>
+	<div class="row">
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
 {% endblock content %}
+
+{% block javascript %}
+	{% load static %}
+	<script type="text/javascript" src="{% static 'js/User/createDemoUser.js' %}"></script>
+{% endblock javascript %}
