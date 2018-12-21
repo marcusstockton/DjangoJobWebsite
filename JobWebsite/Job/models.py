@@ -22,6 +22,8 @@ class Job(models.Model):
 
 
 class JobApplication(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4,
+                          editable=False, unique=True)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     applicant = models.ForeignKey(User, on_delete=models.CASCADE,
                                   related_name="job_applicant")

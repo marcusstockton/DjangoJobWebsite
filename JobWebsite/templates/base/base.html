@@ -69,7 +69,8 @@
 		<script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
 		<script type="text/javascript" src="{% static 'jquery-ui/jquery-ui.js' %}"></script>
 		{% block javascript %}
-		
+			{% load static %}
+			<script type="text/javascript" src="{% static 'js/datePicker/datePicker.js' %}"></script>
 		{% endblock javascript %}
 	</footer>
 

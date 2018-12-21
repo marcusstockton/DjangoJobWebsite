@@ -91,27 +91,14 @@ def job_create(request):
 
 @login_required
 def job_apply(request, pk=None):
-    if request.method == 'POST':
-        job_form = JobApplyForm(request.POST)
-        if job_form.is_valid():
-            # process Form
-
-            messages.success(request, "Successfully Applied")
-            return HttpResponseRedirect("jobs/index.html")
-    else:
-        job = get_object_or_404(Job, pk=pk)
-        applicant = request.user
-        applicant_attachments = attachment.objects.get(User_id=applicant.id)
-        context = {
-            'job_id': job.id,
-            'job_title': job.title,
-            'attachment_cv': applicant_attachments.cv,
-            'applicant_email': request.user.email
-        }
-        job_form = JobApplyForm(initial=context)
-
+    form = JobApplyForm(request.POST or None, request.FILES or None, user = request.user, job_id = pk or None)
+    if form.is_valid():
+        form.save(request.FILES or None)
+        messages.success(request, "Successfully Applied")
+        return HttpResponseRedirect("jobs:list")
+    
     context = {
-        "form": job_form,
+        "form": form
     }
 
     return render(request, "jobs/apply.html", context)

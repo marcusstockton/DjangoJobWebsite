@@ -1,0 +1,9 @@
+Switch to Demo
+Open up local_bluemoon.uktaxservices.properties in the Bluemoon.UKTax
+
+
+change line 3 to localhostenv=http://demo.onvio.co.uk
+
+and 2 places with port number 5432 to 5433
+
+then run grunt serve:demo
