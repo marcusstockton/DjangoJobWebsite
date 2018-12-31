@@ -1,12 +1,22 @@
 {% extends "base/base.html" %}
 {% block title %}Job Details - {{ instance.title }}{% endblock title %}
 {% block content %}
-<h1>{{ instance.title }}</h1>
-<h3>{{ instance.content}}</h3>
-<h3>{{ instance.publish}}</h3>
-<h3>{{ instance.updated}}</h3>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% comment %} <h1>{{ instance.title }}</h1>
+<p>{{ instance.content}}</p>
 
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} {% endcomment %}
+
+
+<div class="card card-image" style="background-image: url(http://exchangedownloads.smarttech.com/public/content/d3/d374f5fb-538c-4004-8c22-d2153548bb06/previews/medium/0001.png);">
+  <div class="text-white text-center py-5 px-4 my-5">
+    <div>
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>{{ instance.title }}</strong></h2>
+    </div>
+   
+  </div>
+   <h5>Published: {{ instance.publish |date:"d M Y"}}</h5>
+    <p class="mx-5 mb-5">{{ instance.content}}</p>
+</div>
 {% if request.user.groups.Employee is False or request.user.is_superuser %}
     <a href="{% url 'jobs:edit' instance.id %}" class="btn btn-primary">Edit</a>
 {% endif %}

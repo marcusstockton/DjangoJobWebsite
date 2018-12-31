@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from .forms import JobForm, JobApplyForm
 from .models import Job, JobApplication
@@ -68,7 +69,7 @@ def job_delete(request, pk=None):
     instance = get_object_or_404(Job, pk=pk)
     instance.delete()
     messages.success(request, "Successfully Deleted")
-    return redirect("jobs:list")
+    return redirect("jobs:index")
 
     return HttpResponse("<h1>Delete</h1>")
 
@@ -95,7 +96,7 @@ def job_apply(request, pk=None):
     if form.is_valid():
         form.save(request.FILES or None)
         messages.success(request, "Successfully Applied")
-        return HttpResponseRedirect("jobs:list")
+        return HttpResponseRedirect(reverse("jobs:index"))
     
     context = {
         "form": form

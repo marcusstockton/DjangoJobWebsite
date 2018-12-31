@@ -44,14 +44,15 @@ class JobApplyForm(forms.Form):
 	job_title = forms.CharField(label="Job Title")
 	attachment_cv = forms.FileField(label="Current C.V", widget=forms.ClearableFileInput())
 	applicant_email = forms.EmailField(label="Email Address")
-	change_email = forms.BooleanField(required=False)
-	# need to add in a javascript / typescript / jquery file to do watches and changes on the email field
+
+	
 	def save(self, *args, **kwargs):
 		job = Job.objects.get(id=self.job_id)
-		application = JobApplication(
-			job=job,
-			applicant=self.user,
-			applicant_cv=self.cleaned_data['attachment_cv'],
-			job_owner=job.created_by)
-		application.save()
+		if not JobApplication.objects.filter(applicant=self.user, job=job).exists():
+			application = JobApplication(
+				job=job,
+				applicant=self.user,
+				applicant_cv=self.cleaned_data['attachment_cv'].instance,
+				job_owner=job.created_by)
+			application.save()
 

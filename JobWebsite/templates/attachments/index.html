@@ -15,7 +15,7 @@
 				</div>
 			</div>
 		</span>
-		<span class="col-md-9">
+		<span class="col-md-9 text-truncate">
 			{% if attachment.cv %}
 			<p>
 				C.V:
@@ -26,7 +26,10 @@
 				Created: {{attachment.created_date}}
 			</p>
 			<p>
-				UserId: {{attachment.User_id}}
+				User Name: {{attachment.User.username}}
+			</p>
+			<p>
+				D.O.B: {{attachment.User.birth_date}}
 			</p>
 		</span>
 	</div>

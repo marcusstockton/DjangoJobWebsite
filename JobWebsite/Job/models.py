@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from User.models import User
+from Attachment.models import Attachment
 import uuid
 
 
@@ -27,14 +28,13 @@ class JobApplication(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     applicant = models.ForeignKey(User, on_delete=models.CASCADE,
                                   related_name="job_applicant")
-    # Save the cv incase user updates cv after application
-    applicant_cv = models.FileField()
+    applicant_cv = models.ForeignKey(Attachment, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
     job_owner = models.ForeignKey(User, on_delete=models.CASCADE,
                                   related_name="job_owner")
 
-    def __str__(self):
-            return self.job + ": " + self.applicant.name
+    def __repr__ (self):
+            return self.job.title + ": " + self.applicant.username
 
     def get_absolute_url(self):
         return reverse("jobs:jobapplication", kwargs={"pk": self.pk})
