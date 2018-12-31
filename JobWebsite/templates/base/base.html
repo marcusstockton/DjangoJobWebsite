@@ -53,12 +53,18 @@
 					<a href="{% url 'login' %}">Login</a>
 				</li>
 				{% endif %}
-
 			</ul>
 		</div>
 	</nav>
 	<!-- Main content -->
 	<div class="container scrollable">
+		{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+				{% endfor %}
+			</ul>
+		{% endif %}
 		{% block content %}
 		<!-- The body data from all different pages goes in here -->
 		{% endblock content %}

@@ -4,13 +4,7 @@
 
 {% block content %}
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-    {% endfor %}
-</ul>
-{% endif %}
+
 
 <h1>Apply form</h1>
 <form method="post" action="" enctype="multipart/form-data" class="col-md-6">
