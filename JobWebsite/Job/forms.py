@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.forms import ModelForm, widgets
 from django import forms
+from django.contrib import messages
 
 from .models import Job, JobApplication
 from Attachment.models import Attachment
@@ -48,11 +49,12 @@ class JobApplyForm(forms.Form):
 	
 	def save(self, *args, **kwargs):
 		job = Job.objects.get(id=self.job_id)
-		if not JobApplication.objects.filter(applicant=self.user, job=job).exists():
-			application = JobApplication(
-				job=job,
-				applicant=self.user,
-				applicant_cv=self.cleaned_data['attachment_cv'].instance,
-				job_owner=job.created_by)
-			application.save()
+		application = JobApplication(
+			job=job,
+			applicant=self.user,
+			applicant_cv=self.cleaned_data['attachment_cv'].instance,
+			job_owner=job.created_by)
+		application.save()
+		
+
 
