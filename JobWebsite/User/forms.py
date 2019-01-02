@@ -4,7 +4,7 @@ from datetime import datetime
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
-from django.forms.widgets import SelectDateWidget, EmailInput
+from django.forms.widgets import SelectDateWidget, EmailInput, TextInput
 
 from .models import User
 from Attachment.models import Attachment
@@ -25,6 +25,11 @@ class CustomUserCreationForm(UserCreationForm):
 			"cv"
 		)
 		localized_fields = "__all__"
+	def __init__(self, *args, **kwargs):
+		super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+		self.fields['birth_date'].widget = TextInput( attrs={
+			'class': 'datepicker',
+			'placeholder': 'D.O.B'})
 
 	def save(self, commit=False):
 		new_user = User.objects.create_user(
@@ -62,7 +67,7 @@ class UserForm(ModelForm):
 		localized_fields = "__all__"
 		widgets = {
 			"birth_date": SelectDateWidget(years=range(1900, datetime.now().year),
-										   attrs=({'style': 'width: 30%; display: inline-block;'})),
+										   attrs=({'style': 'width: 30%; display: inline-block; class: datepicker'})),
 			"email": EmailInput(),
 		}
 
