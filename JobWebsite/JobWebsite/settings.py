@@ -27,7 +27,11 @@ SECRET_KEY = 'o=h%rvl@_yk%gh1o#u1-vt2t_t@3!kr#1w^s$bkj8o=a5hm2xi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+# ALLOWED_HOSTS = ['127.0.0.1']
+
+INTERNAL_IPS = (
+    '127.0.0.1',
+)
 
 AUTH_USER_MODEL = 'User.User'
 

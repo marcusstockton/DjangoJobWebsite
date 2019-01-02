@@ -25,11 +25,11 @@ class CustomUserCreationForm(UserCreationForm):
 			"cv"
 		)
 		localized_fields = "__all__"
+
 	def __init__(self, *args, **kwargs):
 		super(CustomUserCreationForm, self).__init__(*args, **kwargs)
-		self.fields['birth_date'].widget = TextInput( attrs={
-			'class': 'datepicker',
-			'placeholder': 'D.O.B'})
+		self.fields['birth_date'].widget = TextInput( attrs={'class': 'datepicker','placeholder': 'D.O.B', 'autocomplete':'off'})
+		self.fields['email'].widget = EmailInput()
 
 	def save(self, commit=False):
 		new_user = User.objects.create_user(

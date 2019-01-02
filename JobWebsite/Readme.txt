@@ -8,14 +8,14 @@ silverelephant750
 greenostrich127
 bluebird661
 
-
 Password: P@ssword1!
 
 
 TODO:
-Add user registration page - https://wsvincent.com/django-user-authentication-tutorial-signup/
 Add area for users to see who's applied for a job they have posted
-Add search for user list
+    - Show link to job
+    - Date applied
+    - Status?
 Add postcode lookup - postcodes.io
 
 Need a way to apply for emails - send email to job email address?

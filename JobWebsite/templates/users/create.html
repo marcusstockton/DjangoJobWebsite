@@ -9,27 +9,18 @@
 				Create an Account
 			</legend>
 			<div class="panel-body">
-				<form action="" method="post" enctype="multipart/form-data">
+				<form action="" method="post" enctype="multipart/form-data" novalidate>
 							{% csrf_token %}
 							{{ form | crispy }}
-						<p><input type="submit" value="Go!" /></p>
+						<p><input type="submit" value="Submit" class="btn btn-primary" /></p>
 				</form>
 			</div>
 		</fieldset>
 	</div>
 	<div class="col-sm-1">
 		<!-- Hide if not in debug mode....somehow -->
-
+		{% if debug %}
 			<button id="createDemoUserBtn" name="createDemoUserBtn" class="btn btn-default">Create Demo User</button>
-
-	</div>
-	<div class="row">
-		{% if messages %}
-		<ul>
-			{% for message in messages %}
-			<li>{{ message }}</li>
-			{% endfor %}
-		</ul>
 		{% endif %}
 	</div>
 {% endblock content %}
