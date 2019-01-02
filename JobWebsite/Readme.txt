@@ -13,6 +13,7 @@ Password: P@ssword1!
 
 
 TODO:
+Add user registration page - https://wsvincent.com/django-user-authentication-tutorial-signup/
 Add area for users to see who's applied for a job they have posted
 Add search for user list
 Add postcode lookup - postcodes.io

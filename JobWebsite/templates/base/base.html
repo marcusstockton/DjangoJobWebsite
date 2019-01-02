@@ -1,5 +1,4 @@
-{% load static %}
-
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +51,9 @@
 				<li>
 					<a href="{% url 'login' %}">Login</a>
 				</li>
+				<li>
+					<a href="{% url 'users:create' %}">Register</a>
+				</li>
 				{% endif %}
 			</ul>
 		</div>
@@ -71,12 +73,12 @@
 	</div>
 	<footer>
 		<!-- Latest compiled and minified JavaScript -->
-		<script type="text/javascript" src="{% static 'bower_components/jquery/src/jquery.js' %}"></script>
-		<script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.js' %}"></script>
-		<script type="text/javascript" src="{% static 'jquery-ui/jquery-ui.js' %}"></script>
+		<script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+		<script type="text/javascript" src="{% static 'bower_components/jquery-ui/jquery-ui.js' %}"></script>
+		<script type="text/javascript" src="{% static 'bower_components/bootstrap/dist/js/bootstrap.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/datePicker/datePicker.js' %}"></script>
 		{% block javascript %}
-			{% load static %}
-			<script type="text/javascript" src="{% static 'js/datePicker/datePicker.js' %}"></script>
+			
 		{% endblock javascript %}
 	</footer>
 

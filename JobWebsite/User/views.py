@@ -96,7 +96,6 @@ def user_delete(request, pk=None):
 	return redirect("users:list")
 
 
-@login_required
 def user_create(request):
 	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
