@@ -17,5 +17,6 @@ Add area for users to see who's applied for a job they have posted
     - Date applied
     - Status?
 Add postcode lookup - postcodes.io
+Shrink images on upload?
 
 Need a way to apply for emails - send email to job email address?
