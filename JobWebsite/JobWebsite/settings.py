@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'djangobower',
     'django_seed',
+    'django_nose',
 
     # My apps
     'Job.apps.JobConfig',
@@ -161,3 +162,10 @@ BOWER_INSTALLED_APPS = (
     'jquery-ui',
     'bootstrap#3.3.7'
 )
+
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--with-coverage',
+]
