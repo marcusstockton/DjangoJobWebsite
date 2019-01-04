@@ -30,8 +30,7 @@ class AddressForm(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
 		super(AddressForm, self).__init__(*args, **kwargs)
-		self.fields['address_type'].queryset = AddressType.objects.filter(
-			is_active=True)  # Limit select list to active options
+		self.fields['address_type'].queryset = AddressType.objects.filter(is_active=True)
 		self.fields['country'] = forms.ChoiceField(choices=get_countries())
 
 	def clean_address_line_1(self):

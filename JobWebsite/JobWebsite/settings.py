@@ -168,4 +168,6 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = [
     '--with-coverage',
+    '--nocapture', # logs output to the test window
+    '--nologcapture', # logs output to the test window
 ]
