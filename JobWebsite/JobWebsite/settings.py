@@ -169,7 +169,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage', # show report
     '--cover-package=Job,Attachment,Company,User,Address',# specify the apps to test
-    '--cover-html', # outputs test to html
+    #'--cover-html', # outputs test to html
     #'--nocapture', # logs output to the test window
     #'--nologcapture', # logs output to the test window
 ]
