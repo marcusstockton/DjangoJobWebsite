@@ -222,3 +222,5 @@ pip-log.txt
 JobWebsite/.vscode/launch.json
 .vscode/launch.json
 
+.vscode/settings.json
+.vscode/settings.json
