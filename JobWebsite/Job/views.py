@@ -51,6 +51,8 @@ def job_edit(request, pk=None):
     form = JobForm(request.POST or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
+        instance.updated = datetime.datetime.now()
+        instance.updated_by = request.user
         instance.save()
         messages.success(request, "Successfully Updated")
 
@@ -80,7 +82,7 @@ def job_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.created_by = request.user
-        instance.timestamp = datetime.datetime.now()
+        instance.created = datetime.datetime.now()
         instance.save()
         messages.success(request, "Successfully Created")
         return HttpResponseRedirect(instance.get_absolute_url())

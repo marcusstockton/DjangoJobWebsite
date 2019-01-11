@@ -1,10 +1,10 @@
 $(document).ready(function () {
     $(function () {
         $(".datepicker").datepicker({ 
-            dateFormat: 'dd MM yy',       
+            dateFormat: 'dd/mm/yy',    
             changeMonth: true,
             changeYear: true,
-            yearRange: "1900:2048"
+            yearRange: "-100:+50"
         });
     });
 });
