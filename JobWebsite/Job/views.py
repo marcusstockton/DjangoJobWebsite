@@ -1,15 +1,16 @@
 import datetime
 
-from Attachment.forms import AttachmentForm
-from Attachment.models import Attachment as attachment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from .forms import JobForm, JobApplyForm
+from Attachment.forms import AttachmentForm
+from Attachment.models import Attachment as attachment
+
+from .forms import JobApplyForm, JobForm
 from .models import Job, JobApplication
 
 

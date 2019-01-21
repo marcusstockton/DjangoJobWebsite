@@ -1,12 +1,13 @@
 from datetime import datetime
 
-from django.forms import ModelForm, widgets
 from django import forms
 from django.contrib import messages
+from django.forms import ModelForm, widgets
 
-from .models import Job, JobApplication
 from Attachment.models import Attachment
 from User.models import User
+
+from .models import Job, JobApplication
 
 
 class JobForm(ModelForm):
@@ -36,7 +37,6 @@ class JobForm(ModelForm):
 		
 
 class JobApplyForm(forms.Form):
-
 	def __init__(self, *args, **kwargs):
 		self.user = kwargs.pop('user')
 		self.job_id = kwargs.pop('job_id')
@@ -66,6 +66,3 @@ class JobApplyForm(forms.Form):
 			applicant_cv=self.cleaned_data['attachment_cv'].instance,
 			job_owner=job.created_by)
 		application.save()
-		
-
-
