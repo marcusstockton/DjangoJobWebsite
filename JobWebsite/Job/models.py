@@ -7,7 +7,6 @@ import uuid
 
 
 class Job(BaseModel, models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     title = models.CharField(max_length=120)
     content = models.TextField(max_length=2000)
     publish = models.DateField(auto_now=False, auto_now_add=False)
@@ -20,7 +19,6 @@ class Job(BaseModel, models.Model):
 
 
 class JobApplication(BaseModel,models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
     applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_applicant")
     applicant_cv = models.ForeignKey(Attachment, on_delete=models.CASCADE)
