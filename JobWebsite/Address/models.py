@@ -26,13 +26,16 @@ class Address(models.Model):
 
 
 class AddressType(models.Model):
-		id = models.UUIDField(
-			primary_key=True, default=uuid.uuid4, editable=False, unique=True)
-		description = models.CharField(max_length=50)
-		is_active = models.BooleanField(default=True)
+	class Meta:
+			db_table = 'AddressType'
 
-		def __str__(self):
-				return self.description
+	id = models.UUIDField(
+		primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+	description = models.CharField(max_length=50)
+	is_active = models.BooleanField(default=True)
 
-		def get_absolute_url(self):
-				return reverse("addressType:detail", kwargs={"pk": self.id})
+	def __str__(self):
+			return self.description
+
+	def get_absolute_url(self):
+			return reverse("addressType:detail", kwargs={"pk": self.id})
