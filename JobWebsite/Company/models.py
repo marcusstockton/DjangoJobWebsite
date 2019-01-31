@@ -6,6 +6,9 @@ from base.base_model import BaseModel
 
 
 class Company(BaseModel, models.Model):
+	class Meta:
+		db_table = 'Company'
+		
 	company_name = models.CharField(max_length=200)
 	address = models.ForeignKey(Address, on_delete=models.CASCADE)
 

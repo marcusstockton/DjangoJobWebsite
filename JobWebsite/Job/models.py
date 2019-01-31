@@ -7,25 +7,30 @@ import uuid
 
 
 class Job(BaseModel, models.Model):
-    title = models.CharField(max_length=120)
-    content = models.TextField(max_length=2000)
-    publish = models.DateField(auto_now=False, auto_now_add=False)
+	class Meta:
+		db_table = 'Job'
+		
+	title = models.CharField(max_length=120)
+	content = models.TextField(max_length=2000)
+	publish = models.DateField(auto_now=False, auto_now_add=False)
 
-    def __str__(self):
-        return self.title
+	def __str__(self):
+		return self.title
 
-    def get_absolute_url(self):
-        return reverse("jobs:detail", kwargs={"pk": self.pk})
+	def get_absolute_url(self):
+		return reverse("jobs:detail", kwargs={"pk": self.pk})
 
 
 class JobApplication(BaseModel,models.Model):
-    job = models.ForeignKey(Job, on_delete=models.CASCADE)
-    applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_applicant")
-    applicant_cv = models.ForeignKey(Attachment, on_delete=models.CASCADE)
-    job_owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_owner")
+	class Meta:
+		db_table = 'JobApplication'
+	job = models.ForeignKey(Job, on_delete=models.CASCADE)
+	applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_applicant")
+	applicant_cv = models.ForeignKey(Attachment, on_delete=models.CASCADE)
+	job_owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_owner")
 
-    def __repr__ (self):
-            return self.job.title + ": " + self.applicant.username
+	def __repr__ (self):
+			return self.job.title + ": " + self.applicant.username
 
-    def get_absolute_url(self):
-        return reverse("jobs:jobapplication", kwargs={"pk": self.pk})
+	def get_absolute_url(self):
+		return reverse("jobs:jobapplication", kwargs={"pk": self.pk})

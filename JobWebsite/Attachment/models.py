@@ -10,6 +10,9 @@ def upload_location(instance, filename):
 
 
 class Attachment(models.Model):
+	class Meta:
+		db_table = 'Attachment'
+		
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 	avatar = models.ImageField(upload_to=upload_location, null=True, blank=True)
 	cv = models.FileField(upload_to=upload_location, blank=True)
