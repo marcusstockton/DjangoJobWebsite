@@ -13,6 +13,7 @@ from .models import Job, JobApplication
 class JobForm(ModelForm):
 	created_by = forms.CharField()
 	updated_by = forms.CharField(required=False)
+
 	class Meta:
 		model = Job
 		fields = [
