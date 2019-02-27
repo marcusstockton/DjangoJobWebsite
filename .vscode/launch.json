@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "C:/Users/MarcusS/Venvs/Python37/Scripts/python.exe",
+            "pythonPath": "C:/Venvs/Python372/Scripts/python.exe",
             "program": "${workspaceRoot}\\JobWebsite\\manage.py",
             "cwd": "${workspaceRoot}\\JobWebsite\\",
             "args": [

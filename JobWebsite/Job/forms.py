@@ -60,9 +60,13 @@ class JobApplyForm(forms.Form):
 	
 	def save(self, *args, **kwargs):
 		job = Job.objects.get(id=self.job_id)
+		user = User.objects.get(username=self.user.username)
 		application = JobApplication(
 			job=job,
-			applicant=self.user,
+			applicant=user,
 			applicant_cv=self.cleaned_data['attachment_cv'].instance,
-			job_owner=job.created_by)
+			job_owner=job.created_by,
+			created_by=user)
+
 		application.save()
+

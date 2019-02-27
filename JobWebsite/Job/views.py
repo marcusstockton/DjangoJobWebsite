@@ -97,7 +97,8 @@ def job_create(request):
 def job_apply(request, pk=None):
     form = JobApplyForm(request.POST or None, request.FILES or None, user = request.user, job_id = pk or None)
     if form.is_valid():
-        if not JobApplication.objects.filter(applicant=request.user, job_id=pk).exists():
+        existing_record = JobApplication.objects.filter(applicant_id=request.user.id.hex, job_id=pk.hex).exists()
+        if not existing_record:
             form.save(request.FILES or None)
             messages.success(request, "Successfully Applied")
             return HttpResponseRedirect(reverse("jobs:index"))
