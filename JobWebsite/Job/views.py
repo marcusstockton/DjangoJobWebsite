@@ -19,11 +19,13 @@ def job_list(request):
     if request.user.is_authenticated:
         jobs_applied_for = JobApplication.objects.filter(applicant=request.user).all()
     
+    # Don't show jobs where the publish date is greater than now
     queryset_list = Job.objects.all().order_by(
         '-publish').exclude(publish__gt=datetime.datetime.now())
 
+    # Filter out jobs that have been applied for
     if jobs_applied_for is not None:
-        queryset_list.exclude(id__in=jobs_applied_for)
+        queryset_list = queryset_list.exclude(id__in=jobs_applied_for.values('job_id'))
 
     paginator = Paginator(queryset_list, 10)  # Show 10 contacts per page
     page = request.GET.get('page')
