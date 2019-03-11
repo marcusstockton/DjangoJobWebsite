@@ -1,4 +1,5 @@
 {% extends "base/base.html" %}
+{% load humanize %}
 {% block title %}Jobs List{% endblock title %}	
 {% block content %}
 
@@ -9,7 +10,8 @@
 	    <div class="well">
 	    	<a href="{% url 'jobs:detail' job.id %}">{{ job.title }}</a>
 	        <p>Description: {{job.content}}</p>
-	        <p>Published: {{job.publish}}</p>
+			<p>Published: {{job.publish}}</p>
+			<p>Salary: £{{job.min_salary | intcomma}} to £{{job.max_salary | intcomma}}</p>
 			{% if job.updated_date%}
 				<p>Updated: {{job.updated_date}}</p>
 			{% endif %}
