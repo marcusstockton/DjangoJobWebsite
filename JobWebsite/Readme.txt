@@ -20,4 +20,7 @@ Add postcode lookup - postcodes.io
 Shrink images on upload?
 Add in Current files on User Edit page.
 
+Add Salary range to a job
+Add a location to a job
+
 Need a way to apply for emails - send email to job email address?

@@ -13,6 +13,8 @@ class Job(BaseModel, models.Model):
 	title = models.CharField(max_length=120)
 	content = models.TextField(max_length=2000)
 	publish = models.DateField(auto_now=False, auto_now_add=False)
+	min_salary = models.IntegerField(null=True)
+	max_salary = models.IntegerField()
 
 	def __str__(self):
 		return self.title
@@ -24,6 +26,7 @@ class Job(BaseModel, models.Model):
 class JobApplication(BaseModel,models.Model):
 	class Meta:
 		db_table = 'JobApplication'
+		
 	job = models.ForeignKey(Job, on_delete=models.CASCADE)
 	applicant = models.ForeignKey(User, on_delete=models.CASCADE, related_name="job_applicant")
 	applicant_cv = models.ForeignKey(Attachment, on_delete=models.CASCADE)

@@ -13,6 +13,7 @@ from .models import Job, JobApplication
 class JobForm(ModelForm):
 	created_by = forms.CharField()
 	updated_by = forms.CharField(required=False)
+	updated_date = forms.DateField()
 
 	class Meta:
 		model = Job
@@ -20,6 +21,7 @@ class JobForm(ModelForm):
 			"title",
 			"content",
 			"publish",
+			
 		]
 		localized_fields = "__all__"
 		widgets = {
@@ -30,10 +32,13 @@ class JobForm(ModelForm):
 		job = kwargs.get('instance')
 		created_by = job.created_by.username
 		updated_by = job.updated_by.username if job.updated_by else None
+		updated_date = job.updated_date
 		self.fields['created_by'].initial = created_by
 		self.fields['created_by'].disabled = True
 		if updated_by is not None:
 			self.fields['updated_by'].initial = updated_by
+			self.fields['updated_date'].initial = updated_date
+			self.fields['updated_date'].disabled = True
 		self.fields['updated_by'].disabled = True
 		
 

@@ -10,7 +10,9 @@
 	    	<a href="{% url 'jobs:detail' job.id %}">{{ job.title }}</a>
 	        <p>Description: {{job.content}}</p>
 	        <p>Published: {{job.publish}}</p>
-	        <p>Updated: {{job.updated}}</p>
+			{% if job.updated_date%}
+				<p>Updated: {{job.updated_date}}</p>
+			{% endif %}
 	    </div>
 	    {% endfor %}
 	    </ul>
