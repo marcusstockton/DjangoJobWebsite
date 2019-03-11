@@ -21,6 +21,8 @@ class JobForm(ModelForm):
 			"title",
 			"content",
 			"publish",
+			"min_salary",
+			"max_salary"
 			
 		]
 		localized_fields = "__all__"

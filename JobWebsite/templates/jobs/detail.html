@@ -16,6 +16,7 @@
   </div>
    <h5>Published: {{ instance.publish |date:"d M Y"}}</h5>
     <p class="mx-5 mb-5">{{ instance.content}}</p>
+    <p class="mx-5 mb-5">Salary Range: {{ instance.min_salary }} to {{ instance.max_salary}}</p>
 </div>
 {% if request.user.groups.Employee is False or request.user.is_superuser %}
     <a href="{% url 'jobs:edit' instance.id %}" class="btn btn-primary">Edit</a>
