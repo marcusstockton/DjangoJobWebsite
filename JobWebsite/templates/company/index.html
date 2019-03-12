@@ -1,14 +1,9 @@
 {% extends "base/base.html" %}
+{% load render_table from django_tables2 %}
 {% block title %}Companies{% endblock title %}
 {% block content %}
-{% if object_list %}
-    <ul>
-    {% for user in object_list %}
-    	<a href="{% url 'companies:detail' user.id %}">{{ user.company_name }}</a>
-            <p>{{ user.address.address_line_1 }}</p>
-        <hr>
-    {% endfor %}
-    </ul>
+{% if table %}
+    {% render_table table %}
 {% else %}
     <p>No companies are available.</p>
 {% endif %}

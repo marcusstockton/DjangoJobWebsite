@@ -4,10 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.db.transaction import atomic
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django_tables2 import RequestConfig
 
 # Create your views here.
 from .forms import CompanyForm, CompanyEditFormCustom
 from .models import Company
+from .tables import CompanyTable
 
 
 @login_required
@@ -38,11 +40,14 @@ def company_detail(request, pk=None):
 
 @login_required
 def company_list(request):
-    queryset_list = Company.objects.all()
+    #queryset_list = Company.objects.all()
+    table = CompanyTable(Company.objects.all())
+    RequestConfig(request).configure(table)
 
     context = {
         "title": "List",
-        "object_list": queryset_list
+        #"object_list": queryset_list
+        'table': table
     }
     return render(request, "company/index.html", context)
 

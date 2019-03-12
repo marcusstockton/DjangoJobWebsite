@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'djangobower',
     'django_seed',
     'django_nose',
+    'django_tables2',
 
     # My apps
     'Job.apps.JobConfig',
@@ -90,7 +91,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'JobWebsite.wsgi.application'
-
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
