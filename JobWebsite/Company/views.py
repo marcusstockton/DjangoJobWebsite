@@ -40,13 +40,11 @@ def company_detail(request, pk=None):
 
 @login_required
 def company_list(request):
-    #queryset_list = Company.objects.all()
     table = CompanyTable(Company.objects.all())
     RequestConfig(request).configure(table)
 
     context = {
         "title": "List",
-        #"object_list": queryset_list
         'table': table
     }
     return render(request, "company/index.html", context)
@@ -109,4 +107,4 @@ def company_delete(request, pk=None):
     instance = get_object_or_404(Company, pk=pk)
     instance.delete()
     messages.success(request, "Successfully Deleted")
-    return redirect("company:list")
+    return redirect("company:index")
