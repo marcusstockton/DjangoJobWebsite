@@ -7,6 +7,7 @@
 	<form method="POST" action="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form | crispy }}
+		{{address.address_line_1}}
 		{% if form.errors %}
 			{% for field in form %}
 				{% for error in field.errors %}
