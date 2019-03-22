@@ -5,9 +5,11 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
+from django_tables2 import RequestConfig
 
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
+from .tables import UserTable
 
 
 @login_required
@@ -21,11 +23,16 @@ def user_list(request):
 			Q(first_name__icontains=query) | Q(last_name__icontains=query))
 
 	paginator = Paginator(user_list, 10)  # Show 10 contacts per page
-	user_list.prefetch_related(None)
+	user_list.prefetch_related("Attachment")
 	page = request.GET.get('page')
+
+	table = UserTable(user_list, request=request)
+	RequestConfig(request).configure(table)
+
 	context = {
 		"title": "List",
 		"users_list": paginator.get_page(page),
+		"table": table
 	}
 	return render(request, "users/index.html", context)
 

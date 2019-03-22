@@ -8,6 +8,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django_tables2 import RequestConfig
 
 # Create your views here.
+from Address.forms import AddressForm
+
 from .forms import CompanyForm, CompanyEditForm
 from .models import Company
 from .tables import CompanyTable
@@ -55,12 +57,19 @@ def company_list(request):
 def company_edit(request, pk=None):
 	instance = get_object_or_404(Company.objects.select_related("address"), pk=pk)
 	form = CompanyEditForm(request.POST or None, instance=instance)
+	address_form = AddressForm(request.POST or None, instance=instance.address)
 
-	if form.is_valid():
+	if form.is_valid() and address_form.is_valid():
 		instance = form.save(commit=False)
 		instance.updated = datetime.datetime.now()
 		instance.updated_by = request.user
 		instance.save()
+		if address_instance.changed_data:
+			address_instance = address_form.save(commit=False)
+			address_instance.updated = datetime.datetime.now()
+			address_instance.updated_by = request.user
+			address_instance.save()
+		
 		messages.success(request, "Successfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
@@ -69,6 +78,7 @@ def company_edit(request, pk=None):
 		"title": instance.company_name,
 		"instance": instance,
 		"form": form,
+		"address_form": address_form
 	}
 	return render(request, "company/edit.html", context)
 

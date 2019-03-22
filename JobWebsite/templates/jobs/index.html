@@ -1,22 +1,14 @@
+
 {% extends "base/base.html" %}
+{% load render_table from django_tables2 %}
 {% load humanize %}
 {% block title %}Jobs List{% endblock title %}	
 {% block content %}
 
 <h1>{{ title }}</h1>
-	{% if object_list %}
+	{% if table %}
 	    <ul>
-	    {% for job in object_list %}
-	    <div class="well">
-	    	<a href="{% url 'jobs:detail' job.id %}">{{ job.title }}</a>
-	        <p>Description: {{job.content}}</p>
-			<p>Published: {{job.publish}}</p>
-			<p>Salary: £{{job.min_salary | intcomma}} to £{{job.max_salary | intcomma}}</p>
-			{% if job.updated_date%}
-				<p>Updated: {{job.updated_date}}</p>
-			{% endif %}
-	    </div>
-	    {% endfor %}
+			{% render_table table %}
 	    </ul>
 	{% else %}
 	    <p>No jobs are available.</p>

@@ -1,5 +1,7 @@
 {% extends "base/base.html" %}
 
+{% load render_table from django_tables2 %}
+
 {% block title %}Users{% endblock title %}
 
 {% block content %}
@@ -9,7 +11,7 @@
     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     <a href="{% url 'users:index' %}" class="btn btn-default">Clear</a>
 </form>
-
+<!-- 
 {% if users_list %}
     <table class="table">
         <thead>
@@ -49,9 +51,16 @@
     </table>
 {% else %}
     <p>No users are available.</p>
+{% endif %} -->
+{% if table %}
+	    <ul>
+            {% render_table table %}
+        </ul>
+{% else %}
+	    <p>No jobs are available.</p>
 {% endif %}
 <div>
     <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
 </div>
-{% include "snippets/paginator.html" with content=users_list  %}
+<!-- {% include "snippets/paginator.html" with content=users_list  %} -->
 {% endblock content %}

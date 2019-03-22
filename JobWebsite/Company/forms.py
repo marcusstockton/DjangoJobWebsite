@@ -1,6 +1,7 @@
 from django import forms
+
 from .models import Company
-from Address.models import AddressType
+from Address.models import Address
 
 
 class CompanyForm(forms.ModelForm):
@@ -14,17 +15,15 @@ class CompanyForm(forms.ModelForm):
 
 
 class CompanyEditForm(forms.ModelForm):
-	address_type = forms.ModelChoiceField(queryset=AddressType.objects.filter(is_active=True), empty_label=None)
-
 	class Meta:
 		model = Company
 		fields = [
 			"company_name",
-			"address",
-			"address_type"
 		]
+		localized_fields = "__all__"
 
 	def __init__(self, *args, **kwargs):
 		super(CompanyEditForm, self).__init__(*args, **kwargs)
-		company = kwargs.get('instance')
-		self.fields['address_type'].initial = company.address.address_type
+		instance = kwargs.get('instance')
+		company = instance
+		address = instance.address
