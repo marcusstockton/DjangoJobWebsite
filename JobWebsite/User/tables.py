@@ -6,8 +6,8 @@ from .models import User
 
 class ImageColumn(tables.Column):
     def render(self, value):
-        if value:
-            return format_html('<img src="{}" height="120px"/>', value.avatar.url)
+        if value.avatar is not None:
+            return format_html('<img src="{}" width="120px; height="auto"/>', value.avatar.url)
 
 class UserTable(tables.Table):
     view = tables.LinkColumn('users:detail', text='View', args=[A('pk')], orderable=False)
