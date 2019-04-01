@@ -14,7 +14,7 @@ class JobResource(resources.ModelResource):
 		fields = ['id', 'title', 'content', 'description', 'created_by', 'publish', 'min_salary', 'max_salary']
 		
 	def __init__(self, *args, **kwargs):
-		request = kwargs.pop("request")
+		request = kwargs.pop('request')
 		self.created_by = request.user
 		super(JobResource, self).__init__(*args, **kwargs)
 
@@ -23,3 +23,4 @@ class JobResource(resources.ModelResource):
 		row['publish'] = datetime.datetime.strptime(row['publish'], '%d-%m-%Y')
 
 		return super(JobResource, self).before_import_row(row, *args, **kwargs)
+
