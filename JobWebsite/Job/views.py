@@ -7,10 +7,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django_tables2 import RequestConfig
+from tablib import Dataset
 
 from .forms import JobApplyForm, JobForm
 from .models import Job, JobApplication
 from .tables import JobTable
+from .resources import JobResource
 
 
 def job_list(request):
@@ -111,3 +113,29 @@ def job_apply(request, pk=None):
 	}
 
 	return render(request, "jobs/apply.html", context)
+
+def job_import(request):
+	if request.method == 'POST' and request.FILES['myfile']:
+		job_resource = JobResource(request=request)
+		dataset = Dataset()
+		new_jobs = request.FILES['myfile']
+
+		imported_data = dataset.load(new_jobs.read())
+		result = job_resource.import_data(dataset, dry_run=True)  # Test the data import
+
+		if not result.has_errors():
+			try:
+				data = job_resource.import_data(dataset, dry_run=False)  # Actually import now
+				if not data.invalid_rows:
+					success_message = str(data.total_rows) + " rows inserted"
+					messages.success(request, success_message)
+				else:
+					[print(e) for e in data.invalid_rows()]
+
+			except Exception as err:
+				print(err)
+		else:
+			[c for c in result.row_errors()]
+			print(result)
+
+	return render(request, 'jobs/job_import.html')

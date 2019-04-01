@@ -6,6 +6,9 @@
 {% block content %}
 
 <h1>{{ title }}</h1>
+
+<a href="{% url 'jobs:import'%}" class="btn btn-primary">Import Jobs</a>
+
 	{% if table %}
 	    <ul>
 			{% render_table table %}

@@ -6,7 +6,8 @@ from .views import (
     job_detail,
     job_edit,
     job_delete,
-    job_apply
+    job_apply,
+    job_import
 )
 app_name = 'jobs'
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path('<uuid:pk>/edit/', job_edit, name='edit'),
     path('<uuid:pk>/delete/', job_delete, name='delete'),
     path('<uuid:pk>/apply/', job_apply, name='apply'),
+    path('import/', job_import, name='import')
 ]

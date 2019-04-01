@@ -24,3 +24,6 @@ Shrink images on upload?
 Add in Current files on User Edit page.
 
 Need a way to apply for emails - send email to job email address?
+
+
+Look at this for maybe importing jobs from an excel spreadsheet: https://simpleisbetterthancomplex.com/packages/2016/08/11/django-import-export.html

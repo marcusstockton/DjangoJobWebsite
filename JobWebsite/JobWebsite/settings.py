@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_seed',
     'django_nose',
     'django_tables2',
+    'import_export',
 
     # My apps
     'Job.apps.JobConfig',
@@ -92,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'JobWebsite.wsgi.application'
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
+IMPORT_EXPORT_USE_TRANSACTIONS = True # determines if the library will use database transactions on data import, just to be on the safe side.
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

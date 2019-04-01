@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "python.pythonPath": "C:/Venvs/Python372/Scripts/python.exe",
+    "python.pythonPath": "C:\\Users\\MarcusS\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
     "python.linting.pylintArgs": [
         "--load-plugins=pylint_django"
     ],
