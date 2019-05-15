@@ -23,13 +23,13 @@
 			</p>
 			{% endif %}
 			<p>
-				Created: {{attachment.created_date}}
+				Created: {{attachment.created_date|date:'dS M Y H:i'}}
 			</p>
 			<p>
 				User Name: {{attachment.User.username}}
 			</p>
 			<p>
-				D.O.B: {{attachment.User.birth_date}}
+				D.O.B: {{attachment.User.birth_date|date:'d/m/Y'}}
 			</p>
 		</span>
 	</div>
