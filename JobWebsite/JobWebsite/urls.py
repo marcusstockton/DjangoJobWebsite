@@ -26,3 +26,7 @@ if settings.DEBUG:
     # Allows serving images when clicking on them
     urlpatterns.append(path('media/(<path>.*)', serve,
                             {'document_root': settings.MEDIA_ROOT}))
+    import debug_toolbar
+    urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
+    
+    

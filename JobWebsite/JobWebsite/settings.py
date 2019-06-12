@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_nose',
     'django_tables2',
     'import_export',
+    'debug_toolbar',
 
     # My apps
     'Job.apps.JobConfig',
@@ -70,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'JobWebsite.urls'
