@@ -43,7 +43,7 @@ def company_detail(request, pk=None):
 
 @login_required
 def company_list(request):
-	table = CompanyTable(Company.objects.all())
+	table = CompanyTable(Company.objects.prefetch_related('created_by', 'updated_by', 'address'))
 	RequestConfig(request).configure(table)
 
 	context = {
