@@ -124,7 +124,7 @@ def job_import(request):
 
 		imported_data = dataset.load(new_jobs.read())
 		result = job_resource.import_data(dataset, dry_run=True)  # Test the data import
-
+		
 		if not result.has_errors():
 			try:
 				data = job_resource.import_data(dataset, dry_run=False)  # Actually import now
@@ -137,7 +137,9 @@ def job_import(request):
 			except Exception as err:
 				print(err)
 		else:
-			[c for c in result.row_errors()]
+			for err in result.row_errors():
+				for e in err[1]:
+					messages.error(request, e.row)
 			print(result)
 
 	return render(request, 'jobs/job_import.html')

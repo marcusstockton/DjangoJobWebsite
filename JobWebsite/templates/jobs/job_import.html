@@ -9,5 +9,4 @@
     <input type="file" name="myfile" {% if not user.is_authenticated %}disabled{%endif%}>
     <button type="submit" {% if not user.is_authenticated %}disabled{%endif%}>Upload</button>
   </form>
-  
 {% endblock content %}

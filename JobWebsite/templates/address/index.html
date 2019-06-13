@@ -5,7 +5,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Address</th>
                 <th scope="col">County</th>
                 <th scope="col">Country</th>
@@ -15,7 +14,6 @@
         <tbody>
             {% for address in object_list %}
             <tr>
-                <th scope="row">{{address.id}}</th>
                 <td>
                     <a href="{% url 'addresses:detail' address.id %}">{{ address }}</a>
                 </td>

@@ -12,20 +12,13 @@ def get_countries():
 	r = urllib.request.urlopen(req).read()
 	cont = json.loads(r)
 	return sorted(cont.items(), key=lambda x: x[1])
+	# Might be worth looking at http://battuta.medunes.net/
 
 
 class AddressForm(forms.ModelForm):
 	class Meta:
 		model = Address
-		fields = [
-			"address_type",
-			"address_line_1",
-			"address_line_2",
-			"address_line_3",
-			"post_code",
-			"county",
-			"country"
-		]
+		fields = "__all__"
 		localized_fields = "__all__"
 
 	def __init__(self, *args, **kwargs):
