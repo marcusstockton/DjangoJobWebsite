@@ -3,6 +3,7 @@
 {% block title %}Jobs List{% endblock title %}	
 {% block content %}
 
+<p>Please select a file to import Jobs</p>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="file" name="myfile" {% if not user.is_authenticated %}disabled{%endif%}>
