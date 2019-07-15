@@ -1,8 +1,10 @@
-from datetime import datetime
+import datetime
 
 from django import forms
 from django.contrib import messages
 from django.forms import ModelForm, widgets
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
 
 from Attachment.models import Attachment
 from User.models import User
@@ -13,7 +15,7 @@ from .models import Job, JobApplication
 class JobForm(ModelForm):
 	created_by = forms.CharField()
 	updated_by = forms.CharField(required=False)
-	updated_date = forms.DateField()
+	updated_date = forms.DateTimeField(required=False)
 
 	class Meta:
 		model = Job
@@ -29,6 +31,7 @@ class JobForm(ModelForm):
 		widgets = {
 			'publish': forms.TextInput(attrs={'class': 'datepicker'}),
 		}
+
 	def __init__(self, *args, **kwargs):
 		super(JobForm, self).__init__(*args, **kwargs)
 		job = kwargs.get('instance')
@@ -37,12 +40,11 @@ class JobForm(ModelForm):
 		updated_date = job.updated_date
 		self.fields['created_by'].initial = created_by
 		self.fields['created_by'].disabled = True
-		if updated_by is not None:
-			self.fields['updated_by'].initial = updated_by
-			self.fields['updated_date'].initial = updated_date
-			self.fields['updated_date'].disabled = True
+		self.fields['updated_date'].disabled = True
+		self.fields['updated_by'].initial = updated_by
+		self.fields['updated_date'].initial = updated_date
 		self.fields['updated_by'].disabled = True
-		
+
 
 class JobApplyForm(forms.Form):
 	def __init__(self, *args, **kwargs):
@@ -65,7 +67,6 @@ class JobApplyForm(forms.Form):
 	attachment_cv = forms.FileField(label="Current C.V", widget=forms.ClearableFileInput())
 	applicant_email = forms.EmailField(label="Email Address")
 
-	
 	def save(self, *args, **kwargs):
 		job = Job.objects.get(id=self.job_id)
 		user = User.objects.get(username=self.user.username)
@@ -78,3 +79,24 @@ class JobApplyForm(forms.Form):
 
 		application.save()
 
+class JobCreateForm(ModelForm):
+	class Meta:
+			model = Job
+			fields = [
+				"title",
+				"content",
+				"publish",
+				"min_salary",
+				"max_salary"
+				
+			]
+			localized_fields = "__all__"
+			widgets = {
+				'publish': forms.TextInput(attrs={'class': 'datepicker'}),
+			}
+	def clean_publish(self):
+			data = self.cleaned_data['publish']
+			if data < datetime.date.today():
+				raise ValidationError(_('Invalid date - publish date in past'))
+			
+			return data

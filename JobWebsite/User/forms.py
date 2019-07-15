@@ -69,10 +69,16 @@ class UserForm(ModelForm):
 			"birth_date": SelectDateWidget(years=range(1900, datetime.now().year),
 										   attrs=({'style': 'width: 30%; display: inline-block; class: datepicker'})),
 			"email": EmailInput(),
+			"first_name": TextInput(attrs={'style': 'text-transform:capfirst;'})
 		}
 
 	def clean(self):
-		super().clean()
+		cleaned_data = super().clean()
+		username = cleaned_data.get("username")
+		email = cleaned_data.get("email")
+		first_name = cleaned_data.get("first_name")
+		last_name = cleaned_data.get("last_name")
+		birth_date = cleaned_data.get("birth_date")
 
 
 class UserLoginForm(ModelForm):

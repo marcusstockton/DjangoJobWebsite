@@ -1,7 +1,6 @@
 from django import forms
 
 from .models import Company
-from Address.models import Address
 
 
 class CompanyForm(forms.ModelForm):
