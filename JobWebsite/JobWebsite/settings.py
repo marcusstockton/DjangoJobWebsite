@@ -94,7 +94,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'JobWebsite.wsgi.application'
-DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap.html'
+DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'
 IMPORT_EXPORT_USE_TRANSACTIONS = True # determines if the library will use database transactions on data import, just to be on the safe side.
 
 # Database

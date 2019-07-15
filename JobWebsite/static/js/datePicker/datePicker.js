@@ -4,7 +4,8 @@ $(document).ready(function () {
             dateFormat: 'dd/mm/yy',    
             changeMonth: true,
             changeYear: true,
-            yearRange: "-100:+50"
+            yearRange: "-100:+50",
+            showButtonPanel: true
         });
     });
 });

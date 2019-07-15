@@ -8,68 +8,11 @@
 </head>
 
 <body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a href="{% url 'jobs:index'%}" class="navbar-brand">Jobs 4 U</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				  <span class="navbar-toggler-icon"></span>
-				</button>
-			  
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				  <ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-					  <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-					  <a class="nav-link" href="{% url 'jobs:index'%}">Jobs<span class="sr-only">(current)</span></a>
-					</li>
-					<!-- <li class="nav-item">
-					  <a class="nav-link" href="#">Link</a>
-					</li> -->
-					{% if user.is_authenticated %}
-					<li class="nav-item dropdown">
-					  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Admin
-					  </a>
-					  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						
-							<!-- <a class="dropdown-item" href="#">Action</a> -->
-							<a class="dropdown-item" href="{% url 'users:index' %}">Users</a>
-							<!-- <a class="dropdown-item" href="#">Another action</a> -->
-							<a class="dropdown-item" href="{% url 'companies:index' %}">Companies</a>
-							<div class="dropdown-divider"></div>
-							<!-- <a class="dropdown-item" href="#">Something else here</a> -->
-							<a class="dropdown-item" href="{% url 'addresses:index' %}">Addresses</a>
-							<a class="dropdown-item" href="{% url 'attachments:index' %}">Attachments</a>
-					  </div>
-					</li>
-					{% endif %}
-				  </ul>
-				  <ul class="nav navbar-nav navbar-right">
-						{% if user.is_authenticated %}
-						<li class="nav-item">
-							<a class="nav-link">Welcome {{user.first_name}}</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'logout' %}">Logout</a>
-						</li>
-						{% else %}
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'login' %}">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'users:create' %}">Register</a>
-						</li>
-						{% endif %}
-					</ul>
-				</div>
-			  </nav>
+	{% include "snippets/navbar.html" with content=user %}
 	<!-- Main content -->
 	<div class="container scrollable">
-		{% if messages %}
-			<ul class="messages">
-				{% for message in messages %}
-				<div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-				{% endfor %}
-			</ul>
-		{% endif %}
+		{% include "snippets/message-alerts.html" with content=messages %}
+
 		{% block content %}
 		<!-- The body data from all different pages goes in here -->
 		{% endblock content %}

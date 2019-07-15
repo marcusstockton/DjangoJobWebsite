@@ -11,53 +11,12 @@
     <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
     <a href="{% url 'users:index' %}" class="btn btn-default">Clear</a>
 </form>
-<!-- 
-{% if users_list %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">User Name</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email Address</th>
-                <th scope="col">Date of Birth</th>
-                <th scope="col">Avatar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users_list %}
-            <tr>
-                <td>
-                    <a href="{% url 'users:detail' user.id %}">{{ user.username }}</a>
-                </td>
-                <td>{{user.first_name}}</td>
-                <td>{{user.last_name}}</td>
-                <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
-                <td>{{user.birth_date}}</td>
-                <td>
-                    {% if user.attachment %}
-                        {% if user.attachment.avatar %}
-                            <a href="{{ MEDIA_URL }}{{user.attachment.avatar}}">
-                                <img class="media-object" src="{{ MEDIA_URL }}{{user.attachment.avatar}}" alt="{{user.attachment.avatar}}"
-                                style="max-height: 6em;" class="image-responsive img-thumbnail" />
-                            </a>
-                        {% endif %}
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <p>No users are available.</p>
-{% endif %} -->
 {% if table %}
-	    <ul>
-            {% render_table table %}
-        </ul>
+    <ul>
+        {% render_table table %}
+    </ul>
 {% else %}
-	    <p>No jobs are available.</p>
+	<p>No jobs are available.</p>
 {% endif %}
 <div>
     <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>

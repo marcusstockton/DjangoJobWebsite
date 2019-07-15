@@ -33,7 +33,7 @@ def job_list(request):
 			id__in=jobs_applied_for.values('job_id'))
 
 	table = JobTable(queryset_list, request=request)
-	RequestConfig(request).configure(table)
+	RequestConfig(request, paginate={'per_page': 10}).configure(table)
 
 	context = {
 		"title": "List",

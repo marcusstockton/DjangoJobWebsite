@@ -7,8 +7,6 @@
 
 <h1>{{ title }}</h1>
 
-<a href="{% url 'jobs:import'%}" class="btn btn-primary">Import Jobs</a>
-
 	{% if table %}
 	    <ul>
 			{% render_table table %}
@@ -17,6 +15,6 @@
 	    <p>No jobs are available.</p>
 	{% endif %}
 	<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create</a>
-
-	{% include "snippets/paginator.html" with content=object_list  %}
+	<a href="{% url 'jobs:import'%}" class="btn btn-primary">Import Jobs</a>
+	<!-- {% include "snippets/paginator.html" with content=object_list  %} -->
 {% endblock content %}
