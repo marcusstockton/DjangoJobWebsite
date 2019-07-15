@@ -154,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -164,9 +164,9 @@ STATICFILES_FINDERS = (
     'djangobower.finders.BowerFinder',
 )
 BOWER_INSTALLED_APPS = (
-    'jquery',
-    'jquery-ui',
-    'bootstrap#3.3.7'
+    'jquery#3.4.1',
+    'jquery-ui#1.12.1',
+    'bootstrap#4.0.0'
 )
 
 # Use nose to run all tests

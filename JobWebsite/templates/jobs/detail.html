@@ -20,7 +20,7 @@
     <p class="mx-5 mb-5">Salary Range: £{{ instance.min_salary | intcomma }} to £{{ instance.max_salary | intcomma}}</p>
 </div>
 {% if request.user.groups.Employee is False or request.user.is_superuser %}
-    <a href="{% url 'jobs:edit' instance.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'jobs:edit' instance.id %}" class="btn btn-info">Edit</a>
 {% endif %}
 <a href="{% url 'jobs:apply' instance.id %}" class="btn btn-primary">Apply</a>
 <a href="{% url 'jobs:index' %}" class="btn btn-default">Back</a>
