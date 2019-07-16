@@ -1,4 +1,3 @@
-
 {% extends "base/base.html" %}
 {% load render_table from django_tables2 %}
 {% load humanize %}
@@ -15,6 +14,5 @@
 	    <p>No jobs are available.</p>
 	{% endif %}
 	<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create</a>
-	<a href="{% url 'jobs:import'%}" class="btn btn-primary">Import Jobs</a>
-	<!-- {% include "snippets/paginator.html" with content=object_list  %} -->
+	<a href="{% url 'jobs:import'%}" class="btn btn-info">Import Jobs</a>
 {% endblock content %}

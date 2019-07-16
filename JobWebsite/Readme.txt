@@ -7,6 +7,8 @@ bluefrog786
 silverelephant750
 greenostrich127
 bluebird661
+antonio.dean@example.com
+slawomir.eckel@example.com
 
 Password: P@ssword1!
 

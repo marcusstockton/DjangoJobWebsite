@@ -1,9 +1,6 @@
 {% extends "base/base.html" %}
-
 {% load render_table from django_tables2 %}
-
 {% block title %}Users{% endblock title %}
-
 {% block content %}
 
 <form class="form-inline" action="{% url 'users:index' %}" method="get" accept-charset="utf-8">
@@ -21,5 +18,4 @@
 <div>
     <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
 </div>
-<!-- {% include "snippets/paginator.html" with content=users_list  %} -->
 {% endblock content %}

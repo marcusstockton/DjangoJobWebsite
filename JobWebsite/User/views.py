@@ -1,11 +1,13 @@
 from Attachment.models import Attachment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django_tables2 import RequestConfig
+
 
 from .forms import UserForm, CustomUserCreationForm
 from .models import User
@@ -107,8 +109,12 @@ def user_create(request):
 	form = CustomUserCreationForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		user = form.save()
+		
+		auth_user = authenticate(username=user.username, password=user.password)
+		login(request, user)
+
 		messages.success(request, 'Account created successfully')
-		return HttpResponseRedirect(user.get_absolute_url())
+		return redirect("jobs:index")
 	context = {
 		"form": form,
 	}

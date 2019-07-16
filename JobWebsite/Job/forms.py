@@ -8,8 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from Attachment.models import Attachment
 from User.models import User
-
 from .models import Job, JobApplication
+
 
 
 class JobForm(ModelForm):
@@ -44,6 +44,20 @@ class JobForm(ModelForm):
 		self.fields['updated_by'].initial = updated_by
 		self.fields['updated_date'].initial = updated_date
 		self.fields['updated_by'].disabled = True
+
+	def clean_publish(self):
+		data = self.cleaned_data['publish']
+		if data < datetime.date.today():
+			raise ValidationError(_('Invalid date - publish date in past'))
+		
+		return data
+	
+	def clean_max_salary(self):
+		max_sal = self.cleaned_data['max_salary']
+		min_sal = self.cleaned_data['min_salary']
+		if max_sal < min_sal:
+			raise ValidationError(_('Invalid Salary - max salary cannot be less than min salary'), code="max_salary")
+		return max_sal
 
 
 class JobApplyForm(forms.Form):
@@ -95,8 +109,15 @@ class JobCreateForm(ModelForm):
 				'publish': forms.TextInput(attrs={'class': 'datepicker'}),
 			}
 	def clean_publish(self):
-			data = self.cleaned_data['publish']
-			if data < datetime.date.today():
-				raise ValidationError(_('Invalid date - publish date in past'))
-			
-			return data
+		data = self.cleaned_data['publish']
+		if data < datetime.date.today():
+			raise ValidationError(_('Invalid date - publish date in past'))
+		
+		return data
+
+	def clean_max_salary(self):
+		max_sal = self.cleaned_data['max_salary']
+		min_sal = self.cleaned_data['min_salary']
+		if max_sal < min_sal:
+			raise ValidationError(_('Invalid Salary - max salary cannot be less than min salary'), code="max_salary")
+		return max_sal

@@ -1,7 +1,7 @@
 import datetime
 
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
@@ -52,6 +52,7 @@ def job_detail(request, pk=None):
 
 
 @login_required
+@permission_required('job.can_change_job', raise_exception=True)
 def job_edit(request, pk=None):
 	instance = get_object_or_404(Job, pk=pk)
 
@@ -75,6 +76,7 @@ def job_edit(request, pk=None):
 
 
 @login_required
+@permission_required('job.can_delete_job', raise_exception=True)
 def job_delete(request, pk=None):
 	instance = get_object_or_404(Job, pk=pk)
 	instance.delete()
@@ -85,6 +87,7 @@ def job_delete(request, pk=None):
 
 
 @login_required
+@permission_required('job.can_add_job', raise_exception=True)
 def job_create(request):
 	form = JobCreateForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
