@@ -11,9 +11,9 @@ class JobTestCase(TestCase):
         user1 = User.objects.create_user(
             username="mstockton", password='12345')
         user2 = User.objects.create_user(username="Test", password='12345')
-        Job.objects.create(title="Test", content="content",
+        Job.objects.create(title="Test", content="content", max_salary = 123, min_salary=122,
                            created_by=user1, publish=datetime.datetime.now())
-        Job.objects.create(title="Test2", content="content2",
+        Job.objects.create(title="Test2", content="content2", max_salary = 123, min_salary=122,
                            created_by=user2, publish=datetime.datetime.now())
 
     def test_jobs_created_sucessfully(self):
