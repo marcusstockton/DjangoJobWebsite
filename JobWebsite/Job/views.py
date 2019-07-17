@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
+from django.db.models import Q
 from django_tables2 import RequestConfig
 from tablib import Dataset
 
@@ -17,20 +18,12 @@ from .resources import JobResource
 
 def job_list(request):
 	jobs_applied_for = None
-	if request.user.is_authenticated:
-		jobs_applied_for = JobApplication.objects.filter(
-			applicant=request.user).all()
 
 	# Don't show jobs where the publish date is greater than now
 	queryset_list = (Job.objects
                   .prefetch_related('created_by', 'updated_by')
                   .order_by('-publish')
                   .exclude(publish__gt=datetime.datetime.now()))
-
-	# Filter out jobs that have been applied for
-	if jobs_applied_for is not None:
-		queryset_list = queryset_list.exclude(
-			id__in=jobs_applied_for.values('job_id'))
 
 	table = JobTable(queryset_list, request=request)
 	RequestConfig(request, paginate={'per_page': 10}).configure(table)
@@ -44,7 +37,14 @@ def job_list(request):
 
 def job_detail(request, pk=None):
 	instance = get_object_or_404(Job, pk=pk)
-	applications = JobApplication.objects.filter(job_id=pk.hex).count()
+
+	if not request.user.is_anonymous:
+		query = Q(job_id=pk.hex)
+		if not request.user.is_superuser:
+			query.add(Q(job_owner_id = request.user), Q.AND)
+		applications = JobApplication.objects.filter(query).count()
+	else:
+		applications = 0
 	context = {
 		"title": instance.title,
 		"instance": instance,
@@ -128,7 +128,7 @@ def job_apply(request, pk=None):
 
 @login_required
 def job_applications(request, pk=None):
-	applicants = JobApplication.objects.filter(job_id=pk.hex)
+	applicants = JobApplication.objects.filter(job_id=pk.hex, job_owner_id = request.user)
 
 	context = {
 		"form": applicants
