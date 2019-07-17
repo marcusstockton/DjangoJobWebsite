@@ -44,9 +44,11 @@ def job_list(request):
 
 def job_detail(request, pk=None):
 	instance = get_object_or_404(Job, pk=pk)
+	applications = JobApplication.objects.filter(job_id=pk.hex).count()
 	context = {
 		"title": instance.title,
-		"instance": instance
+		"instance": instance,
+		"application_count": applications
 	}
 	return render(request, "jobs/detail.html", context)
 
@@ -122,6 +124,17 @@ def job_apply(request, pk=None):
 	}
 
 	return render(request, "jobs/apply.html", context)
+
+
+@login_required
+def job_applications(request, pk=None):
+	applicants = JobApplication.objects.filter(job_id=pk.hex)
+
+	context = {
+		"form": applicants
+	}
+
+	return render(request, 'jobs/applications.html', context)
 
 
 def job_import(request):

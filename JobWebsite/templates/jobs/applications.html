@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+{% block title %}Apply for Job{% endblock title %}
+{% block content %}
+
+<h3>{{form.first.job}}</h3>
+
+    {% for application in form %}
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text">
+                    Applicant: <a href="{% url 'users:detail' application.applicant.id %}">{{application.applicant}}</a>
+                </p>
+                <p class="card-text">
+                    CV: <a href="{{ application.applicant_cv.cv.url }}">{{ application.applicant_cv.cv }}</a>
+                </p>
+                <p class="card-text">
+                    Applied On: {{application.created_date}}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+
+    
+{% endblock content %}
