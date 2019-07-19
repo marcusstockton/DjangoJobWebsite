@@ -18,9 +18,12 @@ from .tables import CompanyTable
 @login_required
 def company_create(request):
 	form = CompanyForm(request.POST or None, request.FILES or None)
+
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.user = request.user
+		instance.created_by = request.user
+		instance.created = datetime.datetime.now()
 		instance.save()
 		messages.success(request, "Sucessfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
@@ -43,7 +46,7 @@ def company_detail(request, pk=None):
 
 @login_required
 def company_list(request):
-	table = CompanyTable(Company.objects.prefetch_related('created_by', 'updated_by', 'address'))
+	table = CompanyTable(Company.objects.prefetch_related('created_by', 'updated_by', 'address').order_by("-created_date"))
 	RequestConfig(request).configure(table)
 
 	context = {

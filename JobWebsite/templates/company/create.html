@@ -7,7 +7,7 @@
 	<form method="POST" action="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form | crispy }}
-		<input type="submit" class="btn btn-primary" value="Update Company"/>
+		<input type="submit" class="btn btn-primary" value="Create Company"/>
 		<a href="{% url 'companies:index' %}" class="btn btn-default">Back</a>
 	</form>
 </div>
