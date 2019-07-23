@@ -16,5 +16,5 @@ class UserTable(tables.Table):
 
     class Meta:
         model = User
-        exclude = ['id', 'password']
+        exclude = ['id', 'password', 'alternative_email_address']
 

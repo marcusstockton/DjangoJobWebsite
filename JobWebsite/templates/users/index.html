@@ -3,19 +3,21 @@
 {% block title %}Users{% endblock title %}
 {% block content %}
 
-<form class="form-inline" action="{% url 'users:index' %}" method="get" accept-charset="utf-8">
-    <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
-    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-    <a href="{% url 'users:index' %}" class="btn btn-default">Clear</a>
-</form>
-{% if table %}
-    <ul>
-        {% render_table table %}
-    </ul>
-{% else %}
-	<p>No jobs are available.</p>
-{% endif %}
-<div>
-    <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
-</div>
+    <form class="form-inline" action="{% url 'users:index' %}" method="get" accept-charset="utf-8">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        <a href="{% url 'users:index' %}" class="btn btn-default">Clear</a>
+        
+    </form>
+
+    {% if table %}
+            {% render_table table %}
+    {% else %}
+        <p>No jobs are available.</p>
+    {% endif %}
+
+    <div>
+        <a href="{% url 'users:create' %}" class="btn btn-primary">Create User</a>
+    </div>
+
 {% endblock content %}
