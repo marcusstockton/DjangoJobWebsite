@@ -10,7 +10,7 @@
 <body>
 	{% include "snippets/navbar.html" with content=user %}
 	<!-- Main content -->
-	<div class="container scrollable">
+	<div class="container-fluid">
 		{% include "snippets/message-alerts.html" with content=messages %}
 
 		{% block content %}

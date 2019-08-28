@@ -1,19 +1,22 @@
 {% extends "base/base.html" %}
 {% block title %}Company Details - {{instance.company_name}}{% endblock title %}
 {% block content %}
-<h3>{{instance.company_name}}</h3>
-<p>{{instance.address.address_line_1}}</p>
-<p>{{instance.address.address_line_2}}</p>
-<p>{{instance.address.address_line_3}}</p>
-<p>{{instance.address.country}}</p>
-<p>{{instance.address.county}}</p>
+<div class="col-md-4 offset-md-4">
+	<h3>{{instance.company_name}}</h3>
+	<p>{{instance.address.address_line_1}}</p>
+	<p>{{instance.address.address_line_2}}</p>
+	<p>{{instance.address.address_line_3}}</p>
+	<p>{{instance.address.country}}</p>
+	<p>{{instance.address.county}}</p>
 
-{% if error_message %}
-<p>
-	<strong>{{ error_message }}</strong>
-</p>
-{% endif %}
+	{% if error_message %}
+	<p>
+		<strong>{{ error_message }}</strong>
+	</p>
+	{% endif %}
 
-<a href="{% url 'companies:edit' instance.id %}" class="btn btn-primary">Edit</a>
-<a href="{% url 'companies:index'%}" class="btn btn-default">Back</a>
+	<a href="{% url 'companies:edit' instance.id %}" class="btn btn-primary">Edit</a>
+	<a href="{% url 'companies:index'%}" class="btn btn-default">Back</a>
+
+</div>
 {% endblock content %}
