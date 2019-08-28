@@ -8,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from Attachment.models import Attachment
 from User.models import User
-from .models import Job, JobApplication
+from .models import Job, JobApplication, JobType
 
 
 
@@ -24,12 +24,17 @@ class JobForm(ModelForm):
 			"content",
 			"publish",
 			"min_salary",
-			"max_salary"
-			
+			"max_salary",
+			"job_type",
+			"closing_date",
+			"category",
+			"primary_location",
+			"key_skills"		
 		]
 		localized_fields = "__all__"
 		widgets = {
-			'publish': forms.TextInput(attrs={'class': 'datepicker'}),
+			'publish': forms.TextInput(attrs={'class': 'datepicker', 'autocomplete':'off', 'placeholder': 'dd/mm/yyyy'}),
+			'closing_date': forms.TextInput(attrs={'class': 'datepicker', 'autocomplete':'off', 'placeholder': 'dd/mm/yyyy'})
 		}
 
 	def __init__(self, *args, **kwargs):
@@ -38,12 +43,19 @@ class JobForm(ModelForm):
 		created_by = job.created_by.username
 		updated_by = job.updated_by.username if job.updated_by else None
 		updated_date = job.updated_date
+
 		self.fields['created_by'].initial = created_by
 		self.fields['created_by'].disabled = True
 		self.fields['updated_date'].disabled = True
 		self.fields['updated_by'].initial = updated_by
 		self.fields['updated_date'].initial = updated_date
 		self.fields['updated_by'].disabled = True
+		self.fields['job_type'].initial = job.job_type
+		self.fields['category'].initial = job.category
+		self.fields['primary_location'].initial = job.primary_location
+		
+		self.fields['key_skills'].initial = job.key_skills
+
 
 	def clean_publish(self):
 		data = self.cleaned_data['publish']
@@ -101,12 +113,18 @@ class JobCreateForm(ModelForm):
 				"content",
 				"publish",
 				"min_salary",
-				"max_salary"
+				"max_salary",
+				"job_type",
+				"closing_date",
+				"category",
+				"primary_location",
+				"key_skills"
 				
 			]
 			localized_fields = "__all__"
 			widgets = {
-				'publish': forms.TextInput(attrs={'class': 'datepicker'}),
+				'publish': forms.TextInput(attrs={'class': 'datepicker', 'autocomplete':'off', 'placeholder': 'dd/mm/yyyy'}),
+				'closing_date': forms.TextInput(attrs={'class': 'datepicker', 'autocomplete':'off', 'placeholder': 'dd/mm/yyyy'})
 			}
 	def clean_publish(self):
 		data = self.cleaned_data['publish']

@@ -7,11 +7,10 @@
 
 
 <h1>Apply form</h1>
+
 <form method="post" action="" enctype="multipart/form-data" class="col-md-6">
     {% csrf_token %}
     {{ form | crispy }}
     <input type="submit" class="btn btn-primary" value="Submit Application"/>
 </form>
-
-
 {% endblock content %}

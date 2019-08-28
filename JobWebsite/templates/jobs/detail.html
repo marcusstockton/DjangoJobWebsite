@@ -22,11 +22,15 @@
 {% if request.user.groups.Employee is False or request.user.is_superuser %}
     <a href="{% url 'jobs:edit' instance.id %}" class="btn btn-info">Edit</a>
 {% endif %}
-<a href="{% url 'jobs:apply' instance.id %}" class="btn btn-primary">Apply</a>
+<a href="{% url 'jobs:apply' instance.id %}" class="btn btn-primary {% if request.user.is_authenticated and have_applied %}disabled{%endif%}">Apply</a>
 <a href="{% url 'jobs:index' %}" class="btn btn-default">Back</a>
 
 {% if request.user.is_authenticated and application_count > 0 %}
 <a href="{% url 'jobs:applications' instance.id %}" class="btn btn-success">Applications <span class="badge badge-light">{{ application_count }}</span></a>
+{% endif %}
+
+{% if request.user.is_authenticated and have_applied %}
+  <p class="small">You applied for this job on {{ have_applied.created_date }}</p>
 {% endif %}
 
 {% endblock content %}

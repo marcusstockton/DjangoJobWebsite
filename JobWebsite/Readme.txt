@@ -16,10 +16,8 @@ Password: P@ssword1!
 TODO:
 Add a location area for jobs and users for narrowing down jobs / users
 
-Add area for users to see who's applied for a job they have posted
-    - Show link to job
-    - Date applied
-    - Status?
+Add thing in to indicate that a user has already applied for a job
+
 Add user profile, like linked in, for recruiters to view users
 Add postcode lookup - postcodes.io
 Shrink images on upload?

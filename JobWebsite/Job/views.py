@@ -26,7 +26,7 @@ def job_list(request):
                   .exclude(publish__gt=datetime.datetime.now()))
 
 	table = JobTable(queryset_list, request=request)
-	RequestConfig(request, paginate={'per_page': 10}).configure(table)
+	RequestConfig(request, paginate={'per_page': 15}).configure(table)
 
 	context = {
 		"title": "List",
@@ -40,6 +40,7 @@ def job_detail(request, pk=None):
 
 	if not request.user.is_anonymous:
 		query = Q(job_id=pk.hex)
+		have_applied = JobApplication.objects.filter(applicant_id = request.user.id).filter(job_id = pk.hex).first()
 		if not request.user.is_superuser:
 			query.add(Q(job_owner_id = request.user), Q.AND)
 		applications = JobApplication.objects.filter(query).count()
@@ -48,7 +49,8 @@ def job_detail(request, pk=None):
 	context = {
 		"title": instance.title,
 		"instance": instance,
-		"application_count": applications
+		"application_count": applications,
+		"have_applied": have_applied
 	}
 	return render(request, "jobs/detail.html", context)
 
@@ -65,6 +67,7 @@ def job_edit(request, pk=None):
 		instance.updated = datetime.datetime.now()
 		instance.updated_by = request.user
 		instance.save()
+		form.save_m2m()
 		messages.success(request, "Successfully Updated")
 
 		return HttpResponseRedirect(instance.get_absolute_url())
@@ -97,6 +100,7 @@ def job_create(request):
 		instance.created_by = request.user
 		instance.created = datetime.datetime.now()
 		instance.save()
+		form.save_m2m()
 		messages.success(request, "Successfully Created")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	context = {
