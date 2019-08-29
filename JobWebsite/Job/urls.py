@@ -8,7 +8,32 @@ from .views import (
     job_delete,
     job_apply,
     job_import,
-    job_applications
+    job_applications,
+    JobTypeCreate,
+    JobTypeUpdate,
+    JobTypeDelete,
+    JobTypeList,
+    JobTypeDetails,
+    JobPosistionCreate,
+    JobPosistionUpdate,
+    JobPosistionDelete,
+    JobPosistionList,
+    JobPosistionDetails,
+    JobCategoryCreate,
+    JobCategoryUpdate,
+    JobCategoryDelete,
+    JobCategoryList,
+    JobCategoryDetails,
+    JobBenefitsCreate,
+    JobBenefitsUpdate,
+    JobBenefitsDelete,
+    JobBenefitsList,
+    JobBenefitsDetails,
+    JobKeySkillsCreate,
+    JobKeySkillsUpdate,
+    JobKeySkillsDelete,
+    JobKeySkillsList,
+    JobKeySkillsDetails
 )
 app_name = 'jobs'
 urlpatterns = [
@@ -19,5 +44,35 @@ urlpatterns = [
     path('<uuid:pk>/delete/', job_delete, name='delete'),
     path('<uuid:pk>/apply/', job_apply, name='apply'),
     path('<uuid:pk>/applications/', job_applications, name='applications'),
-    path('import/', job_import, name='import')
+    path('import/', job_import, name='import'),
+
+    path('jobtype/', JobTypeList.as_view(), name='jobtype-list'),
+    path('jobtype/<uuid:pk>/', JobTypeDetails.as_view(), name='jobtype-details'),
+    path('jobtype/add/', JobTypeCreate.as_view(), name='jobtype-add'),
+    path('jobtype/<uuid:pk>/edit/', JobTypeUpdate.as_view(), name='jobtype-update'),
+    path('jobtype/<uuid:pk>/delete/', JobTypeDelete.as_view(), name='jobtype-delete'),
+
+    path('jobposistion/', JobPosistionList.as_view(), name='jobposistion-list'),
+    path('jobposistion/<uuid:pk>/', JobPosistionDetails.as_view(), name='jobposistion-details'),
+    path('jobposistion/add/', JobPosistionCreate.as_view(), name='jobposistion-add'),
+    path('jobposistion/<uuid:pk>/edit/', JobPosistionUpdate.as_view(), name='jobposistion-update'),
+    path('jobposistion/<uuid:pk>/delete/', JobPosistionDelete.as_view(), name='jobposistion-delete'),
+
+    path('jobcategory/', JobCategoryList.as_view(), name='jobcategory-list'),
+    path('jobcategory/<uuid:pk>/', JobCategoryDetails.as_view(), name='jobcategory-details'),
+    path('jobcategory/add/', JobCategoryCreate.as_view(), name='jobcategory-add'),
+    path('jobcategory/<uuid:pk>/edit/', JobCategoryUpdate.as_view(), name='jobcategory-update'),
+    path('jobcategory/<uuid:pk>/delete/', JobCategoryDelete.as_view(), name='jobcategory-delete'),
+
+    path('jobbenefits/', JobBenefitsList.as_view(), name='jobbenefits-list'),
+    path('jobbenefits/<uuid:pk>/', JobBenefitsDetails.as_view(), name='jobbenefits-details'),
+    path('jobbenefits/add/', JobBenefitsCreate.as_view(), name='jobbenefits-add'),
+    path('jobbenefits/<uuid:pk>/edit/', JobBenefitsUpdate.as_view(), name='jobbenefits-update'),
+    path('jobbenefits/<uuid:pk>/delete/', JobBenefitsDelete.as_view(), name='jobbenefits-delete'),
+
+    path('jobkeyskills/', JobKeySkillsList.as_view(), name='jobkeyskills-list'),
+    path('jobkeyskills/<uuid:pk>/', JobKeySkillsDetails.as_view(), name='jobkeyskills-details'),
+    path('jobkeyskills/add/', JobKeySkillsCreate.as_view(), name='jobkeyskills-add'),
+    path('jobkeyskills/<uuid:pk>/edit/', JobKeySkillsUpdate.as_view(), name='jobkeyskills-update'),
+    path('jobkeyskills/<uuid:pk>/delete/', JobKeySkillsDelete.as_view(), name='jobkeyskills-delete'),
 ]

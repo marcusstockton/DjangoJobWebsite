@@ -18,17 +18,24 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Admin
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-                <!-- <a class="dropdown-item" href="#">Action</a> -->
-                <a class="dropdown-item" href="{% url 'users:index' %}">Users</a>
-                <!-- <a class="dropdown-item" href="#">Another action</a> -->
-                <a class="dropdown-item" href="{% url 'companies:index' %}">Companies</a>
-                <div class="dropdown-divider"></div>
-                <!-- <a class="dropdown-item" href="#">Something else here</a> -->
-                <a class="dropdown-item" href="{% url 'addresses:index' %}">Addresses</a>
-                <a class="dropdown-item" href="{% url 'attachments:index' %}">Attachments</a>
-          </div>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'users:index' %}">Users</a></li>
+            <li><a class="dropdown-item" href="{% url 'companies:index' %}">Companies</a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'addresses:index' %}">Addresses</a></li>
+            <li><a class="dropdown-item" href="{% url 'attachments:index' %}">Attachments</a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'jobs:jobtype-list' %}">Job Types</a></li>
+            <li><a class="dropdown-item" href="{% url 'jobs:jobposistion-list' %}">Job Posistions</a></li>
+            <li><a class="dropdown-item" href="{% url 'jobs:jobcategory-list' %}">Job Category</a></li>
+            <li><a class="dropdown-item" href="{% url 'jobs:jobbenefits-list' %}">Job Benefits</a></li>
+            <li><a class="dropdown-item" href="{% url 'jobs:jobkeyskills-list' %}">Job Key Skills</a></li>
+          
+          </ul>
         </li>
         {% endif %}
       </ul>

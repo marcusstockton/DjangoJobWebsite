@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+{% load humanize %}
+{% block title %}Jobs Benefit{% endblock title %}	
+{% block content %}
+
+<h2>Job Benefit</h2>
+<p>Description: {{ object.description }}</p>
+
+<a href="{% url 'jobs:jobbenefits-update' object.id %}"> Edit</a>
+
+{% endblock content %}

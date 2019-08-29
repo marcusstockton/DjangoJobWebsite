@@ -9,48 +9,60 @@ import uuid
 class JobType(BaseModel, models.Model):
 	class Meta:
 		db_table = 'JobType'
-	description = models.TextField(max_length = 50) # contract, permanent
+	description = models.CharField(max_length = 50) # contract, permanent
 
 	def __str__(self):
 		return self.description
+
+	def get_absolute_url(self):
+		return reverse('jobs:jobtype-details', kwargs={'pk': self.pk})
 		
 
 class JobPosistion(BaseModel, models.Model):
 	class Meta:
 		db_table = 'JobPosistion'
-	description = models.TextField(max_length = 50) # full time, part time
+	description = models.CharField(max_length = 50) # full time, part time
 
 	def __str__(self):
 		return self.description
 
+	def get_absolute_url(self):
+		return reverse('jobs:jobposistion-details', kwargs={'pk': self.pk})
 
 
 class JobCategory(BaseModel, models.Model):
 	class Meta:
 		db_table = 'JobCategory'
-	description = models.TextField(max_length = 50) # IT, Sales
+	description = models.CharField(max_length = 50) # IT, Sales
 
 	def __str__(self):
 		return self.description
 
+	def get_absolute_url(self):
+		return reverse('jobs:jobcategory-details', kwargs={'pk': self.pk})
 
 class JobKeySkills(BaseModel, models.Model):
 	class Meta:
 		db_table = 'JobKeySkills'
-	description = models.TextField(max_length = 50) # C++ / Python / OpenCV / OpenGL / TensorFlow
+	description = models.CharField(max_length = 50) # C++ / Python / OpenCV / OpenGL / TensorFlow
 	
 	def __str__(self):
 		return self.description
+	
+	def get_absolute_url(self):
+		return reverse('jobs:jobkeyskills-details', kwargs={'pk': self.pk})
 
 
 class JobBenefits(BaseModel, models.Model):
 	class Meta:
 		db_table = 'JobBenefits'
-	description = models.TextField(max_length = 50) # Pension / Cycle To Work scheme / 
+	description = models.CharField(max_length = 50) # Pension / Cycle To Work scheme / 
 
 	def __str__(self):
 		return self.description
 
+	def get_absolute_url(self):
+		return reverse('jobs:jobbenefits-details', kwargs={'pk': self.pk})
 
 class Job(BaseModel, models.Model):
 	class Meta:

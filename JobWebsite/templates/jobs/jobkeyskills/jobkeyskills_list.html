@@ -1,0 +1,16 @@
+{% extends "base/base.html" %}
+{% load humanize %}
+{% block title %}Job Key Skills{% endblock title %}	
+{% block content %}
+
+<h2>Job Key Skills</h2>
+<a href="{% url 'jobs:jobkeyskills-add' %}"> Create New</a>
+    <ul>
+        {% for jt in object_list %}
+            <li>{{ jt.description }}</li>
+            <a href="{% url 'jobs:jobkeyskills-details' jt.id %}"> Details</a>
+            
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

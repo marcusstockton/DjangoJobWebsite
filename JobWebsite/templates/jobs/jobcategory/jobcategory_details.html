@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+{% load humanize %}
+{% block title %}Jobs Category{% endblock title %}	
+{% block content %}
+
+<h2>Job Category</h2>
+<p>Description: {{ object.description }}</p>
+
+<a href="{% url 'jobs:jobcategory-update' object.id %}"> Edit</a>
+
+{% endblock content %}

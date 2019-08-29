@@ -2,16 +2,19 @@ import datetime
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.db.models import Q
 from django_tables2 import RequestConfig
 from tablib import Dataset
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .forms import JobApplyForm, JobForm, JobCreateForm
-from .models import Job, JobApplication
+from .models import Job, JobApplication, JobType, JobCategory, JobKeySkills, JobBenefits, JobPosistion
 from .tables import JobTable
 from .resources import JobResource
 
@@ -21,9 +24,9 @@ def job_list(request):
 
 	# Don't show jobs where the publish date is greater than now
 	queryset_list = (Job.objects
-                  .prefetch_related('created_by', 'updated_by')
-                  .order_by('-publish')
-                  .exclude(publish__gt=datetime.datetime.now()))
+				  .prefetch_related('created_by', 'updated_by')
+				  .order_by('-publish')
+				  .exclude(publish__gt=datetime.datetime.now()))
 
 	table = JobTable(queryset_list, request=request)
 	RequestConfig(request, paginate={'per_page': 15}).configure(table)
@@ -37,7 +40,7 @@ def job_list(request):
 
 def job_detail(request, pk=None):
 	instance = get_object_or_404(Job, pk=pk)
-
+	have_applied = None
 	if not request.user.is_anonymous:
 		query = Q(job_id=pk.hex)
 		have_applied = JobApplication.objects.filter(applicant_id = request.user.id).filter(job_id = pk.hex).first()
@@ -112,7 +115,7 @@ def job_create(request):
 @login_required
 def job_apply(request, pk=None):
 	form = JobApplyForm(request.POST or None, request.FILES or None,
-	                    user=request.user, job_id=pk or None)
+						user=request.user, job_id=pk or None)
 	if form.is_valid():
 		existing_record = JobApplication.objects.filter(
 			applicant_id=request.user.id.hex, job_id=pk.hex).exists()
@@ -171,3 +174,177 @@ def job_import(request):
 			print(result)
 
 	return render(request, 'jobs/job_import.html')
+
+
+class JobTypeList(ListView):
+	template_name = 'jobs/jobtype/jobtype_list.html'
+	model = JobType
+	fields = ['description']
+	
+
+class JobTypeDetails(DetailView):
+	template_name = 'jobs/jobtype/jobtype_details.html'
+	model = JobType
+	fields = ['description']
+
+class JobTypeCreate(LoginRequiredMixin, CreateView):
+	template_name = 'jobs/jobtype/jobtype_form.html'
+	model = JobType
+	# Need to add in createdby user
+	fields = ['description']
+	def form_valid(self, form):
+		form.instance.created_by = self.request.user
+		return super().form_valid(form)
+
+class JobTypeUpdate(LoginRequiredMixin, UpdateView):
+	template_name = 'jobs/jobtype/jobtype_form.html'
+	model = JobType
+	fields = ['description']
+
+	def form_valid(self, form):
+		form.instance.updated_by = self.request.user
+		return super().form_valid(form)
+
+class JobTypeDelete(LoginRequiredMixin, DeleteView):
+	model = JobType
+	success_url = reverse_lazy('author-list')
+
+
+
+class JobPosistionList(ListView):
+	template_name = 'jobs/jobposistion/jobposistion_list.html'
+	model = JobPosistion
+	fields = ['description']
+
+class JobPosistionDetails(DetailView):
+	template_name = 'jobs/jobposistion/jobposistion_list.html'
+	model = JobPosistion
+	fields = ['description']
+
+class JobPosistionCreate(LoginRequiredMixin, CreateView):
+	template_name = 'jobs/jobposistion/jobposistion_form.html'
+	model = JobPosistion
+	# Need to add in createdby user
+	fields = ['description']
+	def form_valid(self, form):
+		form.instance.created_by = self.request.user
+		return super().form_valid(form)
+
+class JobPosistionUpdate(LoginRequiredMixin, UpdateView):
+	template_name = 'jobs/jobposistion/jobposistion_form.html'
+	model = JobPosistion
+	fields = ['description']
+
+	def form_valid(self, form):
+		form.instance.updated_by = self.request.user
+		return super().form_valid(form)
+
+class JobPosistionDelete(LoginRequiredMixin, DeleteView):
+	model = JobPosistion
+	success_url = reverse_lazy('author-list')
+
+
+
+
+class JobCategoryList(ListView):
+	template_name = 'jobs/jobcategory/jobcategory_list.html'
+	model = JobCategory
+	fields = ['description']
+
+class JobCategoryDetails(DetailView):
+	template_name = 'jobs/jobcategory/jobcategory_list.html'
+	model = JobCategory
+	fields = ['description']
+
+class JobCategoryCreate(LoginRequiredMixin, CreateView):
+	template_name = 'jobs/jobcategory/jobcategory_form.html'
+	model = JobCategory
+	# Need to add in createdby user
+	fields = ['description']
+	def form_valid(self, form):
+		form.instance.created_by = self.request.user
+		return super().form_valid(form)
+
+class JobCategoryUpdate(LoginRequiredMixin, UpdateView):
+	template_name = 'jobs/jobcategory/jobcategory_form.html'
+	model = JobCategory
+	fields = ['description']
+
+	def form_valid(self, form):
+		form.instance.updated_by = self.request.user
+		return super().form_valid(form)
+
+class JobCategoryDelete(LoginRequiredMixin, DeleteView):
+	model = JobCategory
+	success_url = reverse_lazy('author-list')
+
+
+
+
+class JobBenefitsList(ListView):
+	template_name = 'jobs/jobbenefits/jobbenefits_list.html'
+	model = JobBenefits
+	fields = ['description']
+
+class JobBenefitsDetails(DetailView):
+	template_name = 'jobs/jobbenefits/jobbenefits_list.html'
+	model = JobBenefits
+	fields = ['description']
+
+class JobBenefitsCreate(LoginRequiredMixin, CreateView):
+	template_name = 'jobs/jobbenefits/jobbenefits_form.html'
+	model = JobBenefits
+	# Need to add in createdby user
+	fields = ['description']
+	def form_valid(self, form):
+		form.instance.created_by = self.request.user
+		return super().form_valid(form)
+
+class JobBenefitsUpdate(LoginRequiredMixin, UpdateView):
+	template_name = 'jobs/jobbenefits/jobbenefits_form.html'
+	model = JobBenefits
+	fields = ['description']
+
+	def form_valid(self, form):
+		form.instance.updated_by = self.request.user
+		return super().form_valid(form)
+
+class JobBenefitsDelete(LoginRequiredMixin, DeleteView):
+	model = JobBenefits
+	success_url = reverse_lazy('author-list')
+
+
+
+
+
+class JobKeySkillsList(ListView):
+	template_name = 'jobs/jobkeyskills/jobkeyskills_list.html'
+	model = JobKeySkills
+	fields = ['description']
+
+class JobKeySkillsDetails(DetailView):
+	template_name = 'jobs/jobkeyskills/jobkeyskills_list.html'
+	model = JobKeySkills
+	fields = ['description']
+
+class JobKeySkillsCreate(LoginRequiredMixin, CreateView):
+	template_name = 'jobs/jobkeyskills/jobkeyskills_form.html'
+	model = JobKeySkills
+	# Need to add in createdby user
+	fields = ['description']
+	def form_valid(self, form):
+		form.instance.created_by = self.request.user
+		return super().form_valid(form)
+
+class JobKeySkillsUpdate(LoginRequiredMixin, UpdateView):
+	template_name = 'jobs/jobkeyskills/jobkeyskills_form.html'
+	model = JobKeySkills
+	fields = ['description']
+
+	def form_valid(self, form):
+		form.instance.updated_by = self.request.user
+		return super().form_valid(form)
+
+class JobKeySkillsDelete(LoginRequiredMixin, DeleteView):
+	model = JobKeySkills
+	success_url = reverse_lazy('author-list')

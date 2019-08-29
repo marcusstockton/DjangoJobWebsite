@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+{% load humanize %}
+{% block title %}Jobs Key Skills{% endblock title %}	
+{% block content %}
+
+<h2>Job Key Skill</h2>
+<p>Description: {{ object.description }}</p>
+
+<a href="{% url 'jobs:jobkeyskills-update' object.id %}"> Edit</a>
+
+{% endblock content %}
