@@ -16,11 +16,12 @@
 		top: 50%;
 		left: 50%;
 		width:30em;
-		height:18em;
+		height:15em;
 		margin-top: -9em; /*set to a negative number 1/2 of your height*/
 		margin-left: -15em; /*set to a negative number 1/2 of your width*/
 		border: 1px solid #ccc;
 		background-color: #f3f3f3;
+		border-radius: 10px;
  	}
 </style>
 {% endblock styles %}
@@ -30,8 +31,9 @@
 	{% if form.errors %}
 	<p class="text-warning">Your username and password didn't match. Please try again.</p>
 	{% endif %}
-	<form role="form" class="form-horizontal" method="post" action="{% url 'login' %}">
-		{% csrf_token %} {{ form | crispy }}
+	<form role="form" class="form-horizontal container" method="post" action="{% url 'login' %}">
+		{% csrf_token %} 
+		{{ form | crispy }}
 		<input class="btn btn-primary" type="submit" value="Login" />
 		<input type="hidden" name="next" value="{{ next }}" />
 	</form>
