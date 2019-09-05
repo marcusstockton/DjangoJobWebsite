@@ -5,7 +5,9 @@
 {% block content %}
 
 <h1>{{ title }}</h1>
-
+	{% if user.is_authenticated %}
+		<a href="{% url 'jobs:created-by-me'%}" class="btn btn-info">Created By Me</a>
+	{% endif %}
 	{% if table %}
 	    <ul>
 			{% render_table table %}
@@ -14,7 +16,7 @@
 	    <p>No jobs are available.</p>
 	{% endif %}
 	{% if perms.job.can_add_job %}
-	<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create a new Job</a>
-	<a href="{% url 'jobs:import'%}" class="btn btn-info">Import Jobs</a>
+		<a href="{% url 'jobs:create'%}" class="btn btn-primary">Create a new Job</a>
+		<a href="{% url 'jobs:import'%}" class="btn btn-info">Import Jobs</a>
 	{% endif %}
 {% endblock content %}

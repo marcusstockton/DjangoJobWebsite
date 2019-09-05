@@ -1,24 +1,19 @@
 {% extends "base/base.html" %}
 {% load crispy_forms_tags %}
-
+{% load staticfiles %}
 {% block title %}New User Signup{% endblock title %}
+{% block styles%}
+	<link rel="stylesheet" href='{% static "styles/css/login.css" %}'>
+{% endblock styles %}
 {% block content %}
-	<div class="well col-sm-6">
-		<fieldset>
-			<legend>
-				Create an Account
-			</legend>
-			<div class="panel-body">
-				<form action="" method="post" enctype="multipart/form-data" novalidate>
-							{% csrf_token %}
-							{{ form | crispy }}
-						<p><input type="submit" value="Submit" class="btn btn-primary" /></p>
-				</form>
-			</div>
-		</fieldset>
+	<div id="register-form">
+		<form action="" method="post" enctype="multipart/form-data" novalidate>
+			{% csrf_token %}
+			{{ form | crispy }}
+			<p><input type="submit" value="Submit" class="btn btn-primary" /></p>
+		</form>
 	</div>
 	<div class="col-sm-1">
-		<!-- Hide if not in debug mode....somehow -->
 		{% if debug %}
 			<button id="createDemoUserBtn" name="createDemoUserBtn" class="btn btn-default">Create Demo User</button>
 		{% endif %}

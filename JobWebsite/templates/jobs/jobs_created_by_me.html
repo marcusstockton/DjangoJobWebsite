@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+{% load humanize %}
+{% block title %}{{data.title}}{% endblock title %}	
+{% block content %}
+
+
+{% for job in data %}
+    <div class="well">
+        {{job}}
+    </div>
+    {% empty %}
+        <p>No Jobs created</p>
+    
+{% endfor %}
+
+
+{% endblock content %}

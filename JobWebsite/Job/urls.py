@@ -9,6 +9,7 @@ from .views import (
     job_apply,
     job_import,
     job_applications,
+    jobs_created_by_me,
     JobTypeCreate,
     JobTypeUpdate,
     JobTypeDelete,
@@ -44,6 +45,7 @@ urlpatterns = [
     path('<uuid:pk>/delete/', job_delete, name='delete'),
     path('<uuid:pk>/apply/', job_apply, name='apply'),
     path('<uuid:pk>/applications/', job_applications, name='applications'),
+    path('created_by_me/', jobs_created_by_me, name='created-by-me'),
     path('import/', job_import, name='import'),
 
     path('jobtype/', JobTypeList.as_view(), name='jobtype-list'),

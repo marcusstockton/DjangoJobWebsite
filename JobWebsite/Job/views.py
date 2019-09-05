@@ -175,6 +175,19 @@ def job_import(request):
 
 	return render(request, 'jobs/job_import.html')
 
+@login_required
+def jobs_created_by_me(request):
+	queryset_list = (Job.objects
+				  .prefetch_related('created_by', 'updated_by')
+				  .order_by('-publish')
+				  .filter(created_by=request.user.id))
+
+	context = {
+		"title": "Jobs You've Created",
+		"data": queryset_list
+	}
+	return render(request, "jobs/jobs_created_by_me.html", context)
+
 
 class JobTypeList(ListView):
 	template_name = 'jobs/jobtype/jobtype_list.html'

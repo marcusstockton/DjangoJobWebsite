@@ -2,29 +2,11 @@
 {% load crispy_forms_tags %} 
 {% load staticfiles %}
 {% block title %} Please login {% endblock title %} 
+
 {% block styles%}
-<style> 
-	body{
-		height: 100%; 
-		background-image: url("{% static 'images/Part-Time-Jobs-and-Professional-Dress.jpg' %}");
-		/* background-position: center; */
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-	#login-form {
-    	position:fixed;
-		top: 50%;
-		left: 50%;
-		width:30em;
-		height:15em;
-		margin-top: -9em; /*set to a negative number 1/2 of your height*/
-		margin-left: -15em; /*set to a negative number 1/2 of your width*/
-		border: 1px solid #ccc;
-		background-color: #f3f3f3;
-		border-radius: 10px;
- 	}
-</style>
+	<link rel="stylesheet" href='{% static "styles/css/login.css" %}'>
 {% endblock styles %}
+
 {% block content %}
 
 <div id="login-form">
