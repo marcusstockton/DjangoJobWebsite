@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'crispy_forms',
-    'djangobower',
     'django_seed',
     'django_nose',
     'django_tables2',
@@ -156,17 +155,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
-
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'djangobower.finders.BowerFinder',
-)
-BOWER_INSTALLED_APPS = (
-    'jquery#3.4.1',
-    'jquery-ui#1.12.1',
-    'bootstrap#4.0.0'
 )
 
 # Use nose to run all tests
