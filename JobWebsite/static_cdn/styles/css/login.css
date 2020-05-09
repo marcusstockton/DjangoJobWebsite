@@ -17,3 +17,18 @@ body{
     background-color: #f3f3f3;
     border-radius: 10px;
  }
+
+ #register-form {
+    position:relative;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:63em;
+    /* margin-top: -30em;  */
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-y: visible;
+ }

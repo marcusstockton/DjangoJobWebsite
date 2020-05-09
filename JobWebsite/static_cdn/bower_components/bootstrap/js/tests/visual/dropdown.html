@@ -50,7 +50,7 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="dropdown2">Dropdown</a>
           <div class="dropdown-menu" aria-labelledby="dropdown2">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -161,12 +161,50 @@
             </div>
           </div>
         </div>
-
       </div>
+
+      <div class="row">
+        <div class="col-sm-3 mt-4">
+          <div class="btn-group dropdown">
+            <button class="btn btn-secondary dropdown-toggle" data-offset="10,20" data-toggle="dropdown" type="button">Dropdown offset</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mt-4">
+          <div class="btn-group dropdown">
+            <button class="btn btn-secondary" type="button">Dropdown reference</button>
+            <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-reference="parent" data-toggle="dropdown" type="button">
+              <span class="sr-only">Dropdown split</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 mt-4">
+          <div class="dropdown">
+            <button aria-expanded="false" aria-haspopup="true" class="btn btn-secondary dropdown-toggle" data-display="static" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+              Dropdown menu without Popper.js
+            </button>
+            <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <script src="../../../assets/js/vendor/jquery-slim.min.js"></script>
-    <script src="../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../../../node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="../../dist/util.js"></script>
     <script src="../../dist/dropdown.js"></script>
     <script src="../../dist/collapse.js"></script>
